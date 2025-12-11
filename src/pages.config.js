@@ -6,6 +6,7 @@ import Projets from './pages/Projets';
 import ProjectDetail from './pages/ProjectDetail';
 import Futur from './pages/Futur';
 import Contact from './pages/Contact';
+import ExperiencePro from './pages/ExperiencePro';
 import __Layout from './Layout.jsx';
 
 
@@ -18,6 +19,7 @@ export const PAGES = {
     "ProjectDetail": ProjectDetail,
     "Futur": Futur,
     "Contact": Contact,
+    "ExperiencePro": ExperiencePro,
 }
 
 export const pagesConfig = {
