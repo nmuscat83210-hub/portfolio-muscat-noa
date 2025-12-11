@@ -18,12 +18,30 @@ export default function GoldButton({
     ghost: "bg-transparent text-black hover:text-[#CBAF73]"
   };
 
-  const Component = href ? 'a' : motion.button;
-  const props = href ? { href, target: href.startsWith('http') ? '_blank' : undefined } : { onClick, whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 } };
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={href.startsWith('http') ? '_blank' : undefined}
+        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        className={`${baseStyles} ${variants[variant]} ${className}`}
+      >
+        {children}
+        {icon && (
+          <ArrowRight 
+            size={16} 
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          />
+        )}
+      </a>
+    );
+  }
 
   return (
-    <Component
-      {...props}
+    <motion.button
+      onClick={onClick}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       className={`${baseStyles} ${variants[variant]} ${className}`}
     >
       {children}
@@ -33,6 +51,6 @@ export default function GoldButton({
           className="transition-transform duration-300 group-hover:translate-x-1"
         />
       )}
-    </Component>
+    </motion.button>
   );
 }
