@@ -1,0 +1,149 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import SectionTitle from '../components/ui/SectionTitle';
+import CompetenceCard from '../components/competences/CompetenceCard';
+
+const competencesGEII = [
+  {
+    name: "Concevoir",
+    description: "Concevoir des systèmes électroniques et informatiques industriels répondant aux besoins spécifiques.",
+    level: 80,
+    icon: "Lightbulb"
+  },
+  {
+    name: "Vérifier",
+    description: "Vérifier la conformité des systèmes, valider les performances et assurer la qualité.",
+    level: 85,
+    icon: "Shield"
+  },
+  {
+    name: "Installer",
+    description: "Installer et mettre en service des équipements électriques et automatisés.",
+    level: 75,
+    icon: "Settings"
+  },
+  {
+    name: "Maintenir",
+    description: "Diagnostiquer, réparer et assurer la maintenance préventive des systèmes.",
+    level: 90,
+    icon: "Wrench"
+  },
+  {
+    name: "Communiquer",
+    description: "Rédiger des documents techniques, présenter des projets et interagir avec les équipes.",
+    level: 85,
+    icon: "MessageSquare"
+  },
+  {
+    name: "Gérer un projet",
+    description: "Planifier, organiser et suivre l'avancement de projets techniques.",
+    level: 80,
+    icon: "Target"
+  }
+];
+
+const competencesHorsGEII = [
+  {
+    name: "Droit Canonique",
+    description: "Analyse juridique, logique de raisonnement, structuration de la pensée selon les principes du droit de l'Église.",
+    level: 60,
+    icon: "BookOpen"
+  },
+  {
+    name: "Maintenance Électronique",
+    description: "Réparation de cartes électroniques, diagnostic de pannes, soudure CMS et gestion de composants.",
+    level: 90,
+    icon: "Cpu"
+  },
+  {
+    name: "Métrologie",
+    description: "Calibration d'instruments, gestion de base de données métrologique, suivi d'outillages.",
+    level: 85,
+    icon: "Settings"
+  },
+  {
+    name: "IA & Cybersécurité",
+    description: "Projets personnels en intelligence artificielle et sensibilisation à la sécurité informatique.",
+    level: 50,
+    icon: "Brain"
+  },
+  {
+    name: "Autonomie & Organisation",
+    description: "Gestion du temps, priorisation des tâches, capacité à travailler de manière indépendante.",
+    level: 95,
+    icon: "Target"
+  },
+  {
+    name: "Travail d'équipe",
+    description: "Collaboration efficace, communication interpersonnelle, esprit de cohésion.",
+    level: 90,
+    icon: "Users"
+  }
+];
+
+export default function Competences() {
+  return (
+    <div className="min-h-screen pt-32 pb-24 bg-gradient-to-b from-white to-gray-50">
+      {/* Header */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+        <SectionTitle 
+          title="Compétences"
+          subtitle="Savoir-faire"
+          align="center"
+        />
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
+        >
+          Un ensemble de compétences techniques et transversales 
+          développées au fil de ma formation et de mes expériences professionnelles.
+        </motion.p>
+      </section>
+
+      {/* Compétences GEII */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-32">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
+            Programme National
+          </span>
+          <h3 className="text-2xl md:text-3xl font-light">Compétences GEII</h3>
+        </motion.div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {competencesGEII.map((comp, index) => (
+            <CompetenceCard key={comp.name} competence={comp} index={index} />
+          ))}
+        </div>
+      </section>
+
+      {/* Compétences Hors GEII */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
+            Compétences Complémentaires
+          </span>
+          <h3 className="text-2xl md:text-3xl font-light">Au-delà du GEII</h3>
+        </motion.div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {competencesHorsGEII.map((comp, index) => (
+            <CompetenceCard key={comp.name} competence={comp} index={index} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
