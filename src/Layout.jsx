@@ -20,6 +20,7 @@ export default function Layout({ children, currentPageName }) {
     { name: 'Parcours', page: 'Parcours' },
     { name: 'Compétences', page: 'Competences' },
     { name: 'Projets', page: 'Projets' },
+    { name: 'Expérience', page: 'ExperiencePro' },
     { name: 'Futur', page: 'Futur' },
     { name: 'Contact', page: 'Contact' },
   ];
@@ -101,12 +102,12 @@ export default function Layout({ children, currentPageName }) {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-10">
+            <div className="hidden lg:flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
                   key={item.page}
                   to={createPageUrl(item.page)}
-                  className={`nav-link text-sm font-medium tracking-wide uppercase transition-colors hover:gold-accent ${
+                  className={`nav-link text-xs font-medium tracking-wide uppercase transition-colors hover:gold-accent ${
                     currentPageName === item.page ? 'active gold-accent' : 'text-black/80'
                   }`}
                 >

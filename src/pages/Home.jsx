@@ -59,8 +59,7 @@ export default function Home() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="text-lg md:text-xl text-black/60 font-light leading-relaxed mb-12 max-w-lg"
               >
-                Passionné par l'ingénierie, la précision, le design et l'innovation technologique. 
-                En quête d'excellence et d'opportunités en école d'ingénieur.
+                Étudiant en ingénierie, passionné par la technologie, l'IA et la cybersécurité.
               </motion.p>
 
               <motion.div
