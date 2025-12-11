@@ -97,7 +97,7 @@ export default function Home() {
                 {/* Photo container */}
                 <div className="w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&crop=face"
+                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/a40fb864e_2J8A2638-Modifier.jpg"
                     alt="Portrait"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />
