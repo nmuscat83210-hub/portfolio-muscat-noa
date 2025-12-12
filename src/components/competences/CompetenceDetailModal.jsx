@@ -55,36 +55,38 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               </p>
             </div>
 
-            {/* Self-assessment by year */}
-            <div className="mb-12">
-              <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-6">
-                Autoévaluation par année
-              </h3>
-              <div className="space-y-6">
-                {yearLabels.map((year, index) => {
-                  const levels = competence.levelsByYear || [30, 60, competence.level];
-                  const level = levels[index] || 0;
-                  
-                  return (
-                    <div key={year}>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-sm text-black/70">{year}</span>
-                        <span className="text-sm text-[#CBAF73]">{level}%</span>
+            {/* Self-assessment by year - Only for GEII competences */}
+            {competence.levelsByYear && (
+              <div className="mb-12">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-6">
+                  Autoévaluation par année
+                </h3>
+                <div className="space-y-6">
+                  {yearLabels.map((year, index) => {
+                    const levels = competence.levelsByYear;
+                    const level = levels[index] || 0;
+                    
+                    return (
+                      <div key={year}>
+                        <div className="flex justify-between mb-2">
+                          <span className="text-sm text-black/70">{year}</span>
+                          <span className="text-sm text-[#CBAF73]">{level}%</span>
+                        </div>
+                        <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: index * 0.1 }}
+                            className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
+                          />
+                        </div>
                       </div>
-                      <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                          className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Source distinction */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">

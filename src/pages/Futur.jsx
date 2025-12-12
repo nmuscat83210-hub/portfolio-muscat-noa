@@ -7,16 +7,16 @@ const aspirations = [
   {
     icon: GraduationCap,
     title: "École d'Ingénieur",
-    subtitle: "Horizon 2025-2026",
+    subtitle: "Horizon 2026-2027",
     description: "Intégrer une école d'ingénieur prestigieuse, idéalement dans la région de Nice, pour approfondir mes compétences en génie électrique et systèmes embarqués.",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop"
+    image: "https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop"
   },
   {
     icon: Anchor,
     title: "Marine Nationale",
     subtitle: "Vocation",
     description: "Rejoindre la Marine Nationale pour mettre mes compétences techniques au service de la défense nationale, dans un environnement exigeant et stimulant.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
+    image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=800&h=600&fit=crop"
   },
   {
     icon: Cpu,
@@ -188,10 +188,10 @@ export default function Futur() {
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#CBAF73] via-gray-200 to-transparent" />
 
             {[
-              { year: "2025", title: "Diplôme BUT GEII", desc: "Obtention du Bachelor Universitaire de Technologie" },
-              { year: "2025-2026", title: "École d'Ingénieur", desc: "Intégration en cycle ingénieur" },
-              { year: "2028", title: "Diplôme d'Ingénieur", desc: "Spécialisation IA/Cybersécurité" },
-              { year: "2028+", title: "Marine Nationale", desc: "Officier ingénieur au service de la France" }
+              { year: "2026", title: "Diplôme BUT GEII", desc: "Obtention du Bachelor Universitaire de Technologie" },
+              { year: "2026-2027", title: "École d'Ingénieur", desc: "Intégration en cycle ingénieur" },
+              { year: "2029", title: "Diplôme d'Ingénieur", desc: "Spécialisation IA/Cybersécurité" },
+              { year: "2029+", title: "Marine Nationale", desc: "Officier ingénieur au service de la France" }
             ].map((step, index) => (
               <motion.div
                 key={step.year}

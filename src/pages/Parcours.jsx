@@ -5,7 +5,7 @@ import TimelineItem from '../components/timeline/TimelineItem';
 
 const timeline = [
   {
-    period: "2021 - 2022",
+    period: "2022 - 2023",
     title: "Baccalauréat Général",
     institution: "Lycée du Coudon",
     location: "La Garde",
@@ -14,31 +14,31 @@ const timeline = [
     projects: ["Projet de fin d'année en SI", "TPE scientifique"]
   },
   {
-    period: "2022 - 2023",
+    period: "2023 - 2024",
     title: "BUT GEII — 1ère année",
     institution: "IUT de La Garde",
-    company: "Europe Qualité — La Valette (Alternance)",
+    company: "Europe Qualité (Alternance)",
     location: "La Garde / La Valette",
     description: "Première année de BUT Génie Électrique et Informatique Industrielle en alternance. Technicien métrologue au sein d'Europe Qualité, spécialisé dans la métrologie et le contrôle qualité.",
     competences: ["Métrologie", "Rigueur", "Gestion de base de données", "Réalisation de devis", "Suivi d'outillages", "Électronique de base"],
     projects: ["Calibration d'instruments de mesure", "Mise en place de procédures qualité", "Gestion de parc d'outillages"]
   },
   {
-    period: "2023 - 2024",
+    period: "2024 - 2025",
     title: "BUT GEII — 2ème année",
     institution: "IUT de La Garde",
     company: "Kontron Modular (Alternance)",
-    location: "La Garde / Toulon",
+    location: "La Garde / La Farlède",
     description: "Évolution vers un poste de technicien de réparation chez Kontron Modular. Approfondissement des compétences en électronique et maintenance de systèmes complexes.",
     competences: ["Réparation électronique", "Diagnostic de pannes", "Maintenance", "Lecture de schémas", "Soudure CMS"],
     projects: ["Réparation de cartes électroniques", "Amélioration des processus de test", "Documentation technique"]
   },
   {
-    period: "2024 - 2025",
+    period: "2025 - 2026",
     title: "BUT GEII — 3ème année",
     institution: "IUT de La Garde",
     company: "Kontron Modular (Alternance)",
-    location: "La Garde / Toulon",
+    location: "La Garde / La Farlède",
     description: "Poursuite chez Kontron Modular avec une montée en compétences significative. Finalisation du BUT GEII avec de nombreux projets techniques.",
     competences: ["Électronique avancée", "Gestion de projet", "Systèmes embarqués", "Télécommunications", "Autonomie"],
     projects: ["Projets de réparation avancée", "CDM600 + Réseau Cisco + STM32", "Préparation concours école d'ingénieur"]

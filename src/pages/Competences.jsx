@@ -9,26 +9,49 @@ const competencesGEII = [
     name: "Concevoir",
     description: "Concevoir des systèmes électroniques et informatiques industriels répondant aux besoins spécifiques.",
     level: 80,
-    icon: "Lightbulb"
+    levelsByYear: [40, 65, 80],
+    icon: "Lightbulb",
+    why: "Développée au fil des projets GEII et en entreprise, cette compétence combine conception théorique et mise en pratique sur des systèmes réels.",
+    fromCourses: "Électronique analogique, Systèmes numériques, Conception de circuits",
+    fromProjects: "Robot suiveur de ligne, Smartlight, CDM600 + Cisco",
+    fromWork: "Conception de solutions de test chez Kontron"
   },
   {
     name: "Vérifier",
     description: "Vérifier la conformité des systèmes, valider les performances et assurer la qualité.",
     level: 85,
-    icon: "Shield"
-  },
-  {
-    name: "Installer",
-    description: "Installer et mettre en service des équipements électriques et automatisés.",
-    level: 75,
-    icon: "Settings"
+    levelsByYear: [50, 75, 85],
+    icon: "Shield",
+    why: "Compétence centrale en métrologie et en tests électroniques, renforcée par l'expérience en contrôle qualité.",
+    fromCourses: "Mesures et instrumentation, Qualité, Métrologie",
+    fromProjects: "Validation systèmes ADS-B, Tests Shelly EM",
+    fromWork: "Métrologie chez Europe Qualité, validation chez Kontron"
   },
   {
     name: "Maintenir",
     description: "Diagnostiquer, réparer et assurer la maintenance préventive des systèmes.",
     level: 90,
-    icon: "Wrench"
+    levelsByYear: [30, 70, 90],
+    icon: "Wrench",
+    why: "Ma spécialité en entreprise : diagnostic et réparation de cartes électroniques complexes, maintenance avancée.",
+    fromCourses: "Maintenance industrielle, Diagnostic de pannes",
+    fromProjects: "Documentation de procédures de réparation",
+    fromWork: "Réparation chez Kontron, maintenance préventive"
   },
+  {
+    name: "Installer",
+    description: "Installer et mettre en service des équipements électriques et automatisés.",
+    level: 75,
+    levelsByYear: [45, 65, 75],
+    icon: "Settings",
+    why: "Acquise lors des projets pratiques et des mises en service de systèmes en entreprise.",
+    fromCourses: "Automatismes, Réseaux industriels, Systèmes embarqués",
+    fromProjects: "Installation serre MQTT, Mise en service CDM600",
+    fromWork: "Installation et paramétrage d'équipements de test"
+  }
+];
+
+const competencesHorsGEII = [
   {
     name: "Communiquer",
     description: "Rédiger des documents techniques, présenter des projets et interagir avec les équipes.",
@@ -40,10 +63,7 @@ const competencesGEII = [
     description: "Planifier, organiser et suivre l'avancement de projets techniques.",
     level: 80,
     icon: "Target"
-  }
-];
-
-const competencesHorsGEII = [
+  },
   {
     name: "Droit Canonique",
     description: "Analyse juridique, logique de raisonnement, structuration de la pensée selon les principes du droit de l'Église.",
@@ -115,9 +135,12 @@ export default function Competences() {
           className="mb-12"
         >
           <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
-            Programme National
+            Référentiel National
           </span>
           <h3 className="text-2xl md:text-3xl font-light">Compétences GEII</h3>
+          <p className="text-sm text-black/50 mt-2">
+            Les 4 compétences du référentiel national BUT GEII
+          </p>
         </motion.div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,7 +166,10 @@ export default function Competences() {
           <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
             Compétences Complémentaires
           </span>
-          <h3 className="text-2xl md:text-3xl font-light">Au-delà du GEII</h3>
+          <h3 className="text-2xl md:text-3xl font-light">Hors Référentiel GEII</h3>
+          <p className="text-sm text-black/50 mt-2">
+            Compétences transversales et spécialisations personnelles
+          </p>
         </motion.div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
