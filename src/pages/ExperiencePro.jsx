@@ -17,13 +17,15 @@ const experiences = [
     missions: [
       "Métrologie des instruments de mesure",
       "Création de fichiers Excel avancés pour suivi des étalonnages",
+      "Création de documentation technique par analyse des équipements",
       "Gestion de base de données interne",
       "Mise en place du suivi d'outillage",
       "Rigueur documentaire et traçabilité"
     ],
-    competences: ["Métrologie", "Excel avancé", "Organisation", "Traçabilité", "Gestion de base de données"],
+    competences: ["Métrologie", "Excel avancé", "Documentation technique", "Organisation", "Traçabilité", "Gestion de base de données"],
     softSkills: ["Rigueur", "Autonomie", "Fiabilité", "Attention aux détails", "Méthode"],
-    projetsLies: []
+    projetsLies: [],
+    conclusion: "J'ai choisi de quitter cette entreprise car les missions proposées étaient trop limitées et ne correspondaient plus à mes objectifs techniques et à ce que j'envisageais pour la suite de mon parcours."
   },
   {
     id: 'kontron',
@@ -35,7 +37,7 @@ const experiences = [
     logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop",
     missions: [
       "Diagnostic et réparation de cartes électroniques complexes",
-      "Documentation technique sans documentation existante (reverse engineering léger)",
+      "Création de documentation technique par rétro-ingénierie",
       "Rédaction de procédures internes",
       "Travail avec bancs de tests et équipements de mesure",
       "Communication inter-équipes et formation"
@@ -43,6 +45,25 @@ const experiences = [
     competences: ["Diagnostic électronique", "Documentation technique", "Analyse de schémas", "Tests et validation", "Rédaction technique"],
     softSkills: ["Analyse", "Synthèse", "Communication inter-équipes", "Pédagogie", "Résolution de problèmes"],
     projetsLies: ["Régulation Shelly EM", "CDM600 + Réseau Cisco + STM32"]
+  },
+  {
+    id: 'stage-droit-canonique',
+    company: "Stage en Droit Canonique",
+    location: "Nice",
+    period: "2025",
+    year: "DU de Droit Canonique",
+    role: "Stagiaire",
+    logo: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=400&fit=crop",
+    missions: [
+      "Analyse de dossiers canoniques",
+      "Recherche documentaire juridique",
+      "Participation aux consultations",
+      "Rédaction de notes juridiques"
+    ],
+    competences: ["Droit canonique", "Analyse juridique", "Recherche documentaire", "Rédaction juridique"],
+    softSkills: ["Rigueur intellectuelle", "Esprit d'analyse", "Discrétion", "Organisation"],
+    projetsLies: [],
+    duration: "24 heures"
   }
 ];
 
@@ -64,7 +85,7 @@ export default function ExperiencePro() {
           viewport={{ once: true }}
           className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
         >
-          Trois années d'alternance dans des environnements techniques exigeants, 
+          Trois années d'alternance et un stage dans des environnements techniques et juridiques exigeants, 
           développant expertise et professionnalisme.
         </motion.p>
       </section>
@@ -234,9 +255,19 @@ export default function ExperiencePro() {
                   </div>
                 </div>
 
+                {/* Duration (if present) */}
+                {selectedExp.duration && (
+                  <div className="mb-12">
+                    <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
+                      Durée
+                    </h3>
+                    <p className="text-black/70">{selectedExp.duration}</p>
+                  </div>
+                )}
+
                 {/* Projets liés */}
-                {selectedExp.projetsLies.length > 0 && (
-                  <div>
+                {selectedExp.projetsLies && selectedExp.projetsLies.length > 0 && (
+                  <div className="mb-12">
                     <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
                       Projets associés
                     </h3>
@@ -251,6 +282,15 @@ export default function ExperiencePro() {
                         </div>
                       ))}
                     </div>
+                  </div>
+                )}
+
+                {/* Conclusion (if present) */}
+                {selectedExp.conclusion && (
+                  <div className="mb-12 p-6 bg-gray-50 border-l-2 border-[#CBAF73]">
+                    <p className="text-sm text-black/70 leading-relaxed italic">
+                      {selectedExp.conclusion}
+                    </p>
                   </div>
                 )}
 

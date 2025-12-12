@@ -8,8 +8,8 @@ import { Loader2 } from 'lucide-react';
 
 const categories = [
   { id: 'all', name: 'Tous' },
+  { id: 'terminale', name: 'Terminale S.I' },
   { id: 'geii', name: 'GEII' },
-  { id: 'entreprise', name: 'Entreprise' },
   { id: 'personnel', name: 'Personnel' }
 ];
 

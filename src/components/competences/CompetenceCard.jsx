@@ -10,7 +10,7 @@ const iconMap = {
   Shield, BookOpen, Brain, Lightbulb, Target
 };
 
-export default function CompetenceCard({ competence, index }) {
+export default function CompetenceCard({ competence, index, onClick }) {
   const Icon = iconMap[competence.icon] || Cpu;
 
   return (
@@ -19,7 +19,8 @@ export default function CompetenceCard({ competence, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="group p-6 md:p-8 border border-gray-200 hover:border-[#CBAF73] transition-all duration-500 bg-white"
+      onClick={() => onClick && onClick(competence)}
+      className="group p-6 md:p-8 border border-gray-200 hover:border-[#CBAF73] transition-all duration-500 bg-white cursor-pointer"
     >
       {/* Icon */}
       <div className="w-12 h-12 flex items-center justify-center mb-6 border border-gray-200 group-hover:border-[#CBAF73] group-hover:bg-[#CBAF73]/5 transition-all duration-300">
@@ -50,6 +51,11 @@ export default function CompetenceCard({ competence, index }) {
         <span className="absolute -top-6 right-0 text-xs text-black/40">
           {competence.level}%
         </span>
+      </div>
+
+      {/* Click indicator */}
+      <div className="mt-4 text-xs uppercase tracking-[0.2em] text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
+        Voir le détail →
       </div>
     </motion.div>
   );

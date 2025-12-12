@@ -16,7 +16,7 @@ const aspirations = [
     title: "Marine Nationale",
     subtitle: "Vocation",
     description: "Rejoindre la Marine Nationale pour mettre mes compétences techniques au service de la défense nationale, dans un environnement exigeant et stimulant.",
-    image: "https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?w=800&h=600&fit=crop"
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
   },
   {
     icon: Cpu,
@@ -28,7 +28,7 @@ const aspirations = [
   {
     icon: Shield,
     title: "Cybersécurité",
-    subtitle: "Expertise",
+    subtitle: "Spécialisation",
     description: "Développer une expertise en cybersécurité pour protéger les systèmes critiques et anticiper les menaces numériques de demain.",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop"
   }

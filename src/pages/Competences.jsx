@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
 import CompetenceCard from '../components/competences/CompetenceCard';
+import CompetenceDetailModal from '../components/competences/CompetenceDetailModal';
 
 const competencesGEII = [
   {
@@ -82,6 +83,8 @@ const competencesHorsGEII = [
 ];
 
 export default function Competences() {
+  const [selectedCompetence, setSelectedCompetence] = useState(null);
+
   return (
     <div className="min-h-screen pt-32 pb-24 bg-gradient-to-b from-white to-gray-50">
       {/* Header */}
@@ -119,7 +122,12 @@ export default function Competences() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {competencesGEII.map((comp, index) => (
-            <CompetenceCard key={comp.name} competence={comp} index={index} />
+            <CompetenceCard 
+              key={comp.name} 
+              competence={comp} 
+              index={index}
+              onClick={setSelectedCompetence}
+            />
           ))}
         </div>
       </section>
@@ -140,10 +148,23 @@ export default function Competences() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {competencesHorsGEII.map((comp, index) => (
-            <CompetenceCard key={comp.name} competence={comp} index={index} />
+            <CompetenceCard 
+              key={comp.name} 
+              competence={comp} 
+              index={index}
+              onClick={setSelectedCompetence}
+            />
           ))}
         </div>
       </section>
+
+      {/* Detail Modal */}
+      {selectedCompetence && (
+        <CompetenceDetailModal
+          competence={selectedCompetence}
+          onClose={() => setSelectedCompetence(null)}
+        />
+      )}
     </div>
   );
 }

@@ -48,9 +48,9 @@ export default function Home() {
                 transition={{ delay: 0.6, duration: 0.8 }}
                 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-[1.1] mb-8"
               >
-                Étudiant en
+                <span className="font-medium">Noa MUSCAT</span>
                 <br />
-                <span className="font-medium">BUT GEII</span>
+                Étudiant en BUT GEII
               </motion.h1>
 
               <motion.p
