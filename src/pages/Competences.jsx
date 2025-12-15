@@ -166,9 +166,9 @@ export default function Competences() {
           <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
             Compétences Complémentaires
           </span>
-          <h3 className="text-2xl md:text-3xl font-light">Hors Référentiel GEII</h3>
+          <h3 className="text-2xl md:text-3xl font-light">Compétences Transversales</h3>
           <p className="text-sm text-black/50 mt-2">
-            Compétences transversales et spécialisations personnelles
+            Compétences transversales et spécialisations personnelles développées en parallèle
           </p>
         </motion.div>
         

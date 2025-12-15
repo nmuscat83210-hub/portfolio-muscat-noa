@@ -11,7 +11,7 @@ const timeline = [
     location: "La Garde",
     description: "Baccalauréat général — spécialités Mathématiques, Physique-Chimie, option Mathématiques Expertes. Début de mon orientation vers les sciences de l'ingénieur et la technologie.",
     competences: ["Mathématiques", "Physique", "Sciences de l'Ingénieur", "Analyse", "Résolution de problèmes"],
-    projects: ["Projet de fin d'année en SI", "TPE scientifique"]
+    projects: ["Serre Automatique MQTT", "Jeu Éducatif CO₂"]
   },
   {
     period: "2023 - 2024",
@@ -19,9 +19,9 @@ const timeline = [
     institution: "IUT de La Garde",
     company: "Europe Qualité (Alternance)",
     location: "La Garde / La Valette",
-    description: "Première année de BUT Génie Électrique et Informatique Industrielle en alternance. Technicien métrologue au sein d'Europe Qualité, spécialisé dans la métrologie et le contrôle qualité.",
-    competences: ["Métrologie", "Rigueur", "Gestion de base de données", "Réalisation de devis", "Suivi d'outillages", "Électronique de base"],
-    projects: ["Calibration d'instruments de mesure", "Mise en place de procédures qualité", "Gestion de parc d'outillages"]
+    description: "Première année de BUT Génie Électrique et Informatique Industrielle en alternance. Découverte des fondamentaux : électronique, automatisme, réseaux et systèmes embarqués. En parallèle, acquisition de compétences professionnelles en métrologie chez Europe Qualité.",
+    competences: ["Électronique de base", "Mesures et instrumentation", "Automatismes", "Programmation", "Métrologie", "Organisation"],
+    projects: ["Smartlight", "Tableurs Excel de Métrologie"]
   },
   {
     period: "2024 - 2025",
@@ -29,9 +29,9 @@ const timeline = [
     institution: "IUT de La Garde",
     company: "Kontron Modular (Alternance)",
     location: "La Garde / La Farlède",
-    description: "Évolution vers un poste de technicien de réparation chez Kontron Modular. Approfondissement des compétences en électronique et maintenance de systèmes complexes.",
-    competences: ["Réparation électronique", "Diagnostic de pannes", "Maintenance", "Lecture de schémas", "Soudure CMS"],
-    projects: ["Réparation de cartes électroniques", "Amélioration des processus de test", "Documentation technique"]
+    description: "Approfondissement des compétences techniques : systèmes embarqués, réseaux industriels, télécommunications et maintenance avancée. Projets SAE en automatisation et contrôle de systèmes. Application professionnelle chez Kontron Modular.",
+    competences: ["Systèmes embarqués", "Réseaux industriels", "Diagnostic électronique", "Maintenance", "Automatismes avancés"],
+    projects: ["Régulation Moteur + Shelly EM", "Robot détectant les obstacles par capteurs infrarouges"]
   },
   {
     period: "2025 - 2026",
@@ -39,9 +39,9 @@ const timeline = [
     institution: "IUT de La Garde",
     company: "Kontron Modular (Alternance)",
     location: "La Garde / La Farlède",
-    description: "Poursuite chez Kontron Modular avec une montée en compétences significative. Finalisation du BUT GEII avec de nombreux projets techniques.",
-    competences: ["Électronique avancée", "Gestion de projet", "Systèmes embarqués", "Télécommunications", "Autonomie"],
-    projects: ["Projets de réparation avancée", "CDM600 + Réseau Cisco + STM32", "Préparation concours école d'ingénieur"]
+    description: "Consolidation des acquis et montée en expertise. Projets SAE avancés en télécommunications, réseaux et systèmes critiques. Rédaction de documentation technique complexe en entreprise. Préparation aux concours d'écoles d'ingénieurs.",
+    competences: ["Télécommunications avancées", "Réseaux Cisco", "Systèmes STM32", "Gestion de projet", "Documentation technique"],
+    projects: ["ADS-B Majeur", "CDM600 + Réseau Cisco + STM32", "Documentation Technique par Rétro-ingénierie"]
   },
   {
     period: "2025 - 2026",

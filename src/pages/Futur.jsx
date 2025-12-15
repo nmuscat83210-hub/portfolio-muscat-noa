@@ -16,7 +16,7 @@ const aspirations = [
     title: "Marine Nationale",
     subtitle: "Vocation",
     description: "Rejoindre la Marine Nationale pour mettre mes compétences techniques au service de la défense nationale, dans un environnement exigeant et stimulant.",
-    image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=800&h=600&fit=crop"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/7d2ccc3b8_marine_1.jpg"
   },
   {
     icon: Cpu,

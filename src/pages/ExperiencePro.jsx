@@ -13,7 +13,7 @@ const experiences = [
     period: "2023-2024",
     year: "1ère année BUT GEII",
     role: "Technicien Métrologue",
-    logo: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=400&h=400&fit=crop",
+    logo: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=400&h=400&fit=crop",
     missions: [
       "Métrologie des instruments de mesure",
       "Création de fichiers Excel avancés pour suivi des étalonnages",
@@ -34,7 +34,7 @@ const experiences = [
     period: "2024-2026",
     year: "2ème et 3ème année BUT GEII",
     role: "Technicien Réparation & Documentation Technique",
-    logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop",
+    logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/2adeb37bb_csm_Kontron_SPS_23_1_Presse__kl_7fbbfadc20.jpg",
     missions: [
       "Diagnostic et réparation de cartes électroniques complexes",
       "Création de documentation technique par rétro-ingénierie",

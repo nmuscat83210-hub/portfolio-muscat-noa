@@ -5,7 +5,11 @@ import { X, TrendingUp } from 'lucide-react';
 export default function CompetenceDetailModal({ competence, onClose }) {
   if (!competence) return null;
 
-  const yearLabels = ['BUT1', 'BUT2', 'BUT3'];
+  const yearLabels = [
+    `${competence.name} — niveau BUT1`,
+    `${competence.name} — niveau BUT2`,
+    `${competence.name} — niveau BUT3`
+  ];
   
   return (
     <AnimatePresence>
@@ -88,37 +92,55 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               </div>
             )}
 
-            {/* Source distinction */}
+            {/* Source distinction with navigation */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               {/* From courses */}
-              <div className="p-6 border border-gray-200">
+              <button 
+                className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
+                onClick={() => window.location.href = '#parcours'}
+              >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   Cours GEII
                 </h4>
-                <p className="text-sm text-black/60">
+                <p className="text-sm text-black/60 mb-2">
                   {competence.fromCourses || "Programme national BUT GEII"}
                 </p>
-              </div>
+                <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Voir les cours →
+                </span>
+              </button>
 
               {/* From projects */}
-              <div className="p-6 border border-gray-200">
+              <button 
+                className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
+                onClick={() => window.location.href = '#projets'}
+              >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   Projets
                 </h4>
-                <p className="text-sm text-black/60">
+                <p className="text-sm text-black/60 mb-2">
                   {competence.fromProjects || "Mise en pratique lors des projets académiques"}
                 </p>
-              </div>
+                <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Voir les projets →
+                </span>
+              </button>
 
               {/* From work */}
-              <div className="p-6 border border-gray-200">
+              <button 
+                className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
+                onClick={() => window.location.href = '#experience'}
+              >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   Entreprise
                 </h4>
-                <p className="text-sm text-black/60">
+                <p className="text-sm text-black/60 mb-2">
                   {competence.fromWork || "Application en environnement professionnel"}
                 </p>
-              </div>
+                <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Voir les expériences →
+                </span>
+              </button>
             </div>
 
             {/* Progress indicator */}
