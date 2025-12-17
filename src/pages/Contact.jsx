@@ -31,9 +31,9 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "n.muscat83210@gmail.com", href: "mailto:n.muscat83210@gmail.com" },
-    { icon: Phone, label: "Téléphone", value: "07 63 54 94 40", href: "tel:+33763549440" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/noa-muscat", href: "https://www.linkedin.com/in/noa-muscat" }
+    { icon: Mail, label: "Email", value: "contact@exemple.com", href: "mailto:contact@exemple.com" },
+    { icon: Phone, label: "Téléphone", value: "+33 6 XX XX XX XX", href: "tel:+33600000000" },
+    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/profil", href: "https://linkedin.com" }
   ];
 
   return (

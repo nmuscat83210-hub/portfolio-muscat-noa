@@ -56,15 +56,13 @@ const competencesHorsGEII = [
     name: "Communiquer",
     description: "Rédiger des documents techniques, présenter des projets et interagir avec les équipes.",
     level: 85,
-    icon: "MessageSquare",
-    why: "La communication technique fait partie intégrante de mon parcours. J'ai été amené à rédiger des documents techniques, à présenter des projets et à échanger avec des équipes pluridisciplinaires, ce qui m'a appris à adapter mon discours et à transmettre des informations complexes de manière claire et structurée."
+    icon: "MessageSquare"
   },
   {
     name: "Gérer un projet",
     description: "Planifier, organiser et suivre l'avancement de projets techniques.",
     level: 80,
-    icon: "Target",
-    why: "J'ai acquis cette compétence au cours de projets techniques menés en formation et en contexte professionnel. La planification, le suivi d'avancement et la coordination avec différents interlocuteurs m'ont permis de structurer efficacement mon travail et de respecter des objectifs précis, dans des délais contraints."
+    icon: "Target"
   },
   {
     name: "Droit Canonique",
@@ -76,45 +74,31 @@ const competencesHorsGEII = [
     name: "Maintenance Électronique",
     description: "Réparation de cartes électroniques, diagnostic de pannes, soudure CMS et gestion de composants.",
     level: 90,
-    icon: "Cpu",
-    why: "La maintenance électronique constitue une part importante de mon expérience professionnelle. J'ai régulièrement réalisé des diagnostics de pannes sur des équipements et des cartes électroniques, effectué des interventions de maintenance corrective et préventive, ainsi que des opérations de soudure de composants CMS. Travailler sur des systèmes en conditions réelles m'a permis de développer une approche méthodique, orientée sécurité, fiabilité et continuité de fonctionnement des installations."
+    icon: "Cpu"
   },
   {
     name: "Métrologie",
     description: "Calibration d'instruments, gestion de base de données métrologique, suivi d'outillages.",
     level: 85,
-    icon: "Settings",
-    why: "Cette compétence a été développée principalement à travers mon expérience professionnelle, dans des environnements où la précision des mesures et la traçabilité sont essentielles. J'ai été amené à réaliser des opérations de calibration, à exploiter et mettre à jour des bases de données métrologiques, ainsi qu'à assurer le suivi d'outillages conformément aux procédures qualité en vigueur. Cette pratique m'a permis d'acquérir une rigueur méthodologique et une compréhension concrète des exigences liées à la fiabilité et à la conformité des mesures."
+    icon: "Settings"
   },
   {
     name: "IA & Cybersécurité",
     description: "Projets personnels en intelligence artificielle et sensibilisation à la sécurité informatique.",
     level: 50,
-    icon: "Brain",
-    why: "Cette compétence s'est développée à travers des projets académiques et personnels, centrés sur les bases de l'intelligence artificielle et les enjeux de la cybersécurité. J'ai appris à concevoir des solutions en intégrant les notions de protection des données, de robustesse logicielle et de sécurité des systèmes, en lien avec les contraintes de l'informatique industrielle."
+    icon: "Brain"
   },
   {
     name: "Autonomie & Organisation",
     description: "Gestion du temps, priorisation des tâches, capacité à travailler de manière indépendante.",
     level: 95,
-    icon: "Target",
-    why: "Mon parcours en formation et en alternance m'a conduit à développer une forte autonomie et une organisation rigoureuse. La gestion simultanée des cours, projets et missions professionnelles m'a appris à prioriser efficacement les tâches et à travailler de manière fiable dans un environnement structuré."
+    icon: "Target"
   },
   {
     name: "Travail d'équipe",
     description: "Collaboration efficace, communication interpersonnelle, esprit de cohésion.",
     level: 90,
-    icon: "Users",
-    why: "Les projets académiques et les expériences professionnelles m'ont permis de travailler régulièrement en équipe, en collaboration avec des profils techniques variés. J'ai développé un esprit de coopération, d'écoute et de cohésion, indispensable à la réussite de projets collectifs."
-  },
-  {
-    name: "Anglais technique",
-    description: "Compréhension, rédaction et échange sur des sujets techniques en anglais.",
-    level: 85,
-    icon: "Globe",
-    why: "L'anglais occupe une place importante dans mon parcours, notamment à travers l'utilisation régulière de documentations techniques, de normes, de ressources académiques et d'outils informatiques en langue anglaise. Je suis capable de comprendre, rédiger et échanger sur des sujets techniques avec aisance, aussi bien à l'écrit qu'à l'oral.",
-    certification: "Niveau C1",
-    toeic: null
+    icon: "Users"
   }
 ];
 

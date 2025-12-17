@@ -13,7 +13,7 @@ const experiences = [
     period: "2023-2024",
     year: "1ère année BUT GEII",
     role: "Technicien Métrologue",
-    logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/04fd22126_image.png",
+    logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/e9203cd07_image.png",
     missions: [
       "Métrologie des instruments de mesure",
       "Création de fichiers Excel avancés pour suivi des étalonnages",
