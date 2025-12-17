@@ -47,7 +47,8 @@ export default function ProjectCard({ project, index }) {
           {/* Category */}
           <span className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] font-medium">
             {project.category === 'geii' ? 'GEII' : 
-             project.category === 'personnel' ? 'Personnel' : 'Entreprise'}
+             project.category === 'personnel' ? 'Personnel' : 
+             project.category === 'terminale' ? 'Terminale S.I' : 'Entreprise'}
           </span>
           
           {/* Title */}
