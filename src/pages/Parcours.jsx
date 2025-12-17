@@ -81,7 +81,7 @@ export default function Parcours() {
         <div className="relative">
           {timeline.map((item, index) => (
             <TimelineItem 
-              key={item.period} 
+              key={`${item.period}-${item.title}`} 
               item={item} 
               index={index}
               isLast={index === timeline.length - 1}
