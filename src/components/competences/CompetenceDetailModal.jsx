@@ -60,6 +60,21 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               </p>
             </div>
 
+            {/* Certification info for Anglais technique */}
+            {competence.certification && (
+              <div className="mb-12 p-6 bg-[#CBAF73]/5 border border-[#CBAF73]/20">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
+                  Certification
+                </h3>
+                <p className="text-black/70 mb-2">{competence.certification}</p>
+                {competence.toeic !== undefined && (
+                  <p className="text-sm text-black/50">
+                    {competence.toeic ? `Score TOEIC : ${competence.toeic}` : 'Score TOEIC : à renseigner ultérieurement'}
+                  </p>
+                )}
+              </div>
+            )}
+
             {/* Self-assessment by year - Only for GEII competences */}
             {competence.levelsByYear && (
               <div className="mb-12">
