@@ -142,11 +142,21 @@ export default function Home() {
             <span className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-8 block">
               Ma Vision
             </span>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-white/90">
-              "L'excellence n'est pas un acte, mais une habitude. 
-              Je cultive chaque jour la rigueur, la curiosité et le dépassement de soi 
-              pour transformer les défis en opportunités."
-            </p>
+            <div className="text-xl md:text-2xl font-light leading-relaxed text-white/90 space-y-6">
+              <p>
+                Mes premiers pas en sciences de l'ingénieur ont été déterminants.
+                C'est à ce moment-là que j'ai découvert la programmation orientée objet et, avec elle, le plaisir de concevoir des systèmes logiques, structurés et évolutifs. Très rapidement, j'ai compris que le code n'était pas seulement un outil, mais un moyen de transformer des idées en solutions techniques concrètes.
+              </p>
+              <p>
+                En intégrant le BUT GEII, j'ai approfondi cette approche en travaillant sur des systèmes plus complexes, à la croisée de l'informatique industrielle, de l'intelligence artificielle et de la cybersécurité. Ces années m'ont appris à relier la théorie, la programmation et les contraintes du monde réel, avec une attention particulière portée à la fiabilité et à la sécurité des systèmes.
+              </p>
+              <p>
+                Progressivement, une réflexion plus personnelle s'est imposée : mettre ces compétences au service d'un cadre exigeant et porteur de sens. C'est dans cette continuité qu'est née mon ambition de rejoindre la Marine, afin de contribuer, par l'ingénierie et la technologie, à des missions au service de mon pays.
+              </p>
+              <p>
+                Si mon parcours, mes compétences et cette vision font écho à vos attentes, je serais ravi d'échanger et d'envisager ensemble la suite de cette trajectoire.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
