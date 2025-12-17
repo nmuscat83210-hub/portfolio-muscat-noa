@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, TrendingUp } from 'lucide-react';
+import { createPageUrl } from '../../utils';
 
 export default function CompetenceDetailModal({ competence, onClose }) {
   if (!competence) return null;
@@ -97,7 +98,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               {/* From courses */}
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
-                onClick={() => window.location.href = '#parcours'}
+                onClick={() => window.location.href = createPageUrl('Parcours')}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   Cours GEII
@@ -113,7 +114,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               {/* From projects */}
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
-                onClick={() => window.location.href = '#projets'}
+                onClick={() => window.location.href = createPageUrl('Projets')}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   Projets
@@ -129,7 +130,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               {/* From work */}
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
-                onClick={() => window.location.href = '#experience'}
+                onClick={() => window.location.href = createPageUrl('ExperiencePro')}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   Entreprise
