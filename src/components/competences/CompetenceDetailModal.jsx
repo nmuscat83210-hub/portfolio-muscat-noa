@@ -55,9 +55,19 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
                 Pourquoi je maîtrise cette compétence
               </h3>
-              <p className="text-black/70 leading-relaxed">
+              <p className="text-black/70 leading-relaxed whitespace-pre-line">
                 {competence.why || "Cette compétence a été développée au cours de ma formation et de mes expériences professionnelles, me permettant d'acquérir une maîtrise solide et pratique."}
               </p>
+              {competence.toeicScore !== undefined && (
+                <div className="mt-4 p-4 bg-gray-50 border border-gray-200">
+                  <span className="text-xs uppercase tracking-[0.2em] text-black/40">
+                    Score TOEIC
+                  </span>
+                  <p className="text-lg font-medium text-black/80 mt-1">
+                    {competence.toeicScore || "À renseigner ultérieurement"}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Self-assessment by year - Only for GEII competences */}
