@@ -70,7 +70,8 @@ const competencesHorsGEII = [
     name: "Droit Canonique",
     description: "Analyse juridique, logique de raisonnement, structuration de la pensée selon les principes du droit de l'Église.",
     level: 60,
-    icon: "BookOpen"
+    icon: "Scale",
+    why: "Mon intérêt pour le droit canonique s'inscrit dans une démarche personnelle de compréhension des cadres normatifs et des systèmes de règles structurés. L'étude du droit de l'Église m'a permis de développer une capacité d'analyse rigoureuse, un raisonnement logique et une approche méthodique des textes, en tenant compte à la fois des principes, de leur hiérarchie et de leur application concrète.\n\nCette discipline m'a appris à structurer ma pensée, à interpréter des règles complexes et à articuler des normes théoriques avec des situations réelles. Elle renforce ainsi des compétences transversales essentielles en ingénierie, telles que la rigueur intellectuelle, la cohérence du raisonnement et le respect des cadres institutionnels."
   },
   {
     name: "Maintenance Électronique",
