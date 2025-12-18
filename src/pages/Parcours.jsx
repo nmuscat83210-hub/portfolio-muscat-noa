@@ -5,35 +5,6 @@ import TimelineItem from '../components/timeline/TimelineItem';
 
 const timeline = [
   {
-    period: "2022 - 2023",
-    title: "Baccalauréat Général",
-    institution: "Lycée du Coudon",
-    location: "La Garde",
-    description: "Baccalauréat général — spécialités Mathématiques, Physique-Chimie, option Mathématiques Expertes. Début de mon orientation vers les sciences de l'ingénieur et la technologie.",
-    competences: ["Mathématiques", "Physique", "Sciences de l'Ingénieur", "Analyse", "Résolution de problèmes"],
-    projects: ["Serre Automatique MQTT", "Jeu Éducatif CO₂"]
-  },
-  {
-    period: "2023 - 2024",
-    title: "BUT GEII — 1ère année",
-    institution: "IUT de La Garde",
-    company: "Europe Qualité (Alternance)",
-    location: "La Garde / La Valette",
-    description: "Première année de BUT Génie Électrique et Informatique Industrielle en alternance. Découverte des fondamentaux : électronique, automatisme, réseaux et systèmes embarqués. En parallèle, acquisition de compétences professionnelles en métrologie chez Europe Qualité.",
-    competences: ["Électronique de base", "Mesures et instrumentation", "Automatismes", "Programmation", "Métrologie", "Organisation"],
-    projects: ["Smartlight", "Tableurs Excel de Métrologie"]
-  },
-  {
-    period: "2024 - 2025",
-    title: "BUT GEII — 2ème année",
-    institution: "IUT de La Garde",
-    company: "Kontron Modular (Alternance)",
-    location: "La Garde / La Farlède",
-    description: "Approfondissement des compétences techniques : systèmes embarqués, réseaux industriels, télécommunications et maintenance avancée. Projets SAE en automatisation et contrôle de systèmes. Application professionnelle chez Kontron Modular.",
-    competences: ["Systèmes embarqués", "Réseaux industriels", "Diagnostic électronique", "Maintenance", "Automatismes avancés"],
-    projects: ["Régulation Moteur + Shelly EM", "Robot détectant les obstacles par capteurs infrarouges"]
-  },
-  {
     period: "2025 - 2026",
     title: "BUT GEII — 3ème année",
     institution: "IUT de La Garde",
@@ -51,6 +22,35 @@ const timeline = [
     description: "Diplôme Universitaire de Droit Canonique en parallèle de ma dernière année de BUT. Formation juridique spécialisée dans le droit de l'Église.",
     competences: ["Droit canonique", "Analyse juridique", "Logique de raisonnement", "Structuration de la pensée"],
     projects: ["Mémoire de droit canonique", "Stage en droit canonique"]
+  },
+  {
+    period: "2024 - 2025",
+    title: "BUT GEII — 2ème année",
+    institution: "IUT de La Garde",
+    company: "Kontron Modular (Alternance)",
+    location: "La Garde / La Farlède",
+    description: "Approfondissement des compétences techniques : systèmes embarqués, réseaux industriels, télécommunications et maintenance avancée. Projets SAE en automatisation et contrôle de systèmes. Application professionnelle chez Kontron Modular.",
+    competences: ["Systèmes embarqués", "Réseaux industriels", "Diagnostic électronique", "Maintenance", "Automatismes avancés"],
+    projects: ["Régulation Moteur + Shelly EM", "Robot détectant les obstacles par capteurs infrarouges"]
+  },
+  {
+    period: "2023 - 2024",
+    title: "BUT GEII — 1ère année",
+    institution: "IUT de La Garde",
+    company: "Europe Qualité (Alternance)",
+    location: "La Garde / La Valette",
+    description: "Première année de BUT Génie Électrique et Informatique Industrielle en alternance. Découverte des fondamentaux : électronique, automatisme, réseaux et systèmes embarqués. En parallèle, acquisition de compétences professionnelles en métrologie chez Europe Qualité.",
+    competences: ["Électronique de base", "Mesures et instrumentation", "Automatismes", "Programmation", "Métrologie", "Organisation"],
+    projects: ["Smartlight", "Tableurs Excel de Métrologie"]
+  },
+  {
+    period: "2022 - 2023",
+    title: "Baccalauréat Général",
+    institution: "Lycée du Coudon",
+    location: "La Garde",
+    description: "Baccalauréat général — spécialités Mathématiques, Physique-Chimie, option Mathématiques Expertes. Début de mon orientation vers les sciences de l'ingénieur et la technologie.",
+    competences: ["Mathématiques", "Physique", "Sciences de l'Ingénieur", "Analyse", "Résolution de problèmes"],
+    projects: ["Serre Automatique MQTT", "Jeu Éducatif CO₂"]
   }
 ];
 
