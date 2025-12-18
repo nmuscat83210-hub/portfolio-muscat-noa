@@ -148,6 +148,26 @@ export default function Futur() {
               </div>
             </motion.div>
           ))}
+
+          {/* Lien vers Feuille de route */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <button
+              onClick={() => {
+                const element = document.getElementById('roadmap-section');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="text-xs uppercase tracking-[0.3em] text-black/50 hover:text-[#CBAF73] transition-colors"
+            >
+              Consulter la feuille de route →
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -175,7 +195,7 @@ export default function Futur() {
       </section>
 
       {/* Timeline to future */}
-      <section className="py-32">
+      <section id="roadmap-section" className="py-32">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <SectionTitle 
             title="Feuille de route"
