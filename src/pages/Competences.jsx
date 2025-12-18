@@ -95,6 +95,13 @@ const competencesHorsGEII = [
     why: "Cette compétence s'est développée à travers des projets académiques et personnels, centrés sur les bases de l'intelligence artificielle et les enjeux de la cybersécurité. J'ai appris à concevoir des solutions en intégrant les notions de protection des données, de robustesse logicielle et de sécurité des systèmes, en lien avec les contraintes de l'informatique industrielle."
   },
   {
+    name: "Langages informatiques",
+    description: "Programmation embarquée, logicielle et algorithmique appliquée aux systèmes techniques.",
+    level: 80,
+    icon: "Code",
+    why: "Cette compétence s'est construite à travers ma formation en sciences de l'ingénieur et mes projets techniques, aussi bien académiques que personnels. J'ai développé une pratique régulière de langages tels que le C++, Python et Arduino, appliqués à des problématiques concrètes de programmation embarquée, d'automatisation et de traitement de données.\n\nCes expériences m'ont permis d'acquérir une logique de programmation structurée, une capacité à concevoir des algorithmes fiables et à adapter le langage utilisé aux contraintes matérielles et fonctionnelles des systèmes."
+  },
+  {
     name: "Autonomie & Organisation",
     description: "Gestion du temps, priorisation des tâches, capacité à travailler de manière indépendante.",
     level: 95,

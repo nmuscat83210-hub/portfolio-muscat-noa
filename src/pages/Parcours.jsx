@@ -88,9 +88,24 @@ export default function Parcours() {
             />
           ))}
         </div>
-      </section>
+
+        {/* Lien vers Feuille de route */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <button
+            onClick={() => window.location.href = createPageUrl('Futur') + '#roadmap-section'}
+            className="text-xs uppercase tracking-[0.3em] text-black/50 hover:text-[#CBAF73] transition-colors"
+          >
+            Consulter la feuille de route →
+          </button>
+        </motion.div>
+        </section>
 
 
-    </div>
-  );
-}
+        </div>
+        );
+        }
