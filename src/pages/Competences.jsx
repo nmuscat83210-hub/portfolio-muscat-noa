@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
 import CompetenceCard from '../components/competences/CompetenceCard';
 import CompetenceDetailModal from '../components/competences/CompetenceDetailModal';
-import { useLanguage } from '../components/LanguageContext';
 
 const competencesGEII = [
   {
@@ -128,15 +127,14 @@ const competencesHorsGEII = [
 
 export default function Competences() {
   const [selectedCompetence, setSelectedCompetence] = useState(null);
-  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen pt-32 pb-24 bg-gradient-to-b from-white to-gray-50">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
         <SectionTitle 
-          title={t('competences.title')}
-          subtitle={t('competences.subtitle')}
+          title="Compétences"
+          subtitle="Savoir-faire"
           align="center"
         />
         
@@ -146,7 +144,8 @@ export default function Competences() {
           viewport={{ once: true }}
           className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
         >
-          {t('competences.intro')}
+          Un ensemble de compétences techniques et transversales 
+          développées au fil de ma formation et de mes expériences professionnelles.
         </motion.p>
       </section>
 
@@ -159,9 +158,9 @@ export default function Competences() {
           className="mb-12"
         >
           <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
-            {t('competences.geiiTitle')}
+            Référentiel National
           </span>
-          <h3 className="text-2xl md:text-3xl font-light">{t('competences.geiiTitle')}</h3>
+          <h3 className="text-2xl md:text-3xl font-light">Compétences GEII</h3>
           <p className="text-sm text-black/50 mt-2">
             Les 4 compétences du référentiel national BUT GEII
           </p>
@@ -188,9 +187,9 @@ export default function Competences() {
           className="mb-12"
         >
           <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
-            {t('competences.transversalTitle')}
+            Compétences Complémentaires
           </span>
-          <h3 className="text-2xl md:text-3xl font-light">{t('competences.transversalTitle')}</h3>
+          <h3 className="text-2xl md:text-3xl font-light">Compétences Transversales</h3>
           <p className="text-sm text-black/50 mt-2">
             Compétences transversales et spécialisations personnelles développées en parallèle
           </p>

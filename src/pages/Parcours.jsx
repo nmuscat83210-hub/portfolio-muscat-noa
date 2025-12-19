@@ -61,8 +61,8 @@ export default function Parcours() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
         <SectionTitle 
-          title={t('parcours.title')}
-          subtitle={t('parcours.subtitle')}
+          title="Parcours"
+          subtitle="Mon évolution"
           align="center"
         />
 
@@ -72,7 +72,8 @@ export default function Parcours() {
           viewport={{ once: true }}
           className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
         >
-          {t('parcours.intro')}
+          Du baccalauréat scientifique au BUT GEII en alternance, 
+          découvrez les étapes clés de ma formation académique et professionnelle.
         </motion.p>
 
         {/* Lien vers Feuille de route */}
@@ -94,7 +95,7 @@ export default function Parcours() {
             }}
             className="text-xs uppercase tracking-[0.3em] text-black/50 hover:text-[#CBAF73] transition-colors"
           >
-            {t('parcours.roadmapLink')}
+            Consulter la feuille de route →
           </button>
         </motion.div>
       </section>
