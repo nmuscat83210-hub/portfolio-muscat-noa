@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
 import TimelineItem from '../components/timeline/TimelineItem';
+import { createPageUrl } from '../utils';
 
 const timeline = [
   {
