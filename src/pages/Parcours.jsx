@@ -84,7 +84,15 @@ export default function Parcours() {
           className="text-center mt-8"
         >
           <button
-            onClick={() => window.location.href = createPageUrl('Futur') + '#roadmap-section'}
+            onClick={() => {
+              window.location.href = createPageUrl('Futur') + '#roadmap-section';
+              setTimeout(() => {
+                const element = document.getElementById('roadmap-section');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }, 100);
+            }}
             className="text-xs uppercase tracking-[0.3em] text-black/50 hover:text-[#CBAF73] transition-colors"
           >
             Consulter la feuille de route →
