@@ -140,7 +140,7 @@ export default function Home() {
             className="max-w-4xl mx-auto text-center"
           >
             <span className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-8 block">
-              Ma Vision
+              Mon Histoire
             </span>
             <div className="text-xl md:text-2xl font-light leading-relaxed text-white/90 space-y-6">
               <p>
