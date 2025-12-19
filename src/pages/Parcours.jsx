@@ -64,7 +64,7 @@ export default function Parcours() {
           subtitle="Mon évolution"
           align="center"
         />
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,6 +74,21 @@ export default function Parcours() {
           Du baccalauréat scientifique au BUT GEII en alternance, 
           découvrez les étapes clés de ma formation académique et professionnelle.
         </motion.p>
+
+        {/* Lien vers Feuille de route */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-8"
+        >
+          <button
+            onClick={() => window.location.href = createPageUrl('Futur') + '#roadmap-section'}
+            className="text-xs uppercase tracking-[0.3em] text-black/50 hover:text-[#CBAF73] transition-colors"
+          >
+            Consulter la feuille de route →
+          </button>
+        </motion.div>
       </section>
 
       {/* Timeline */}
@@ -88,21 +103,6 @@ export default function Parcours() {
             />
           ))}
         </div>
-
-        {/* Lien vers Feuille de route */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <button
-            onClick={() => window.location.href = createPageUrl('Futur') + '#roadmap-section'}
-            className="text-xs uppercase tracking-[0.3em] text-black/50 hover:text-[#CBAF73] transition-colors"
-          >
-            Consulter la feuille de route →
-          </button>
-        </motion.div>
         </section>
 
 

@@ -53,7 +53,7 @@ const experiences = [
     period: "2025",
     year: "DU de Droit Canonique",
     role: "Stagiaire",
-    logo: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=400&fit=crop",
+    logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/692fa0502_image.png",
     missions: [
       "Analyse de dossiers canoniques",
       "Recherche documentaire juridique",
