@@ -1,0 +1,242 @@
+export const translations = {
+  fr: {
+    nav: {
+      home: 'Accueil',
+      passions: 'Passions',
+      parcours: 'Parcours',
+      competences: 'Compétences',
+      projets: 'Projets',
+      experience: 'Expérience',
+      futur: 'Futur',
+      contact: 'Contact'
+    },
+    home: {
+      subtitle: 'Portfolio Personnel',
+      role: 'Étudiant en BUT GEII',
+      intro: "Étudiant en ingénierie, passionné par la technologie, l'IA et la cybersécurité.",
+      downloadCV: 'Télécharger mon CV',
+      contactMe: 'Me contacter',
+      discover: 'Découvrir',
+      historyTitle: 'Mon Histoire',
+      historyP1: "Mes premiers pas en sciences de l'ingénieur ont été déterminants. C'est à ce moment-là que j'ai découvert la programmation orientée objet et, avec elle, le plaisir de concevoir des systèmes logiques, structurés et évolutifs. Très rapidement, j'ai compris que le code n'était pas seulement un outil, mais un moyen de transformer des idées en solutions techniques concrètes.",
+      historyP2: "En intégrant le BUT GEII, j'ai approfondi cette approche en travaillant sur des systèmes plus complexes, à la croisée de l'informatique industrielle, de l'intelligence artificielle et de la cybersécurité. Ces années m'ont appris à relier la théorie, la programmation et les contraintes du monde réel, avec une attention particulière portée à la fiabilité et à la sécurité des systèmes.",
+      historyP3: "Progressivement, une réflexion plus personnelle s'est imposée : mettre ces compétences au service d'un cadre exigeant et porteur de sens. C'est dans cette continuité qu'est née mon ambition de rejoindre la Marine, afin de contribuer, par l'ingénierie et la technologie, à des missions au service de mon pays.",
+      historyP4: "Si mon parcours, mes compétences et cette vision font écho à vos attentes, je serais ravi d'échanger et d'envisager ensemble la suite de cette trajectoire.",
+      quickLinks: {
+        parcours: 'Parcours',
+        parcoursDesc: "De mon baccalauréat à aujourd'hui",
+        competences: 'Compétences',
+        competencesDesc: 'Techniques et transversales',
+        projets: 'Projets',
+        projetsDesc: 'Réalisations académiques et personnelles'
+      }
+    },
+    parcours: {
+      title: 'Parcours',
+      subtitle: 'Mon évolution',
+      intro: "Du baccalauréat scientifique au BUT GEII en alternance, découvrez les étapes clés de ma formation académique et professionnelle.",
+      roadmapLink: 'Consulter la feuille de route →'
+    },
+    competences: {
+      title: 'Compétences',
+      subtitle: 'Savoir-faire',
+      intro: "Compétences techniques acquises au cours de ma formation en BUT GEII et de mes expériences professionnelles.",
+      geiiTitle: 'Compétences GEII',
+      transversalTitle: 'Compétences Transversales',
+      seeDetail: 'Voir le détail',
+      whyMaster: 'Pourquoi je maîtrise cette compétence',
+      selfAssessment: 'Autoévaluation par année',
+      toeicScore: 'Score TOEIC',
+      toeicTbd: 'À renseigner ultérieurement',
+      fromCourses: 'Cours GEII',
+      fromCoursesDesc: 'Programme national BUT GEII',
+      fromProjects: 'Projets',
+      fromProjectsDesc: 'Mise en pratique lors des projets académiques',
+      fromWork: 'Entreprise',
+      fromWorkDesc: 'Application en environnement professionnel',
+      seeCoursesLink: 'Voir les cours →',
+      seeProjectsLink: 'Voir les projets →',
+      seeExperienceLink: 'Voir les expériences →',
+      progressNote: 'En progression constante grâce à la pratique régulière et l\'approfondissement théorique'
+    },
+    projets: {
+      title: 'Projets',
+      subtitle: 'Réalisations',
+      intro: 'Découvrez mes projets académiques, personnels et professionnels réalisés dans le cadre de ma formation en BUT GEII.',
+      allCategories: 'Tous',
+      geii: 'GEII',
+      personal: 'Personnel',
+      company: 'Entreprise',
+      terminale: 'Terminale',
+      loading: 'Chargement...',
+      noProjects: 'Aucun projet trouvé',
+      ctaTitle: 'Intéressé par une collaboration ?',
+      ctaDesc: "N'hésitez pas à me contacter pour discuter de vos projets ou opportunités.",
+      ctaButton: 'Me contacter'
+    },
+    experience: {
+      title: 'Expérience Professionnelle',
+      subtitle: 'Parcours en entreprise',
+      intro: "Trois années d'alternance et un stage dans des environnements techniques et juridiques exigeants, développant expertise et professionnalisme.",
+      seeDetail: 'Voir le détail →',
+      mainMissions: 'Missions principales',
+      technicalSkills: 'Compétences techniques',
+      softSkills: 'Soft Skills',
+      duration: 'Durée',
+      relatedProjects: 'Projets associés',
+      seeParcours: 'Voir le parcours',
+      seeCompetences: 'Voir les compétences'
+    },
+    futur: {
+      title: 'Vision du Futur',
+      subtitle: 'Aspirations',
+      intro: "Un parcours ambitieux vers l'excellence technique au service de la nation.",
+      quote: "Le futur appartient à ceux qui croient à la beauté de leurs rêves.",
+      quoteAuthor: '— Eleanor Roosevelt',
+      roadmapTitle: 'Feuille de route',
+      roadmapSubtitle: 'Les prochaines étapes'
+    },
+    contact: {
+      title: 'Contact',
+      subtitle: 'Restons connectés',
+      info: 'Informations',
+      email: 'Email',
+      phone: 'Téléphone',
+      linkedin: 'LinkedIn',
+      availability: 'Disponibilité',
+      availabilityText: 'Actuellement en 3ème année de BUT GEII en alternance chez Kontron Modular.',
+      opportunities: 'Opportunités futures',
+      opportunitiesText: 'Ouvert aux stages, projets collaboratifs et opportunités professionnelles à partir de 2026.',
+      formTitle: 'Envoyez-moi un message',
+      name: 'Nom',
+      subject: 'Sujet',
+      message: 'Message',
+      send: 'Envoyer',
+      sending: 'Envoi...',
+      success: 'Message envoyé avec succès ! Je vous répondrai dès que possible.'
+    },
+    footer: {
+      rights: 'Tous droits réservés.'
+    }
+  },
+  en: {
+    nav: {
+      home: 'Home',
+      passions: 'Passions',
+      parcours: 'Background',
+      competences: 'Skills',
+      projets: 'Projects',
+      experience: 'Experience',
+      futur: 'Future',
+      contact: 'Contact'
+    },
+    home: {
+      subtitle: 'Personal Portfolio',
+      role: 'Student in Electrical Engineering and Industrial Computing',
+      intro: 'Engineering student, passionate about technology, AI and cybersecurity.',
+      downloadCV: 'Download my CV',
+      contactMe: 'Contact me',
+      discover: 'Discover',
+      historyTitle: 'My Story',
+      historyP1: 'My first steps in engineering sciences were decisive. It was at that moment that I discovered object-oriented programming and, with it, the pleasure of designing logical, structured and scalable systems. Very quickly, I understood that code was not just a tool, but a means of transforming ideas into concrete technical solutions.',
+      historyP2: 'By joining the BUT GEII program, I deepened this approach by working on more complex systems, at the crossroads of industrial computing, artificial intelligence and cybersecurity. These years taught me to connect theory, programming and real-world constraints, with particular attention paid to system reliability and security.',
+      historyP3: 'Gradually, a more personal reflection emerged: putting these skills at the service of a demanding and meaningful framework. It is in this continuity that my ambition to join the Navy was born, in order to contribute, through engineering and technology, to missions serving my country.',
+      historyP4: 'If my background, skills and vision resonate with your expectations, I would be delighted to discuss and consider together the next steps of this trajectory.',
+      quickLinks: {
+        parcours: 'Background',
+        parcoursDesc: 'From my baccalaureate to today',
+        competences: 'Skills',
+        competencesDesc: 'Technical and cross-functional',
+        projets: 'Projects',
+        projetsDesc: 'Academic and personal achievements'
+      }
+    },
+    parcours: {
+      title: 'Background',
+      subtitle: 'My evolution',
+      intro: 'From scientific baccalaureate to work-study BUT GEII program, discover the key stages of my academic and professional training.',
+      roadmapLink: 'View roadmap →'
+    },
+    competences: {
+      title: 'Skills',
+      subtitle: 'Expertise',
+      intro: 'Technical skills acquired during my BUT GEII training and professional experiences.',
+      geiiTitle: 'GEII Skills',
+      transversalTitle: 'Cross-functional Skills',
+      seeDetail: 'See details',
+      whyMaster: 'Why I master this skill',
+      selfAssessment: 'Self-assessment by year',
+      toeicScore: 'TOEIC Score',
+      toeicTbd: 'To be specified later',
+      fromCourses: 'GEII Courses',
+      fromCoursesDesc: 'National BUT GEII program',
+      fromProjects: 'Projects',
+      fromProjectsDesc: 'Practical application during academic projects',
+      fromWork: 'Company',
+      fromWorkDesc: 'Application in professional environment',
+      seeCoursesLink: 'View courses →',
+      seeProjectsLink: 'View projects →',
+      seeExperienceLink: 'View experiences →',
+      progressNote: 'Constantly improving through regular practice and theoretical deepening'
+    },
+    projets: {
+      title: 'Projects',
+      subtitle: 'Achievements',
+      intro: 'Discover my academic, personal and professional projects carried out as part of my BUT GEII training.',
+      allCategories: 'All',
+      geii: 'GEII',
+      personal: 'Personal',
+      company: 'Company',
+      terminale: 'High School',
+      loading: 'Loading...',
+      noProjects: 'No projects found',
+      ctaTitle: 'Interested in collaboration?',
+      ctaDesc: 'Feel free to contact me to discuss your projects or opportunities.',
+      ctaButton: 'Contact me'
+    },
+    experience: {
+      title: 'Professional Experience',
+      subtitle: 'Career path',
+      intro: 'Three years of work-study programs and an internship in demanding technical and legal environments, developing expertise and professionalism.',
+      seeDetail: 'See details →',
+      mainMissions: 'Main missions',
+      technicalSkills: 'Technical skills',
+      softSkills: 'Soft Skills',
+      duration: 'Duration',
+      relatedProjects: 'Related projects',
+      seeParcours: 'View background',
+      seeCompetences: 'View skills'
+    },
+    futur: {
+      title: 'Vision of the Future',
+      subtitle: 'Aspirations',
+      intro: 'An ambitious path towards technical excellence in service of the nation.',
+      quote: 'The future belongs to those who believe in the beauty of their dreams.',
+      quoteAuthor: '— Eleanor Roosevelt',
+      roadmapTitle: 'Roadmap',
+      roadmapSubtitle: 'Next steps'
+    },
+    contact: {
+      title: 'Contact',
+      subtitle: 'Let\'s stay connected',
+      info: 'Information',
+      email: 'Email',
+      phone: 'Phone',
+      linkedin: 'LinkedIn',
+      availability: 'Availability',
+      availabilityText: 'Currently in 3rd year of work-study BUT GEII program at Kontron Modular.',
+      opportunities: 'Future opportunities',
+      opportunitiesText: 'Open to internships, collaborative projects and professional opportunities from 2026.',
+      formTitle: 'Send me a message',
+      name: 'Name',
+      subject: 'Subject',
+      message: 'Message',
+      send: 'Send',
+      sending: 'Sending...',
+      success: 'Message sent successfully! I will respond as soon as possible.'
+    },
+    footer: {
+      rights: 'All rights reserved.'
+    }
+  }
+};

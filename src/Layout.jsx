@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from './utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from './components/LanguageContext';
 
 export default function Layout({ children, currentPageName }) {
+  const { language, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -15,14 +17,14 @@ export default function Layout({ children, currentPageName }) {
   }, []);
 
   const navItems = [
-    { name: 'Accueil', page: 'Home' },
-    { name: 'Passions', page: 'Passions' },
-    { name: 'Parcours', page: 'Parcours' },
-    { name: 'Compétences', page: 'Competences' },
-    { name: 'Projets', page: 'Projets' },
-    { name: 'Expérience', page: 'ExperiencePro' },
-    { name: 'Futur', page: 'Futur' },
-    { name: 'Contact', page: 'Contact' },
+    { name: t('nav.home'), page: 'Home' },
+    { name: t('nav.passions'), page: 'Passions' },
+    { name: t('nav.parcours'), page: 'Parcours' },
+    { name: t('nav.competences'), page: 'Competences' },
+    { name: t('nav.projets'), page: 'Projets' },
+    { name: t('nav.experience'), page: 'ExperiencePro' },
+    { name: t('nav.futur'), page: 'Futur' },
+    { name: t('nav.contact'), page: 'Contact' },
   ];
 
   return (
@@ -114,15 +116,33 @@ export default function Layout({ children, currentPageName }) {
                   {item.name}
                 </Link>
               ))}
+
+              {/* Language Selector */}
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-2 text-xs font-medium tracking-wide uppercase text-black/60 hover:text-[#CBAF73] transition-colors"
+              >
+                <Globe size={14} />
+                {language.toUpperCase()}
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden p-2 hover:opacity-70 transition-opacity"
-            >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Menu Button & Language */}
+            <div className="lg:hidden flex items-center gap-4">
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-1.5 text-xs font-medium tracking-wide uppercase text-black/60 hover:text-[#CBAF73] transition-colors"
+              >
+                <Globe size={14} />
+                {language.toUpperCase()}
+              </button>
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="p-2 hover:opacity-70 transition-opacity"
+              >
+                {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </nav>
 
@@ -168,7 +188,7 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-sm text-black/50 tracking-wide">
-              © {new Date().getFullYear()} Portfolio. Tous droits réservés.
+              © {new Date().getFullYear()} Portfolio. {t('footer.rights')}
             </p>
             <div className="flex items-center gap-8">
               {navItems.slice(0, 4).map((item) => (
