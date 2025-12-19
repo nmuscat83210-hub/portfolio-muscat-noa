@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { ArrowDown, Download, Mail } from 'lucide-react';
 import GoldButton from '../components/ui/GoldButton';
+import { useLanguage } from '../components/LanguageContext';
 
 export default function Home() {
+  const { t } = useLanguage();
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const y = useTransform(scrollY, [0, 400], [0, 100]);
@@ -39,7 +41,7 @@ export default function Home() {
                 transition={{ delay: 0.5 }}
                 className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-6 block"
               >
-                Portfolio Personnel
+                {t('home.subtitle')}
               </motion.span>
               
               <motion.h1
@@ -50,7 +52,7 @@ export default function Home() {
               >
                 <span className="font-medium">Noa MUSCAT</span>
                 <br />
-                Étudiant en BUT GEII
+                {t('home.role')}
               </motion.h1>
 
               <motion.p
@@ -59,7 +61,7 @@ export default function Home() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="text-lg md:text-xl text-black/60 font-light leading-relaxed mb-12 max-w-lg"
               >
-                Étudiant en ingénierie, passionné par la technologie, l'IA et la cybersécurité.
+                {t('home.intro')}
               </motion.p>
 
               <motion.div
@@ -70,13 +72,13 @@ export default function Home() {
               >
                 <GoldButton variant="primary">
                   <Download size={16} className="mr-2" />
-                  Télécharger mon CV
+                  {t('home.downloadCV')}
                 </GoldButton>
                 
                 <Link to={createPageUrl('Contact')}>
                   <GoldButton variant="secondary" icon={false}>
                     <Mail size={16} className="mr-2" />
-                    Me contacter
+                    {t('home.contactMe')}
                   </GoldButton>
                 </Link>
               </motion.div>
@@ -123,7 +125,7 @@ export default function Home() {
             className="flex flex-col items-center gap-3 cursor-pointer"
             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-black/40">Découvrir</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-black/40">{t('home.discover')}</span>
             <ArrowDown size={20} className="text-[#CBAF73]" />
           </motion.div>
         </motion.div>
@@ -140,22 +142,13 @@ export default function Home() {
             className="max-w-4xl mx-auto text-center"
           >
             <span className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-8 block">
-              Mon Histoire
+              {t('home.historyTitle')}
             </span>
             <div className="text-xl md:text-2xl font-light leading-relaxed text-white/90 space-y-6">
-              <p>
-                Mes premiers pas en sciences de l'ingénieur ont été déterminants.
-                C'est à ce moment-là que j'ai découvert la programmation orientée objet et, avec elle, le plaisir de concevoir des systèmes logiques, structurés et évolutifs. Très rapidement, j'ai compris que le code n'était pas seulement un outil, mais un moyen de transformer des idées en solutions techniques concrètes.
-              </p>
-              <p>
-                En intégrant le BUT GEII, j'ai approfondi cette approche en travaillant sur des systèmes plus complexes, à la croisée de l'informatique industrielle, de l'intelligence artificielle et de la cybersécurité. Ces années m'ont appris à relier la théorie, la programmation et les contraintes du monde réel, avec une attention particulière portée à la fiabilité et à la sécurité des systèmes.
-              </p>
-              <p>
-                Progressivement, une réflexion plus personnelle s'est imposée : mettre ces compétences au service d'un cadre exigeant et porteur de sens. C'est dans cette continuité qu'est née mon ambition de rejoindre la Marine, afin de contribuer, par l'ingénierie et la technologie, à des missions au service de mon pays.
-              </p>
-              <p>
-                Si mon parcours, mes compétences et cette vision font écho à vos attentes, je serais ravi d'échanger et d'envisager ensemble la suite de cette trajectoire.
-              </p>
+              <p>{t('home.historyP1')}</p>
+              <p>{t('home.historyP2')}</p>
+              <p>{t('home.historyP3')}</p>
+              <p>{t('home.historyP4')}</p>
             </div>
           </motion.div>
         </div>
@@ -166,9 +159,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: 'Parcours', desc: 'De mon baccalauréat à aujourd\'hui', link: 'Parcours' },
-              { title: 'Compétences', desc: 'Techniques et transversales', link: 'Competences' },
-              { title: 'Projets', desc: 'Réalisations académiques et personnelles', link: 'Projets' },
+              { title: t('home.quickLinks.parcours'), desc: t('home.quickLinks.parcoursDesc'), link: 'Parcours' },
+              { title: t('home.quickLinks.competences'), desc: t('home.quickLinks.competencesDesc'), link: 'Competences' },
+              { title: t('home.quickLinks.projets'), desc: t('home.quickLinks.projetsDesc'), link: 'Projets' },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
