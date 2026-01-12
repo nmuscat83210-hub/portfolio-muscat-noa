@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
 import TimelineItem from '../components/timeline/TimelineItem';
@@ -83,20 +84,12 @@ export default function Parcours() {
           viewport={{ once: true }}
           className="text-center mt-8"
         >
-          <button
-            onClick={() => {
-              window.location.href = createPageUrl('Futur') + '#roadmap-section';
-              setTimeout(() => {
-                const element = document.getElementById('roadmap-section');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }, 100);
-            }}
+          <Link
+            to={createPageUrl('Futur') + '#roadmap-section'}
             className="text-xs uppercase tracking-[0.3em] text-black/50 hover:text-[#CBAF73] transition-colors"
           >
             Consulter la feuille de route →
-          </button>
+          </Link>
         </motion.div>
       </section>
 
