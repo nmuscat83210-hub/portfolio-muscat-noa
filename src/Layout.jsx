@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from './utils';
 import { Menu, X, Languages } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLanguage } from './components/LanguageContext';
+import { LanguageProvider, useLanguage } from './components/LanguageContext';
 import { translations } from './components/translations';
 
-export default function Layout({ children, currentPageName }) {
+function LayoutContent({ children, currentPageName }) {
   const { language, toggleLanguage } = useLanguage();
   const t = translations[language];
   const [scrolled, setScrolled] = useState(false);
@@ -217,5 +217,13 @@ export default function Layout({ children, currentPageName }) {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function Layout({ children, currentPageName }) {
+  return (
+    <LanguageProvider>
+      <LayoutContent children={children} currentPageName={currentPageName} />
+    </LanguageProvider>
   );
 }
