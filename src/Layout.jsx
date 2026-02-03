@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from './utils';
-import { Menu, X, Languages } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LanguageProvider, useLanguage } from './components/LanguageContext';
-import { translations } from './components/translations';
 
-function LayoutContent({ children, currentPageName }) {
-  const { language, toggleLanguage } = useLanguage();
-  const t = translations[language];
+export default function Layout({ children, currentPageName }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,14 +15,14 @@ function LayoutContent({ children, currentPageName }) {
   }, []);
 
   const navItems = [
-    { name: t.nav.home, page: 'Home' },
-    { name: t.nav.passions, page: 'Passions' },
-    { name: t.nav.parcours, page: 'Parcours' },
-    { name: t.nav.competences, page: 'Competences' },
-    { name: t.nav.projets, page: 'Projets' },
-    { name: t.nav.experience, page: 'ExperiencePro' },
-    { name: t.nav.futur, page: 'Futur' },
-    { name: t.nav.contact, page: 'Contact' },
+    { name: 'Accueil', page: 'Home' },
+    { name: 'Passions', page: 'Passions' },
+    { name: 'Parcours', page: 'Parcours' },
+    { name: 'Compétences', page: 'Competences' },
+    { name: 'Projets', page: 'Projets' },
+    { name: 'Expérience', page: 'ExperiencePro' },
+    { name: 'Futur', page: 'Futur' },
+    { name: 'Contact', page: 'Contact' },
   ];
 
   return (
@@ -118,16 +114,6 @@ function LayoutContent({ children, currentPageName }) {
                   {item.name}
                 </Link>
               ))}
-
-              {/* Language Toggle */}
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 hover:border-[#CBAF73] transition-colors group"
-                title={language === 'fr' ? 'Switch to English' : 'Passer en français'}
-              >
-                <Languages size={16} className="text-black/60 group-hover:text-[#CBAF73] transition-colors" />
-                <span className="text-xs font-medium uppercase">{language === 'fr' ? 'EN' : 'FR'}</span>
-              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -165,32 +151,14 @@ function LayoutContent({ children, currentPageName }) {
                       }`}
                     >
                       {item.name}
-                      </Link>
-                      </motion.div>
-                      ))}
-
-                      {/* Mobile Language Toggle */}
-                      <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: navItems.length * 0.05 }}
-                      >
-                      <button
-                      onClick={() => {
-                      toggleLanguage();
-                      setMenuOpen(false);
-                      }}
-                      className="flex items-center gap-3 text-lg font-medium tracking-wide text-black/80"
-                      >
-                      <Languages size={20} />
-                      {language === 'fr' ? 'English' : 'Français'}
-                      </button>
-                      </motion.div>
-                      </div>
-                      </motion.div>
-                      )}
-                      </AnimatePresence>
-                      </motion.header>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
 
       {/* Main Content */}
       <main>{children}</main>
@@ -200,7 +168,7 @@ function LayoutContent({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-sm text-black/50 tracking-wide">
-              © {new Date().getFullYear()} Portfolio. {t.footer.rights}
+              © {new Date().getFullYear()} Portfolio. Tous droits réservés.
             </p>
             <div className="flex items-center gap-8">
               {navItems.slice(0, 4).map((item) => (
@@ -217,13 +185,5 @@ function LayoutContent({ children, currentPageName }) {
         </div>
       </footer>
     </div>
-  );
-}
-
-export default function Layout({ children, currentPageName }) {
-  return (
-    <LanguageProvider>
-      <LayoutContent children={children} currentPageName={currentPageName} />
-    </LanguageProvider>
   );
 }
