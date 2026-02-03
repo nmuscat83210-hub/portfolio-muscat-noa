@@ -51,25 +51,27 @@ export default function CompetenceDetailModal({ competence, onClose }) {
 
           {/* Content */}
           <div className="p-8 md:p-12">
-            {/* Why I master this */}
-            <div className="mb-12">
-              <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-                Pourquoi je maîtrise cette compétence
-              </h3>
-              <p className="text-black/70 leading-relaxed whitespace-pre-line">
-                {competence.why || "Cette compétence a été développée au cours de ma formation et de mes expériences professionnelles, me permettant d'acquérir une maîtrise solide et pratique."}
-              </p>
-              {competence.toeicScore !== undefined && (
-                <div className="mt-4 p-4 bg-gray-50 border border-gray-200">
-                  <span className="text-xs uppercase tracking-[0.2em] text-black/40">
-                    Score TOEIC
-                  </span>
-                  <p className="text-lg font-medium text-black/80 mt-1">
-                    {competence.toeicScore || "À renseigner ultérieurement"}
-                  </p>
-                </div>
-              )}
-            </div>
+            {/* Why I master this - Only if not Maintenir */}
+            {competence.name !== "Maintenir" && (
+              <div className="mb-12">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
+                  Pourquoi je maîtrise cette compétence
+                </h3>
+                <p className="text-black/70 leading-relaxed whitespace-pre-line">
+                  {competence.why || "Cette compétence a été développée au cours de ma formation et de mes expériences professionnelles, me permettant d'acquérir une maîtrise solide et pratique."}
+                </p>
+                {competence.toeicScore !== undefined && (
+                  <div className="mt-4 p-4 bg-gray-50 border border-gray-200">
+                    <span className="text-xs uppercase tracking-[0.2em] text-black/40">
+                      Score TOEIC
+                    </span>
+                    <p className="text-lg font-medium text-black/80 mt-1">
+                      {competence.toeicScore || "À renseigner ultérieurement"}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Self-assessment by year - Only for GEII competences */}
             {competence.levelsByYear && (
@@ -77,12 +79,26 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                 <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-6">
                   Autoévaluation par année
                 </h3>
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {competence.levelsByYear.map((level, index) => {
                     const yearLabel = competence.name === "Maintenir" 
                       ? `${competence.name} — niveau BUT${index + 2}`
                       : `${competence.name} — niveau BUT${index + 1}`;
                     const levelImages = competence.maintenanceImages?.filter(img => img.level === `BUT${index + 2}`);
+                    
+                    // Extract level description for Maintenir
+                    let levelDescription = null;
+                    if (competence.name === "Maintenir" && competence.why) {
+                      const whyText = competence.why;
+                      const but2Match = whyText.match(/Ce niveau correspond aux compétences.*?(?=🔹 Niveau BUT3|$)/s);
+                      const but3Match = whyText.match(/En BUT3, j'ai poursuivi.*?(?=🔹|$)/s);
+                      
+                      if (index === 0 && but2Match) {
+                        levelDescription = but2Match[0].replace(/🔹 Niveau BUT2.*?\n\n/g, '').trim();
+                      } else if (index === 1 && but3Match) {
+                        levelDescription = but3Match[0].replace(/🔹 Niveau BUT3.*?\n\n/g, '').trim();
+                      }
+                    }
                     
                     return (
                       <div key={index}>
@@ -90,7 +106,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                           <span className="text-sm text-black/70">{yearLabel}</span>
                           <span className="text-sm text-[#CBAF73]">{level}%</span>
                         </div>
-                        <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${level}%` }}
@@ -99,6 +115,13 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                             className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
                           />
                         </div>
+                        
+                        {levelDescription && (
+                          <p className="text-sm text-black/70 leading-relaxed mb-4 whitespace-pre-line">
+                            {levelDescription}
+                          </p>
+                        )}
+                        
                         {levelImages && levelImages.length > 0 && (
                           <div className="mt-4 space-y-2">
                             {levelImages.map((img, imgIdx) => (
