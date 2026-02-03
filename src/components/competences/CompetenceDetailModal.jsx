@@ -77,14 +77,16 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                   Autoévaluation par année
                 </h3>
                 <div className="space-y-6">
-                  {yearLabels.map((year, index) => {
-                    const levels = competence.levelsByYear;
-                    const level = levels[index] || 0;
+                  {competence.levelsByYear.map((level, index) => {
+                    const yearLabel = competence.name === "Maintenir" 
+                      ? `${competence.name} — niveau BUT${index + 2}`
+                      : `${competence.name} — niveau BUT${index + 1}`;
+                    const levelImages = competence.maintenanceImages?.filter(img => img.level === `BUT${index + 2}`);
                     
                     return (
-                      <div key={year}>
+                      <div key={index}>
                         <div className="flex justify-between mb-2">
-                          <span className="text-sm text-black/70">{year}</span>
+                          <span className="text-sm text-black/70">{yearLabel}</span>
                           <span className="text-sm text-[#CBAF73]">{level}%</span>
                         </div>
                         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -96,6 +98,16 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                             className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
                           />
                         </div>
+                        {levelImages && levelImages.length > 0 && (
+                          <div className="mt-4 space-y-2">
+                            {levelImages.map((img, imgIdx) => (
+                              <div key={imgIdx} className="border border-gray-200 p-2">
+                                <img src={img.url} alt={img.caption} className="w-full h-auto" />
+                                <p className="text-xs text-black/50 mt-2 text-center">{img.caption}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     );
                   })}
@@ -124,7 +136,13 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               {/* From projects */}
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
-                onClick={() => window.location.href = createPageUrl('Projets')}
+                onClick={() => {
+                  if (competence.name === "Maintenir") {
+                    window.location.href = createPageUrl('ProjectDetail') + '?id=693c1be4ec925c0d63401959';
+                  } else {
+                    window.location.href = createPageUrl('Projets');
+                  }
+                }}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   Projets
@@ -133,7 +151,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                   {competence.fromProjects || "Mise en pratique lors des projets académiques"}
                 </p>
                 <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
-                  Voir les projets →
+                  {competence.name === "Maintenir" ? "Voir le projet →" : "Voir les projets →"}
                 </span>
               </button>
 
