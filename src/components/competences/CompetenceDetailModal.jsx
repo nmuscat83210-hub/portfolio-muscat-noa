@@ -19,15 +19,16 @@ export default function CompetenceDetailModal({ competence, onClose }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6 overflow-y-auto"
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 overflow-y-auto"
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 50 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 50 }}
-          onClick={(e) => e.stopPropagation()}
-          className="bg-white max-w-4xl w-full my-8"
-        >
+        <div className="min-h-full flex items-start justify-center p-6 py-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white max-w-4xl w-full"
+          >
           {/* Header */}
           <div className="relative bg-black p-8 md:p-12">
             <button
@@ -181,6 +182,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
             </div>
           </div>
         </motion.div>
+        </div>
       </motion.div>
     </AnimatePresence>
   );
