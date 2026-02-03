@@ -68,10 +68,15 @@ export default function Home() {
                 transition={{ delay: 1, duration: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <GoldButton variant="primary">
-                  <Download size={16} className="mr-2" />
-                  Télécharger mon CV
-                </GoldButton>
+                <a 
+                  href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/96c8843bc_CV_NOA_MUSCAT_Couleur.pdf"
+                  download="CV_NOA_MUSCAT.pdf"
+                >
+                  <GoldButton variant="primary">
+                    <Download size={16} className="mr-2" />
+                    Télécharger mon CV
+                  </GoldButton>
+                </a>
                 
                 <Link to={createPageUrl('Contact')}>
                   <GoldButton variant="secondary" icon={false}>

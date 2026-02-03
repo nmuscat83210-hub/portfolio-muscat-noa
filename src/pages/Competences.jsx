@@ -30,13 +30,30 @@ const competencesGEII = [
   {
     name: "Maintenir",
     description: "Diagnostiquer, réparer et assurer la maintenance préventive des systèmes.",
-    level: 90,
-    levelsByYear: [30, 70, 90],
+    level: 95,
+    levelsByYear: [85, 95],
     icon: "Wrench",
-    why: "Ma spécialité en entreprise : diagnostic et réparation de cartes électroniques complexes, maintenance avancée.",
+    why: `🔹 Niveau BUT2 – 85 %
+
+Ce niveau correspond aux compétences acquises lors de mes premières expériences professionnelles. Chez Europe Qualité, j'étais chargé de la maintenance d'appareils de mesure, incluant des opérations de vérification, d'étalonnage et d'ajustement afin d'assurer leur conformité.
+
+Lors de ma première année chez Kontron, j'ai également débuté en tant que technicien de réparation, en réalisant des interventions de maintenance corrective sur des systèmes électroniques, ce qui m'a permis de consolider mes bases en diagnostic et réparation.
+
+🔹 Niveau BUT3 – 95 %
+
+En BUT3, j'ai poursuivi et approfondi ma spécialisation en maintenance électronique en tant que technicien de réparation. J'interviens désormais de manière autonome sur des systèmes complexes, avec une approche méthodique et structurée.
+
+Le fait de rédiger des documentations techniques de réparation démontre non seulement ma maîtrise technique, mais également ma capacité à transmettre des connaissances, jusqu'à un niveau proche de l'enseignement des bonnes pratiques de réparation.`,
     fromCourses: "Maintenance industrielle, Diagnostic de pannes",
-    fromProjects: "Documentation de procédures de réparation",
-    fromWork: "Réparation chez Kontron, maintenance préventive"
+    fromProjects: "Documentation technique par rétro-ingénierie",
+    fromWork: "Métrologie chez Europe Qualité, Réparation chez Kontron",
+    maintenanceImages: [
+      {
+        url: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/040628351_photochangementalim.png",
+        caption: "Changement d'alimentation interne",
+        level: "BUT2"
+      }
+    ]
   },
   {
     name: "Installer",
@@ -121,7 +138,7 @@ const competencesHorsGEII = [
     level: 85,
     icon: "Globe",
     why: "L'anglais occupe une place importante dans mon parcours, notamment à travers l'utilisation régulière de documentations techniques, de normes, de ressources académiques et d'outils informatiques en langue anglaise. Je suis capable de comprendre, rédiger et échanger sur des sujets techniques avec aisance, aussi bien à l'écrit qu'à l'oral.",
-    toeicScore: null
+    toeicScore: 955
   }
 ];
 
