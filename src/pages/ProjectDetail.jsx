@@ -1,15 +1,17 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
-import { ArrowLeft, ExternalLink, Download, Loader2 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Download, Loader2, X } from 'lucide-react';
 import GoldButton from '../components/ui/GoldButton';
+import ReactMarkdown from 'react-markdown';
 
 export default function ProjectDetail() {
   const urlParams = new URLSearchParams(window.location.search);
   const projectId = urlParams.get('id');
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   const { data: project, isLoading } = useQuery({
     queryKey: ['project', projectId],
@@ -123,13 +125,40 @@ export default function ProjectDetail() {
             transition={{ delay: 0.3 }}
             className="mb-16"
           >
-            <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-              Description détaillée
-            </h3>
             <div className="prose prose-lg max-w-none font-light text-black/70 leading-relaxed">
-              {project.long_description.split('\n').map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
+              <ReactMarkdown
+                components={{
+                  h1: ({children}) => <h2 className="text-2xl font-medium mt-12 mb-6 text-black">{children}</h2>,
+                  h2: ({children}) => <h3 className="text-xl font-medium mt-8 mb-4 text-black">{children}</h3>,
+                  strong: ({children}) => <strong className="text-lg font-medium block mt-8 mb-4 text-black">{children}</strong>,
+                  p: ({children}) => <p className="mb-4 leading-relaxed">{children}</p>,
+                  ul: ({children}) => <ul className="list-none space-y-2 mb-6">{children}</ul>,
+                  li: ({children}) => <li className="pl-0 text-black/70">{children}</li>,
+                  a: ({href, children}) => {
+                    if (href?.includes('youtube.com') || href?.includes('youtu.be')) {
+                      const videoId = href.includes('youtu.be') 
+                        ? href.split('youtu.be/')[1] 
+                        : new URLSearchParams(href.split('?')[1]).get('v');
+                      return (
+                        <div className="my-8">
+                          <div className="relative" style={{paddingBottom: '56.25%', height: 0}}>
+                            <iframe
+                              src={`https://www.youtube.com/embed/${videoId}`}
+                              style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '8px', border: '1px solid #e5e7eb'}}
+                              frameBorder="0"
+                              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          </div>
+                        </div>
+                      );
+                    }
+                    return <a href={href} target="_blank" rel="noopener noreferrer" className="text-[#CBAF73] hover:underline">{children}</a>;
+                  }
+                }}
+              >
+                {project.long_description}
+              </ReactMarkdown>
             </div>
           </motion.div>
         )}
@@ -143,16 +172,25 @@ export default function ProjectDetail() {
             className="mb-16"
           >
             <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-6">
-              Galerie
+              Documentation visuelle
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {project.gallery_images.map((img, i) => (
-                <div key={i} className="aspect-square overflow-hidden bg-gray-100">
+                <div 
+                  key={i} 
+                  className="aspect-video overflow-hidden bg-gray-100 cursor-pointer group relative border border-gray-200 hover:border-[#CBAF73] transition-all"
+                  onClick={() => setLightboxImage(img)}
+                >
                   <img
                     src={img}
                     alt={`${project.title} - ${i + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                    <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                      Cliquer pour agrandir
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -258,6 +296,35 @@ export default function ProjectDetail() {
           </motion.div>
         )}
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxImage(null)}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 cursor-pointer"
+          >
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <X size={20} className="text-white" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              src={lightboxImage}
+              alt="Image agrandie"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
