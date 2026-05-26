@@ -12,20 +12,20 @@ const experiences = [
     location: "La Valette",
     period: "2023-2024",
     year: "1ère année BUT GEII",
-    role: "Technicien Métrologue",
+    role: "Technicien en Métrologie",
     logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/d49da19f1_image.png",
     missions: [
-      "Métrologie des instruments de mesure",
-      "Création de fichiers Excel avancés pour suivi des étalonnages",
-      "Création de documentation technique par analyse des équipements",
-      "Gestion de base de données interne",
-      "Mise en place du suivi d'outillage",
-      "Rigueur documentaire et traçabilité"
+      "Réalisation d'opérations de contrôle et d'étalonnage en métrologie électronique et mécanique",
+      "Déplacements directs sur les sites industriels des clients pour effectuer les mesures sur place",
+      "Traitement et analyse des relevés de mesures via des tableurs Excel",
+      "Génération et édition des certificats d'étalonnage officiels attestant de la conformité du matériel",
+      "Programmation et gestion des flux d'expédition et de retour des colis contenant les équipements de mesure",
+      "Collaboration avec l'équipe commerciale pour la rédaction et le chiffrage des devis clients"
     ],
-    competences: ["Métrologie", "Excel avancé", "Documentation technique", "Organisation", "Traçabilité", "Gestion de base de données"],
-    softSkills: ["Rigueur", "Autonomie", "Fiabilité", "Attention aux détails", "Méthode"],
-    projetsLies: [],
-    conclusion: "J'ai choisi de quitter cette entreprise car les missions proposées étaient trop limitées et ne correspondaient plus à mes objectifs techniques et à ce que j'envisageais pour la suite de mon parcours."
+    competences: ["Métrologie mécanique & électronique", "Excel avancé", "Certificats d'étalonnage", "Suivi logistique", "Traçabilité", "Relation client technique"],
+    softSkills: ["Polyvalence", "Rigueur absolue", "Adaptabilité", "Esprit d'équipe", "Précision"],
+    projetsLies: ["Tableurs Excel de Métrologie"],
+    conclusion: "Cette première immersion dans le monde industriel s'est révélée extrêmement formatrice en offrant une vision globale du cycle de vie d'une prestation de service. Elle a permis de comprendre l'interdépendance entre la rigueur technique requise en laboratoire, l'efficacité logistique et l'importance de la relation commerciale, forgeant ainsi une solide capacité d'adaptation."
   },
   {
     id: 'kontron',
@@ -33,18 +33,18 @@ const experiences = [
     location: "La Farlède",
     period: "2024-2026",
     year: "2ème et 3ème année BUT GEII",
-    role: "Technicien Réparation & Documentation Technique",
+    role: "Apprenti Ingénieur / Technicien Supérieur en Réparation & Ingénierie Documentaire",
     logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/2adeb37bb_csm_Kontron_SPS_23_1_Presse__kl_7fbbfadc20.jpg",
     missions: [
-      "Diagnostic et réparation de cartes électroniques complexes",
-      "Création de documentation technique par rétro-ingénierie",
-      "Rédaction de procédures internes",
-      "Travail avec bancs de tests et équipements de mesure",
-      "Communication inter-équipes et formation"
+      "Diagnostic analytique et réparation matérielle de calculateurs industriels durcis (Défense, Aéronautique, Ferroviaire) par méthode des tests croisés",
+      "Ingénierie documentaire par rétro-ingénierie : création d'une base documentaire de maintenance pour systèmes Legacy",
+      "Validation fonctionnelle et logicielle : stress-tests thermiques (Burn-in), tests réseau et investigations bas niveau sur contrôleurs de stockage",
+      "Gestion de la conformité industrielle : traitement du flux RMA dans le respect des normes ISO 9001, EN9100, ESD, FOD",
+      "Communication inter-équipes et formation : transmission des savoir-faire aux nouveaux arrivants via des outils pédagogiques"
     ],
-    competences: ["Diagnostic électronique", "Documentation technique", "Analyse de schémas", "Tests et validation", "Rédaction technique"],
-    softSkills: ["Analyse", "Synthèse", "Communication inter-équipes", "Pédagogie", "Résolution de problèmes"],
-    projetsLies: ["Régulation Shelly EM", "CDM600 + Réseau Cisco + STM32"]
+    competences: ["EFI Shell & Linux CLI", "Flashage de BIOS", "Diagnostic S.M.A.R.T (HDD Expert / HD Tune)", "Stress-tests PC Check", "Scripts Python réseaux", "Multimètre & testeurs de charge RTX", "Loctite / Serrage au couple / Résine époxy", "Excel VBA & Macros"],
+    softSkills: ["Autonomie & Rigueur extrême", "Adaptabilité & Polyvalence", "Analyse & Synthèse", "Force de proposition", "Gestion du stress"],
+    projetsLies: ["Ingénierie documentaire chez Kontron", "Remise en fonctionnement d'un rack VME"]
   },
   {
     id: 'stage-droit-canonique',
