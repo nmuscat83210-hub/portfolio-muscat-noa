@@ -1,0 +1,88 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titre du projet"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Identifiant unique"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "Description courte"
+    },
+    "long_description": {
+      "type": "string",
+      "description": "Description d\u00e9taill\u00e9e"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "Image de couverture"
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Technologies utilis\u00e9es"
+    },
+    "competences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Comp\u00e9tences mobilis\u00e9es"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "geii",
+        "personnel",
+        "entreprise",
+        "terminale"
+      ],
+      "description": "Cat\u00e9gorie du projet"
+    },
+    "year": {
+      "type": "string",
+      "description": "Ann\u00e9e"
+    },
+    "context": {
+      "type": "string",
+      "description": "Contexte du projet (cours/entreprise)"
+    },
+    "gallery_images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Images de galerie"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Documents PDF"
+    },
+    "retex_points_forts": {
+      "type": "string",
+      "description": "Points forts"
+    },
+    "retex_ameliorations": {
+      "type": "string",
+      "description": "Axes d'am\u00e9lioration"
+    },
+    "retex_apprentissages": {
+      "type": "string",
+      "description": "Apprentissages cl\u00e9s"
+    }
+  },
+  "required": [
+    "title",
+    "slug"
+  ]
+}

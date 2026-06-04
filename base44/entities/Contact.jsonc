@@ -1,0 +1,32 @@
+{
+  "name": "Contact",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nom du contact"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Sujet du message"
+    },
+    "message": {
+      "type": "string",
+      "description": "Contenu du message"
+    },
+    "read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Message lu"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "message"
+  ]
+}
