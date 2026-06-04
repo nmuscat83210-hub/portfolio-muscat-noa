@@ -15,8 +15,8 @@ const experiences = [
     role: "Technicien en Métrologie",
     logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/d49da19f1_image.png",
     gallery_images: [
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/eabdf0994_photo1metrologie.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/d87b0995a_photo2metrologie.png"
+      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/dea5e1409_photo1metrologie.png",
+      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/e51b0e099_photo2metrologie.png"
     ],
     missions: [
       "Étalonnage électronique : vérification, calibrage et ajustement de multimètres, oscilloscopes, boîtes de résistances modulables et mégohmmètres",
@@ -40,10 +40,10 @@ const experiences = [
     role: "Apprenti Technicien de Réparation — MCO Calculateurs Embarqués",
     logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/2adeb37bb_csm_Kontron_SPS_23_1_Presse__kl_7fbbfadc20.jpg",
     gallery_images: [
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/33770dfbe_photoreparation1.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/ea7a3e706_photoreparation2.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/f5f32c799_photoreparation3.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/fe25e07e7_photoreparation4.png"
+      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/72e3b80d5_photoreparation1.png",
+      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/f89774789_photoreparation2.png",
+      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/d98ced7b6_photoreparation3.png",
+      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/df9577d2c_photoreparation4.png"
     ],
     missions: [
       "Diagnostics électroniques par tests croisés sur calculateurs critiques (défense, aéronautique, ferroviaire) : vérification des étages d'alimentation (+12V, +5V, +3.3V), contrôle des mémoires CMOS (> 3V) et extraction de données S.M.A.R.T via HDD Expert et HD Tune",
@@ -57,7 +57,7 @@ const experiences = [
     projetsLies: ["Documentation Technique par Rétro-ingénierie", "CDM600 + Réseau Cisco + STM32"],
     avis: "Cette immersion dans un secteur régi par des normes strictes (ISO 9001, EN9100, ISO/TS 22163) est extrêmement formatrice. Isoler la racine des pannes par des tests croisés plutôt que de remplacer des pièces au hasard développe un fort esprit d'analyse confirmant mon ambition vers l'ingénierie.",
     retex: "J'ai pu travailler sur une très grande variété de machines et d'architectures. Le travail sur les calculateurs MOON m'a particulièrement montré le lien fondamental entre hardware physique et logiciels/scripts.",
-    axe_amelioration: "Le laboratoire générant beaucoup de données (températures de Burn-in, heures de fonctionnement, erreurs logicielles), un algorithme d'IA permettrait de basculer d'une maintenance corrective vers une maintenance véritablement prédictive."
+    axe_amelioration: null
   },
   {
     id: 'stage-droit-canonique',
