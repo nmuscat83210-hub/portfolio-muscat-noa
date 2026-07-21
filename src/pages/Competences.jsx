@@ -58,33 +58,6 @@ Le fait de rédiger des documentations techniques de réparation démontre non s
     fromCourses: "Maintenance industrielle, Diagnostic de pannes",
     fromProjects: "Documentation technique par rétro-ingénierie",
     fromWork: "Métrologie chez Europe Qualité, Réparation chez Kontron",
-    maintenanceImages: [
-      {
-        url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/c497cd4e1_photomaintenanceelectrique.png",
-        caption: "Maintenance électrique sur rack industriel",
-        level: "BUT2/3"
-      },
-      {
-        url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/72e3b80d5_photoreparation1.png",
-        caption: "Laboratoire de réparation Kontron",
-        level: "BUT2/3"
-      },
-      {
-        url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/f89774789_photoreparation2.png",
-        caption: "Test réseau et diagnostic Linux",
-        level: "BUT3"
-      },
-      {
-        url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/d98ced7b6_photoreparation3.png",
-        caption: "Procédés spéciaux et résine époxy",
-        level: "BUT3"
-      },
-      {
-        url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/df9577d2c_photoreparation4.png",
-        caption: "Mesure tension CMOS sur calculateur",
-        level: "BUT2/3"
-      }
-    ],
     level: 98,
     levelsByYear: [100, 100],
     levelLabels: ["Niveau 2", "Niveau 3"],
@@ -143,27 +116,48 @@ const competencesHorsGEII = [
       "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8afbd9595_mtrologiecertificat.png",
       "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/52cb5628c_mtrologietableaudecalcul.png"
     ],
-    metrologieDoc: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94c765046_mtrologierapportkontron.pdf"
+    metrologieDocs: [
+      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94c765046_mtrologierapportkontron.pdf"
+    ]
   },
   {
-    name: "IA & Cybersécurité",
-    description: "Projets personnels en intelligence artificielle et sensibilisation à la sécurité informatique.",
-    level: 50,
+    name: "Intelligence Artificielle",
+    description: "Vision par ordinateur, entraînement de modèles YOLO, OpenCV et traitement d'images.",
+    level: 55,
     icon: "Brain",
-    why: "Cette compétence s'est développée à travers des projets académiques et personnels, centrés sur les bases de l'intelligence artificielle et les enjeux de la cybersécurité. J'ai appris à concevoir des solutions en intégrant les notions de protection des données, de robustesse logicielle et de sécurité des systèmes, en lien avec les contraintes de l'informatique industrielle.\n\nEn BUT GEII, j'ai suivi un TD de cybersécurité encadré par M. MUSCAT, qui constitue ma première initiation formelle aux principes de sécurité des systèmes d'information : analyse de vulnérabilités, principes de cryptographie, sécurisation des accès et sensibilisation aux bonnes pratiques en environnement industriel.\n\nCôté IA, le projet Opti Plant a été l'occasion d'une expérience concrète et significative : entraînement (fine-tuning) d'un modèle YOLO11s sur 1054 images annotées via Label Studio, obtenant 91,2 % de précision sur la détection de 6 espèces végétales. L'entraînement a été réalisé sur GPU T4 via Google Colab, avec intégration du modèle dans un site web via PHP/Python (Ultralytics, OpenCV).",
-    tdCybersecurite: "TD1 Cybersécurité MUSCAT"
+    why: "Cette compétence s'est construite à travers des travaux académiques concrets en vision par ordinateur et en apprentissage machine.\n\nLe Devoir Maison de Vision (encadré par M. GIES) m'a amené à développer en Python avec OpenCV un programme de segmentation et classification de fruits par couleur, forme et taille. Le travail a consisté à implémenter des masques HSV, des opérations morphologiques, l'algorithme Watershed et des critères géométriques pour détecter et identifier automatiquement pommes, nectarines, citrons et abricots. Ce DM a exigé plusieurs itérations de méthodes et une forte capacité d'analyse des échecs intermédiaires.\n\nLe projet Opti Plant a représenté un niveau supérieur : constitution d'un dataset de 1054 images annotées via Label Studio (10 labels, 6 espèces végétales), entraînement (fine-tuning) d'un modèle YOLO11s sur Google Colab (GPU T4, 60 epochs, lr0=0.04), atteignant 91,2 % de précision et 82,6 % de recall. Le modèle a été déployé sur un serveur web local via un script Python appelé par PHP (shell_exec, librairie Ultralytics, OpenCV/FFmpeg).",
+    iaDocs: [
+      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/3bc53050c_DM_pomme-peches-abricot-citrons_Noa_MUSCAT.pdf"
+    ]
+  },
+  {
+    name: "Cybersécurité",
+    description: "Analyse de vulnérabilités CVE, outils de reconnaissance (Shodan, WHOIS, Exploit-DB) et bonnes pratiques de sécurité.",
+    level: 40,
+    icon: "Shield",
+    why: "En BUT GEII, j'ai suivi un TD de Cybersécurité encadré par M. Alpha Boubacar BAH (prof), qui constitue mon initiation formelle aux principes de sécurité des systèmes d'information.\n\nCe TD m'a permis de pratiquer l'analyse de vulnérabilités CVE sur des équipements utilisés en cours (STM32F4, Cisco WLC, Siemens SIMATIC S7, Schneider Modicon) via les bases de données publiques. J'ai calculé les moyennes CVSS (Schneider : 7,55 ; Siemens : 8,42 — niveau Élevé), utilisé Shodan pour identifier des systèmes réellement exposés sur Internet (Raspberry Pi, systèmes domotiques), et appliqué des techniques de reconnaissance passive comme le Google Dorking (filetype:pdf, site:, filetype:txt) et les requêtes WHOIS/RDAP.\n\nCe travail m'a sensibilisé à la réalité des menaces sur les systèmes industriels que j'utilise au quotidien et à l'importance du maintien à jour des firmwares.",
+    cybersecDocs: [
+      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/44e8aeb26_TD1CyberscuritMUSCAT.pdf"
+    ]
   },
   {
     name: "Langages informatiques",
     description: "Programmation embarquée, logicielle et algorithmique appliquée aux systèmes techniques.",
     level: 80,
     icon: "Code",
-    why: "Cette compétence s'est construite à travers ma formation en sciences de l'ingénieur et mes projets techniques, aussi bien académiques que personnels. J'ai développé une pratique régulière de langages variés, appliqués à des problématiques concrètes :\n\n• **C / C++** : Programmation embarquée sur STM32 et ESP32 (FreeRTOS, gestion SPI, IHM TFT), code de contrôle moteur pour robot détecteur d'obstacles, devoirs maison algorithmiques (changement de tableau, facture câble).\n• **Python** : Scripts de stress-test réseau chez Kontron, simulateur IoT de flotte de véhicules (MQTT Paho, Geopy, threading), scripts d'entraînement YOLO, subscriber MQTT avec insertion MySQL.\n• **HTML/CSS/JavaScript** : Site web de jeu éducatif CO2 (pygame), site voyage/escape game personnel, dashboard OptiPlant (fetch asynchrone, InfluxDB).\n• **PHP** : Interface web de contrôle du système IoT (PDO MySQL, endpoints sécurisés), intégration IA YOLO via shell_exec.\n• **SQL/InfluxDB** : Base de données véhicules (tables mesures + subscriptions), base Optiplant (MySQL Aiven Cloud), requêtes Flux temporelles InfluxDB.\n• **LabVIEW** : Interface de supervision ShellyEM avec récupération API HTTP JSON.\n\nCes expériences m'ont permis d'acquérir une logique de programmation structurée, une capacité à concevoir des algorithmes fiables et à adapter le langage aux contraintes des systèmes.",
-    codeImages: [
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/4f600d240_informatiquechangementtableau.txt",
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/01a92a3f1_informatiquefacturecable.txt",
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/a5fa54cfd_sitevoyage.txt"
+    why: "Cette compétence s'est construite à travers ma formation en sciences de l'ingénieur et mes projets techniques, aussi bien académiques que personnels. J'ai développé une pratique régulière de langages variés appliqués à des problématiques concrètes.\n\nEn C et C++, j'ai réalisé de la programmation embarquée sur STM32 et ESP32 (FreeRTOS, gestion SPI, IHM TFT), le code de contrôle moteur pour le robot détecteur d'obstacles, ainsi que des devoirs maison algorithmiques comme la manipulation de tableaux en C (inversion, recherche de maximum, comptage conditionnel) ou le calcul d'une facture câble avec remises et TVA.\n\nEn Python, j'ai développé des scripts de stress-test réseau chez Kontron, un simulateur IoT de flotte de véhicules avec le protocole MQTT (Paho, Geopy, threading), des scripts d'entraînement YOLO pour Opti Plant, ainsi qu'un subscriber MQTT avec insertion MySQL dynamique.\n\nEn HTML/CSS/JavaScript, j'ai créé le site web du jeu éducatif CO2 et un site voyage / jeu escape game en ligne comme projet personnel, ainsi que le dashboard OptiPlant avec fetch asynchrone interrogeant InfluxDB. En PHP, j'ai développé l'interface web de contrôle du système IoT véhicules (PDO MySQL, endpoints sécurisés) et l'intégration du modèle IA YOLO via shell_exec. En SQL et InfluxDB, j'ai conçu la base de données véhicules (tables mesures et subscriptions) et les requêtes Flux temporelles d'OptiPlant. En LabVIEW, j'ai développé l'interface de supervision ShellyEM avec récupération API HTTP JSON.",
+    codeDocs: [
+      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/67e6a6a79_informatiquechangementtableau.txt",
+      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/a3543196b_informatiquefacturecable.txt",
+      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/c11db5b68_sitevoyage.txt"
     ]
+  },
+  {
+    name: "Base de Données",
+    description: "Conception et exploitation de bases de données MySQL, InfluxDB, SQL, PHP/PDO, architecture IoT MQTT.",
+    level: 70,
+    icon: "Database",
+    why: "Cette compétence s'est développée à travers plusieurs projets combinant conception de bases de données, développement backend et architecture IoT.\n\nPour le projet de supervision de flotte de véhicules, j'ai conçu et implémenté une architecture complète. Deux programmes PHP constituent le tableau de bord administrateur : le premier génère une page web interactive qui se connecte à la base de données pour afficher tous les flux MQTT disponibles (latitude, batterie, etc.) en comptant les mesures enregistrées pour chacun ; le second met à jour les préférences en activant (1) ou désactivant (0) la collecte de données selon les cases cochées par l'utilisateur. La base de données MySQL base_vehicules comporte une table mesures stockant l'historique complet de la flotte (véhicule, donnée, valeur, horodatage) et une table subscriptions dictant au système quels topics il est autorisé à écouter en temps réel. Un simulateur Python simule trois véhicules virtuels en calculant leur déplacement GPS réaliste entre Saint-Cyr-sur-Mer et Bormes-les-Mimosas avec décharge de batterie, publie ces données via MQTT (protocole ultra-léger IoT), et permet même de simuler des recharges ou pannes au clavier. Un subscriber Python écoute les messages MQTT, interroge dynamiquement la base de données pour connaître les topics actifs, et sauvegarde automatiquement chaque donnée autorisée dans la table SQL sans redémarrage.\n\nPour Opti Plant, j'ai déployé et administré une base de données MySQL hébergée sur Aiven Cloud, gérée via MySQL Workbench, avec une architecture relationnelle complète (tables PLANT, RECIPE, NUTRIENT, PERCENTAGE, USER_TABLE, WEATHER_STATION). Les requêtes Flux sur InfluxDB pour les données temporelles des capteurs complètent ce panorama.",
   },
   {
     name: "Autonomie & Organisation",

@@ -1,7 +1,29 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, TrendingUp } from 'lucide-react';
+import { X, TrendingUp, FileText, ExternalLink } from 'lucide-react';
 import { createPageUrl } from '../../utils';
+
+function DocLinks({ docs, label }) {
+  if (!docs || docs.length === 0) return null;
+  return (
+    <div className="mt-4 mb-8">
+      <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">{label}</h3>
+      <div className="flex flex-wrap gap-3">
+        {docs.map((url, i) => {
+          const name = url.split('/').pop().replace(/_/g, ' ').replace(/\.[^.]+$/, '');
+          return (
+            <a key={i} href={url} target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 border border-gray-200 hover:border-[#CBAF73] text-sm text-black/70 hover:text-[#CBAF73] transition-all">
+              <FileText size={14} />
+              <span>{name}</span>
+              <ExternalLink size={12} />
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function CompetenceDetailModal({ competence, onClose }) {
   if (!competence) return null;
@@ -51,27 +73,34 @@ export default function CompetenceDetailModal({ competence, onClose }) {
 
           {/* Content */}
           <div className="p-8 md:p-12">
-            {/* Why I master this - Only if not Maintenir */}
-            {competence.name !== "Maintenir" && (
-              <div className="mb-12">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-                  Pourquoi je maîtrise cette compétence
-                </h3>
-                <p className="text-black/70 leading-relaxed whitespace-pre-line">
-                  {competence.why || "Cette compétence a été développée au cours de ma formation et de mes expériences professionnelles, me permettant d'acquérir une maîtrise solide et pratique."}
-                </p>
-                {competence.toeicScore !== undefined && (
-                  <div className="mt-4 p-4 bg-gray-50 border border-gray-200">
-                    <span className="text-xs uppercase tracking-[0.2em] text-black/40">
-                      Score TOEIC
-                    </span>
-                    <p className="text-lg font-medium text-black/80 mt-1">
-                      {competence.toeicScore || "À renseigner ultérieurement"}
-                    </p>
+            {/* Why I master this */}
+            <div className="mb-12">
+              <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
+                Pourquoi je maîtrise cette compétence
+              </h3>
+              <p className="text-black/70 leading-relaxed whitespace-pre-line">
+                {competence.why || "Cette compétence a été développée au cours de ma formation et de mes expériences professionnelles."}
+              </p>
+              {competence.toeicScore !== undefined && (
+                <div className="mt-4 p-4 bg-gray-50 border border-gray-200">
+                  <span className="text-xs uppercase tracking-[0.2em] text-black/40">Score TOEIC</span>
+                  <p className="text-lg font-medium text-black/80 mt-1">{competence.toeicScore}</p>
+                </div>
+              )}
+              <DocLinks docs={competence.iaDocs} label="Travaux IA" />
+              <DocLinks docs={competence.cybersecDocs} label="Documents Cybersécurité" />
+              <DocLinks docs={competence.codeDocs} label="Codes sources" />
+              <DocLinks docs={competence.metrologieDocs} label="Documents Métrologie" />
+              {competence.metrologieImages && competence.metrologieImages.length > 0 && (
+                <div className="mt-4">
+                  <div className="grid grid-cols-2 gap-3">
+                    {competence.metrologieImages.map((img, i) => (
+                      <img key={i} src={img} alt={`Métrologie ${i+1}`} className="w-full h-auto border border-gray-200" />
+                    ))}
                   </div>
-                )}
-              </div>
-            )}
+                </div>
+              )}
+            </div>
 
             {/* Self-assessment by year - Only for GEII competences */}
             {competence.levelsByYear && (
@@ -81,25 +110,10 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                 </h3>
                 <div className="space-y-8">
                   {competence.levelsByYear.map((level, index) => {
-                    const yearLabel = competence.name === "Maintenir" 
-                      ? `${competence.name} — niveau BUT${index + 2}`
+                    const labels = competence.levelLabels;
+                    const yearLabel = labels
+                      ? `${competence.name} — ${labels[index]}`
                       : `${competence.name} — niveau BUT${index + 1}`;
-                    const levelImages = competence.maintenanceImages?.filter(img => img.level === `BUT${index + 2}`);
-                    
-                    // Extract level description for Maintenir
-                    let levelDescription = null;
-                    if (competence.name === "Maintenir" && competence.why) {
-                      const whyText = competence.why;
-                      const but2Match = whyText.match(/Ce niveau correspond aux compétences.*?(?=🔹 Niveau BUT3|$)/s);
-                      const but3Match = whyText.match(/En BUT3, j'ai poursuivi.*?(?=🔹|$)/s);
-                      
-                      if (index === 0 && but2Match) {
-                        levelDescription = but2Match[0].replace(/🔹 Niveau BUT2.*?\n\n/g, '').trim();
-                      } else if (index === 1 && but3Match) {
-                        levelDescription = but3Match[0].replace(/🔹 Niveau BUT3.*?\n\n/g, '').trim();
-                      }
-                    }
-                    
                     return (
                       <div key={index}>
                         <div className="flex justify-between mb-2">
@@ -115,23 +129,6 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                             className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
                           />
                         </div>
-                        
-                        {levelDescription && (
-                          <p className="text-sm text-black/70 leading-relaxed mb-4 whitespace-pre-line">
-                            {levelDescription}
-                          </p>
-                        )}
-                        
-                        {levelImages && levelImages.length > 0 && (
-                          <div className="mt-4 space-y-2">
-                            {levelImages.map((img, imgIdx) => (
-                              <div key={imgIdx} className="border border-gray-200 p-2">
-                                <img src={img.url} alt={img.caption} className="w-full h-auto" />
-                                <p className="text-xs text-black/50 mt-2 text-center">{img.caption}</p>
-                              </div>
-                            ))}
-                          </div>
-                        )}
                       </div>
                     );
                   })}
