@@ -69,7 +69,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <a 
-                  href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/96c8843bc_CV_NOA_MUSCAT_Couleur.pdf"
+                  href="https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/9413ae680_CV_NOA_MUSCAT.pdf"
                   download="CV_NOA_MUSCAT.pdf"
                 >
                   <GoldButton variant="primary">

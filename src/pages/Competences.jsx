@@ -111,13 +111,15 @@ const competencesHorsGEII = [
     description: "Calibration d'instruments, gestion de base de données métrologique, suivi d'outillages.",
     level: 100,
     icon: "Settings",
-    why: "La métrologie a été l'une de mes missions principales tout au long de mon alternance, d'abord comme cœur de métier, puis comme responsabilité transversale.\n\n**1ère année BUT – Europe Qualité (2023-2024) :**\nLa métrologie constituait mon métier à temps plein. J'effectuais des étalonnages électroniques (multimètres, oscilloscopes, boîtes de résistances, mégohmmètres) et mécaniques (pinces à sertir sur colonne de force, baromètres, balances ultra-précises). Chaque intervention donnait lieu à la rédaction d'un certificat d'étalonnage officiel assurant la traçabilité aux étalons nationaux.\n\n**2ème et 3ème années BUT – Kontron (2024-2026) :**\nEn mission secondaire mais régulière, j'ai pris en charge la métrologie complète du laboratoire de réparation :\n• Inventaire et envoi des appareils de mesure (multimètres, contrôleurs ESD) au prestataire TRESCAL pour certification annuelle/bisannuelle.\n• Vérification hebdomadaire des tournevis dynamométriques au dynamomètre interne (5 mesures par cran, tolérance ±5%), consignation dans un fichier Excel de traçabilité.\n• Campagnes de métrologie ESD (sols, chaises, paillasses) au téra-ohmmètre et giga-ohmmètre (résistance < 10⁹ Ω).\n• Métrologie bisannuelle des racks de test (VME, cPCI, VPX) : isolation, continuité de terre, tensions avec et sans charge.",
+    why: "La métrologie a été l'une de mes missions principales tout au long de mon alternance, d'abord comme cœur de métier, puis comme responsabilité transversale.\n\n1ère année de BUT – Europe Qualité (2023-2024)\nDurant cette première année, la métrologie constituait mon métier à temps plein. J'étais en charge de réaliser des étalonnages tant électroniques (multimètres, oscilloscopes, boîtes de résistances et mégohmmètres) que mécaniques (pinces à sertir sur colonne de force, baromètres et balances ultra-précises). Chacune de mes interventions nécessitait une grande rigueur et se concluait par la rédaction d'un certificat d'étalonnage officiel, garantissant ainsi une parfaite traçabilité par rapport aux étalons nationaux.\n\n2ème et 3ème années de BUT – Kontron (2024-2026)\nPar la suite, bien qu'il s'agisse d'une mission secondaire, j'ai assumé de façon très régulière la responsabilité complète de la métrologie au sein du laboratoire de réparation. Mon rôle consistait à gérer l'inventaire et l'expédition des appareils de mesure (comme les multimètres et contrôleurs ESD) à notre prestataire TRESCAL pour leur certification annuelle ou bisannuelle. En interne, j'assurais un suivi strict des équipements, notamment à travers la vérification hebdomadaire des tournevis dynamométriques impliquant cinq mesures par cran avec une tolérance de ±5%, le tout consigné dans un fichier de traçabilité dédié. Enfin, je pilotais les campagnes de métrologie ESD des sols, chaises et paillasses à l'aide d'instruments de précision (téra-ohmmètre et giga-ohmmètre) pour garantir une résistance < 10⁹ Ω, ainsi que la métrologie bisannuelle des racks de test (VME, cPCI, VPX) couvrant les contrôles d'isolation, la continuité de terre et la mesure des tensions avec et sans charge.",
     metrologieImages: [
       "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8afbd9595_mtrologiecertificat.png",
       "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/52cb5628c_mtrologietableaudecalcul.png"
     ],
     metrologieDocs: [
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94c765046_mtrologierapportkontron.pdf"
+      { url: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94c765046_mtrologierapportkontron.pdf", label: "Rapport Métrologie Kontron" },
+      { url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/52cb5628c_mtrologietableaudecalcul.png", label: "Tableau de calcul métrologique" },
+      { url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8afbd9595_mtrologiecertificat.png", label: "Certificat d'étalonnage" }
     ]
   },
   {
@@ -179,7 +181,8 @@ const competencesHorsGEII = [
     level: 100,
     icon: "Globe",
     why: "L'anglais technique est une compétence quotidienne dans mon parcours d'ingénieur. Je consulte systématiquement les documentations techniques, datasheets, normes (IEEE, ISO) et ressources académiques en anglais. La lecture de code commenté en anglais, de dépôts GitHub, de forums Stack Overflow et de documentation d'API fait partie de ma pratique habituelle.\n\nMon score TOEIC de 955/990 (niveau C1 avancé, proche du niveau ingénieur C2) atteste objectivement de ce niveau. Je suis capable de rédiger des rapports techniques, de présenter des projets et de m'exprimer sur des sujets d'ingénierie avec aisance, aussi bien à l'écrit qu'à l'oral.\n\nJe m'attribue 100 % sur ce référentiel car le niveau requis pour un ingénieur GEII est couvert : compréhension de documentations techniques complexes, communication professionnelle et capacité à travailler dans un environnement anglophone.",
-    toeicScore: 955
+    toeicScore: 955,
+    toeicDoc: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/fa44e0d26_CertificatTOEIC.pdf"
   }
 ];
 

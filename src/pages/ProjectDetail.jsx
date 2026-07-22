@@ -265,7 +265,9 @@ export default function ProjectDetail() {
                   className="flex items-center gap-3 p-4 border border-gray-200 hover:border-[#CBAF73] transition-colors"
                 >
                   <Download size={18} className="text-[#CBAF73]" />
-                  <span className="text-sm">Document {i + 1}</span>
+                  <span className="text-sm">
+                    {doc.split('/').pop().split('_').slice(1).join(' ').replace(/\.[^.]+$/, '') || `Document ${i + 1}`}
+                  </span>
                   <ExternalLink size={14} className="ml-auto text-black/30" />
                 </a>
               ))}

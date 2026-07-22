@@ -9,8 +9,11 @@ function DocLinks({ docs, label }) {
     <div className="mt-4 mb-8">
       <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">{label}</h3>
       <div className="flex flex-wrap gap-3">
-        {docs.map((url, i) => {
-          const name = url.split('/').pop().replace(/_/g, ' ').replace(/\.[^.]+$/, '');
+        {docs.map((doc, i) => {
+          const url = typeof doc === 'string' ? doc : doc.url;
+          const name = typeof doc === 'object' && doc.label
+            ? doc.label
+            : url.split('/').pop().split('_').slice(1).join(' ').replace(/\.[^.]+$/, '') || `Document ${i + 1}`;
           return (
             <a key={i} href={url} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 border border-gray-200 hover:border-[#CBAF73] text-sm text-black/70 hover:text-[#CBAF73] transition-all">
@@ -82,9 +85,18 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                 {competence.why || "Cette compétence a été développée au cours de ma formation et de mes expériences professionnelles."}
               </p>
               {competence.toeicScore !== undefined && (
-                <div className="mt-4 p-4 bg-gray-50 border border-gray-200">
-                  <span className="text-xs uppercase tracking-[0.2em] text-black/40">Score TOEIC</span>
-                  <p className="text-lg font-medium text-black/80 mt-1">{competence.toeicScore}</p>
+                <div className="mt-4 p-4 bg-gray-50 border border-gray-200 flex items-center justify-between">
+                  <div>
+                    <span className="text-xs uppercase tracking-[0.2em] text-black/40">Score TOEIC</span>
+                    <p className="text-lg font-medium text-black/80 mt-1">{competence.toeicScore}/990 — C1</p>
+                  </div>
+                  {competence.toeicDoc && (
+                    <a href={competence.toeicDoc} target="_blank" rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-2 border border-[#CBAF73] text-[#CBAF73] text-sm hover:bg-[#CBAF73]/10 transition-colors">
+                      <FileText size={14} />
+                      Certificat TOEIC
+                    </a>
+                  )}
                 </div>
               )}
               <DocLinks docs={competence.iaDocs} label="Travaux IA" />
