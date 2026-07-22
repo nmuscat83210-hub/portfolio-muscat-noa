@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
 import TimelineItem from '../components/timeline/TimelineItem';
 import { createPageUrl } from '../utils';
+import Testimonials from '../components/testimonials/Testimonials';
 
 const timeline = [
   {
@@ -58,9 +59,9 @@ const timeline = [
 
 export default function Parcours() {
   return (
-    <div className="min-h-screen pt-32 pb-24">
+    <div className="min-h-screen pt-24 lg:pt-32 pb-16 lg:pb-24">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-16 lg:mb-24">
         <SectionTitle 
           title="Parcours"
           subtitle="Mon évolution"
@@ -71,7 +72,7 @@ export default function Parcours() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
+          className="text-center text-base lg:text-lg text-black/60 font-light max-w-2xl mx-auto"
         >
           Du baccalauréat scientifique au BUT GEII en alternance, 
           découvrez les étapes clés de ma formation académique et professionnelle.
@@ -107,6 +108,8 @@ export default function Parcours() {
         </div>
         </section>
 
+      {/* Testimonials */}
+      <Testimonials />
 
         </div>
         );
