@@ -190,9 +190,9 @@ export default function Competences() {
   const [selectedCompetence, setSelectedCompetence] = useState(null);
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-white to-gray-50">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-16 lg:mb-24">
         <SectionTitle 
           title="Compétences"
           subtitle="Savoir-faire"
@@ -203,7 +203,7 @@ export default function Competences() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
+          className="text-center text-base lg:text-lg text-black/60 font-light max-w-2xl mx-auto"
         >
           Un ensemble de compétences techniques et transversales 
           développées au fil de ma formation et de mes expériences professionnelles.
@@ -211,7 +211,7 @@ export default function Competences() {
       </section>
 
       {/* Compétences GEII */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-32">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-20 lg:mb-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

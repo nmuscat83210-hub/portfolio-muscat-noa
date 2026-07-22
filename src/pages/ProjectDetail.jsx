@@ -42,9 +42,9 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-24">
+    <div className="min-h-screen pt-20 lg:pt-24 pb-16 lg:pb-24">
       {/* Back button */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
+      <div           className="max-w-7xl mx-auto px-6 lg:px-12 mb-8 lg:mb-12">
         <Link 
           to={createPageUrl('Projets')}
           className="inline-flex items-center gap-2 text-sm text-black/50 hover:text-black transition-colors"
@@ -59,7 +59,7 @@ export default function ProjectDetail() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto px-6 lg:px-12 mb-16"
+          className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 lg:mb-16"
         >
           <div className="aspect-video overflow-hidden bg-gray-100">
             <img
@@ -85,10 +85,10 @@ export default function ProjectDetail() {
              project.category === 'personnel' ? 'Projet Personnel' : 'Projet Entreprise'}
             {project.year && ` — ${project.year}`}
           </span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6">
             {project.title}
           </h1>
-          <p className="text-xl text-black/60 font-light leading-relaxed">
+          <p className="text-lg text-black/60 font-light leading-relaxed">
             {project.short_description}
           </p>
         </motion.div>
@@ -99,7 +99,7 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-12"
+            className="mb-8 lg:mb-12"
           >
             <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
               Technologies utilisées
@@ -123,7 +123,7 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-16"
+            className="mb-12 lg:mb-16"
           >
             <div className="prose prose-lg max-w-none font-light text-black/70 leading-relaxed">
               <ReactMarkdown
@@ -203,11 +203,11 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mb-16 p-8 bg-gray-50 border border-gray-100"
+            className="mb-12 lg:mb-16 p-6 lg:p-8 bg-gray-50 border border-gray-100"
           >
             <h3 className="text-lg font-medium mb-8">Retour d'expérience</h3>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
               {project.retex_points_forts && (
                 <div>
                   <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">

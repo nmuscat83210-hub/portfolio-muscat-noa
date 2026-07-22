@@ -116,30 +116,30 @@ export default function ExperiencePro() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   return (
-    <div className="min-h-screen pt-32 pb-24">
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+    <div className="min-h-screen pt-24 lg:pt-32 pb-16 lg:pb-24">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-16 lg:mb-24">
         <SectionTitle title="Expérience Professionnelle" subtitle="Parcours en entreprise" align="center" />
-        <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto">
+        <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center text-base lg:text-lg text-black/60 font-light max-w-2xl mx-auto">
           Trois années d'alternance et un stage dans des environnements techniques et juridiques exigeants, développant expertise et professionnalisme.
         </motion.p>
       </section>
 
       <section className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {experiences.map((exp, index) => (
             <motion.div key={exp.id} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }} onClick={() => setSelectedExp(exp)} className="group cursor-pointer">
               <div className="border border-gray-200 hover:border-[#CBAF73] transition-all duration-500 overflow-hidden">
-                <div className="relative h-48 overflow-hidden bg-gray-100">
+                <div className="relative h-40 lg:h-48 overflow-hidden bg-gray-100">
                   <img src={exp.logo} alt={exp.company} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                   <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20">
                     <Building2 size={20} className="text-white" />
                   </div>
                 </div>
-                <div className="p-8">
+                <div className="p-6 lg:p-8">
                   <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] mb-3 block">{exp.year}</span>
-                  <h3 className="text-2xl font-light mb-2 group-hover:text-[#CBAF73] transition-colors">{exp.company}</h3>
-                  <p className="text-lg text-black/60 mb-6">{exp.role}</p>
+                  <h3 className="text-xl lg:text-2xl font-light mb-2 group-hover:text-[#CBAF73] transition-colors">{exp.company}</h3>
+                  <p className="text-base lg:text-lg text-black/60 mb-6">{exp.role}</p>
                   <div className="flex flex-wrap gap-4 text-sm text-black/50 mb-6">
                     <span className="flex items-center gap-2"><MapPin size={14} />{exp.location}</span>
                     <span className="flex items-center gap-2"><Calendar size={14} />{exp.period}</span>
@@ -161,13 +161,13 @@ export default function ExperiencePro() {
                 <button onClick={() => setSelectedExp(null)} className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"><X size={20} className="text-white" /></button>
                 <div className="absolute bottom-6 left-8">
                   <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] mb-2 block">{selectedExp.year}</span>
-                  <h2 className="text-3xl font-light text-white mb-2">{selectedExp.company}</h2>
+                  <h2 className="text-2xl lg:text-3xl font-light text-white mb-2">{selectedExp.company}</h2>
                   <p className="text-white/70">{selectedExp.role}</p>
                 </div>
               </div>
 
-              <div className="p-8 md:p-12">
-                <div className="flex flex-wrap gap-6 mb-12 pb-12 border-b border-gray-100">
+              <div className="p-6 lg:p-12">
+                <div className="flex flex-wrap gap-4 lg:gap-6 mb-8 lg:mb-12 pb-8 lg:pb-12 border-b border-gray-100">
                   <div className="flex items-center gap-3"><MapPin size={18} className="text-[#CBAF73]" /><span className="text-black/70">{selectedExp.location}</span></div>
                   <div className="flex items-center gap-3"><Calendar size={18} className="text-[#CBAF73]" /><span className="text-black/70">{selectedExp.period}</span></div>
                 </div>
@@ -197,7 +197,7 @@ export default function ExperiencePro() {
                   </ul>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-12 mb-12">
+                <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-8 lg:mb-12">
                   <div>
                     <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">Compétences techniques</h3>
                     <div className="flex flex-wrap gap-2">

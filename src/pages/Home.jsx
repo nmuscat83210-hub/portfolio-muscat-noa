@@ -25,7 +25,7 @@ export default function Home() {
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CBAF73]/20 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-24">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             {/* Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -46,7 +46,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-[1.1] mb-8"
+                className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-[1.1] mb-6 lg:mb-8"
               >
                 <span className="font-medium">Noa MUSCAT</span>
                 <br />
@@ -57,7 +57,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="text-lg md:text-xl text-black/60 font-light leading-relaxed mb-12 max-w-lg"
+                className="text-base md:text-xl text-black/60 font-light leading-relaxed mb-8 lg:mb-12 max-w-lg"
               >
                 Étudiant en ingénierie, passionné par la technologie, l'IA et la cybersécurité.
               </motion.p>
@@ -135,7 +135,7 @@ export default function Home() {
       </motion.section>
 
       {/* Intro Section */}
-      <section className="py-32 bg-black text-white">
+      <section className="py-20 lg:py-32 bg-black text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -147,7 +147,7 @@ export default function Home() {
             <span className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-8 block">
               Mon Histoire
             </span>
-            <div className="text-xl md:text-2xl font-light leading-relaxed text-white/90 space-y-6">
+            <div className="text-lg md:text-2xl font-light leading-relaxed text-white/90 space-y-4 lg:space-y-6">
               <p>
                 Mes premiers pas en sciences de l'ingénieur ont été déterminants.
                 C'est à ce moment-là que j'ai découvert la programmation orientée objet et, avec elle, le plaisir de concevoir des systèmes logiques, structurés et évolutifs. Très rapidement, j'ai compris que le code n'était pas seulement un outil, mais un moyen de transformer des idées en solutions techniques concrètes.
@@ -167,9 +167,9 @@ export default function Home() {
       </section>
 
       {/* Quick Links */}
-      <section className="py-32">
+      <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: 'Parcours', desc: 'De mon baccalauréat à aujourd\'hui', link: 'Parcours' },
               { title: 'Compétences', desc: 'Techniques et transversales', link: 'Competences' },
@@ -184,12 +184,12 @@ export default function Home() {
               >
                 <Link
                   to={createPageUrl(item.link)}
-                  className="group block p-8 border border-gray-200 hover:border-[#CBAF73] transition-all duration-500"
+                  className="group block p-6 lg:p-8 border border-gray-200 hover:border-[#CBAF73] transition-all duration-500"
                 >
                   <span className="text-xs text-[#CBAF73] uppercase tracking-[0.3em] mb-4 block">
                     0{index + 1}
                   </span>
-                  <h3 className="text-2xl font-light mb-3 group-hover:text-[#CBAF73] transition-colors">
+                  <h3 className="text-xl lg:text-2xl font-light mb-3 group-hover:text-[#CBAF73] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-black/50 font-light">

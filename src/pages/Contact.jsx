@@ -37,9 +37,9 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-24">
+    <div className="min-h-screen pt-24 lg:pt-32 pb-16 lg:pb-24">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-16 lg:mb-24">
         <SectionTitle 
           title="Contact"
           subtitle="Échangeons"
@@ -50,7 +50,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
+          className="text-center text-base lg:text-lg text-black/60 font-light max-w-2xl mx-auto"
         >
           Une question, une opportunité, une collaboration ?
           N'hésitez pas à me contacter.
@@ -65,9 +65,9 @@ export default function Contact() {
           viewport={{ once: true }}
           className="max-w-2xl mx-auto"
         >
-          <h3 className="text-2xl font-light mb-8 text-center">Coordonnées</h3>
+          <h3 className="text-xl lg:text-2xl font-light mb-8 text-center">Coordonnées</h3>
           
-          <div className="space-y-6 mb-12">
+          <div className="space-y-4 lg:space-y-6 mb-8 lg:mb-12">
             {contactInfo.map((item, index) => (
               <motion.a
                 key={item.label}
@@ -78,7 +78,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group flex items-center gap-6 p-6 border border-gray-200 hover:border-[#CBAF73] transition-all duration-300"
+                className="group flex items-center gap-4 lg:gap-6 p-4 lg:p-6 border border-gray-200 hover:border-[#CBAF73] transition-all duration-300"
               >
                 <div className="w-12 h-12 flex items-center justify-center border border-gray-200 group-hover:border-[#CBAF73] group-hover:bg-[#CBAF73]/5 transition-all">
                   <item.icon size={20} className="text-black/60 group-hover:text-[#CBAF73] transition-colors" />
@@ -87,7 +87,7 @@ export default function Contact() {
                   <span className="text-xs uppercase tracking-[0.2em] text-black/40 block mb-1">
                     {item.label}
                   </span>
-                  <span className="text-lg font-light group-hover:text-[#CBAF73] transition-colors">
+                  <span className="text-base lg:text-lg font-light group-hover:text-[#CBAF73] transition-colors">
                     {item.value}
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export default function Contact() {
           </div>
 
           {/* Availability */}
-          <div className="p-8 bg-gray-50">
+          <div className="p-6 lg:p-8 bg-gray-50">
             <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
               Disponibilité
             </h4>

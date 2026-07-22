@@ -27,9 +27,9 @@ export default function Projets() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <div className="min-h-screen pt-32 pb-24">
+    <div className="min-h-screen pt-24 lg:pt-32 pb-16 lg:pb-24">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-16">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 lg:mb-16">
         <SectionTitle 
           title="Projets"
           subtitle="Réalisations"
@@ -40,7 +40,7 @@ export default function Projets() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto mb-12"
+          className="text-center text-base lg:text-lg text-black/60 font-light max-w-2xl mx-auto mb-12"
         >
           Découvrez mes réalisations académiques, professionnelles et personnelles, 
           témoins de mon parcours et de mes compétences.
@@ -53,7 +53,7 @@ export default function Projets() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 ${
+                className={`px-4 py-2.5 lg:px-6 lg:py-3 text-sm font-medium tracking-wide transition-all duration-300 ${
                   activeCategory === cat.id
                     ? 'bg-black text-white'
                     : 'text-black/60 hover:text-black'
@@ -88,7 +88,7 @@ export default function Projets() {
         ) : (
           <motion.div 
             layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (
@@ -104,7 +104,7 @@ export default function Projets() {
       </section>
 
       {/* CTA Section */}
-      <section className="mt-32 py-24 bg-gradient-to-r from-gray-50 to-white">
+      <section className="mt-20 lg:mt-32 py-16 lg:py-24 bg-gradient-to-r from-gray-50 to-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -114,7 +114,7 @@ export default function Projets() {
             <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-4 block">
               Collaboration
             </span>
-            <h3 className="text-2xl md:text-3xl font-light mb-6">
+            <h3 className="text-xl md:text-3xl font-light mb-6">
               Un projet en tête ?
             </h3>
             <p className="text-black/50 font-light max-w-lg mx-auto">

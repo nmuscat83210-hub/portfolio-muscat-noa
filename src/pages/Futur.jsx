@@ -100,7 +100,7 @@ export default function Futur() {
       </section>
 
       {/* Aspirations */}
-      <section className="py-32">
+      <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {aspirations.map((item, index) => (
             <motion.div
@@ -109,7 +109,7 @@ export default function Futur() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className={`grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32 last:mb-0 ${
+              className={`grid lg:grid-cols-2 gap-8 lg:gap-24 items-center mb-20 lg:mb-32 last:mb-0 ${
                 index % 2 === 1 ? 'lg:flex-row-reverse' : ''
               }`}
             >
@@ -126,7 +126,7 @@ export default function Futur() {
                 <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-6">
                   {item.title}
                 </h2>
-                <p className="text-lg text-black/60 font-light leading-relaxed">
+                <p className="text-base lg:text-lg text-black/60 font-light leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -152,7 +152,7 @@ export default function Futur() {
       </section>
 
       {/* Quote Section */}
-      <section className="py-32 bg-black">
+      <section className="py-20 lg:py-32 bg-black">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <motion.blockquote
             initial={{ opacity: 0, y: 30 }}
@@ -175,7 +175,7 @@ export default function Futur() {
       </section>
 
       {/* Timeline to future */}
-      <section id="roadmap-section" className="py-32">
+      <section id="roadmap-section" className="py-20 lg:py-32">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <SectionTitle 
             title="Feuille de route"
@@ -183,7 +183,7 @@ export default function Futur() {
             align="center"
           />
 
-          <div className="relative mt-16">
+          <div className="relative mt-12 lg:mt-16">
             {/* Vertical line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#CBAF73] via-gray-200 to-transparent" />
 
@@ -199,7 +199,7 @@ export default function Futur() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative flex items-center mb-16 last:mb-0 ${
+                className={`relative flex items-center mb-12 lg:mb-16 last:mb-0 ${
                   index % 2 === 0 ? 'justify-start' : 'justify-end'
                 }`}
               >
