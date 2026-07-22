@@ -256,21 +256,25 @@ export default function ProjectDetail() {
               Documents
             </h3>
             <div className="space-y-2">
-              {project.documents.map((doc, i) => (
-                <a
-                  key={i}
-                  href={doc}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 border border-gray-200 hover:border-[#CBAF73] transition-colors"
-                >
-                  <Download size={18} className="text-[#CBAF73]" />
-                  <span className="text-sm">
-                    {doc.split('/').pop().split('_').slice(1).join(' ').replace(/\.[^.]+$/, '') || `Document ${i + 1}`}
-                  </span>
-                  <ExternalLink size={14} className="ml-auto text-black/30" />
-                </a>
-              ))}
+              {project.documents.map((doc, i) => {
+                const url = typeof doc === 'string' ? doc : doc.url;
+                const label = typeof doc === 'object' && doc.label
+                  ? doc.label
+                  : url.split('/').pop().split('_').slice(1).join(' ').replace(/\.[^.]+$/, '') || `Document ${i + 1}`;
+                return (
+                  <a
+                    key={i}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-4 border border-gray-200 hover:border-[#CBAF73] transition-colors"
+                  >
+                    <Download size={18} className="text-[#CBAF73]" />
+                    <span className="text-sm">{label}</span>
+                    <ExternalLink size={14} className="ml-auto text-black/30" />
+                  </a>
+                );
+              })}
             </div>
           </motion.div>
         )}
