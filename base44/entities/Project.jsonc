@@ -64,7 +64,18 @@
     "documents": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
       },
       "description": "Documents PDF"
     },
