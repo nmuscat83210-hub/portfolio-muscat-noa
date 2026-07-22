@@ -136,8 +136,8 @@ export default function ProjectDetail() {
                   li: ({children}) => <li className="pl-0 text-black/70">{children}</li>,
                   a: ({href, children}) => {
                     if (href?.includes('youtube.com') || href?.includes('youtu.be')) {
-                      const videoId = href.includes('youtu.be') 
-                        ? href.split('youtu.be/')[1] 
+                      const videoId = href.includes('youtu.be')
+                        ? href.split('youtu.be/')[1].split(/[?#]/)[0]
                         : new URLSearchParams(href.split('?')[1]).get('v');
                       return (
                         <div className="my-8">
