@@ -4,6 +4,8 @@ import {
   Cpu, Wrench, Settings, MessageSquare, Users, 
   Shield, BookOpen, Brain, Lightbulb, Target
 } from 'lucide-react';
+import { useTranslation } from '../../lib/i18n';
+import { easeLuxury } from '../../lib/animations';
 
 const iconMap = {
   Cpu, Wrench, Settings, MessageSquare, Users, 
@@ -11,6 +13,7 @@ const iconMap = {
 };
 
 export default function CompetenceCard({ competence, index, onClick }) {
+  const { t } = useTranslation();
   const Icon = iconMap[competence.icon] || Cpu;
 
   return (
@@ -18,7 +21,7 @@ export default function CompetenceCard({ competence, index, onClick }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
+      transition={{ duration: 1.2, delay: index * 0.08, ease: easeLuxury }}
       onClick={() => onClick && onClick(competence)}
       className="group p-6 md:p-8 border border-gray-200 hover:border-[#CBAF73] transition-all duration-500 bg-white cursor-pointer"
     >
@@ -44,7 +47,7 @@ export default function CompetenceCard({ competence, index, onClick }) {
             initial={{ width: 0 }}
             whileInView={{ width: `${competence.level}%` }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 2, delay: 0.5, ease: easeLuxury }}
             className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
           />
         </div>
@@ -55,7 +58,7 @@ export default function CompetenceCard({ competence, index, onClick }) {
 
       {/* Click indicator */}
       <div className="mt-4 text-xs uppercase tracking-[0.2em] text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
-        Voir le détail →
+        {t.competences.seeDetail}
       </div>
     </motion.div>
   );

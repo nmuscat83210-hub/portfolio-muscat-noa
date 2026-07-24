@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from './utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from './lib/i18n';
+import { easeLuxury } from './lib/animations';
 
 export default function Layout({ children, currentPageName }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t, lang, toggleLang } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -14,16 +17,7 @@ export default function Layout({ children, currentPageName }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Accueil', page: 'Home' },
-    { name: 'Passions', page: 'Passions' },
-    { name: 'Parcours', page: 'Parcours' },
-    { name: 'Compétences', page: 'Competences' },
-    { name: 'Projets', page: 'Projets' },
-    { name: 'Expérience', page: 'ExperiencePro' },
-    { name: 'Futur', page: 'Futur' },
-    { name: 'Contact', page: 'Contact' },
-  ];
+  const navItems = t.nav.items;
 
   return (
     <div className="min-h-screen bg-white text-black font-sans antialiased">
@@ -74,7 +68,7 @@ export default function Layout({ children, currentPageName }) {
           width: 0;
           height: 1px;
           background: var(--gold);
-          transition: width 0.3s ease;
+          transition: width 0.4s ease;
         }
         
         .nav-link:hover::after,
@@ -87,6 +81,7 @@ export default function Layout({ children, currentPageName }) {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
+        transition={{ duration: 1.2, ease: easeLuxury }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
         }`}
@@ -114,15 +109,33 @@ export default function Layout({ children, currentPageName }) {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Language Toggle */}
+              <button
+                onClick={toggleLang}
+                className="flex items-center gap-2 text-xs font-medium tracking-wide uppercase text-black/60 hover:gold-accent transition-colors ml-2"
+              >
+                <Globe size={14} />
+                <span>{lang === 'fr' ? 'EN' : 'FR'}</span>
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden p-2 hover:opacity-70 transition-opacity"
-            >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Menu Button + Language */}
+            <div className="lg:hidden flex items-center gap-3">
+              <button
+                onClick={toggleLang}
+                className="flex items-center gap-1.5 text-xs font-medium tracking-wide uppercase text-black/60 hover:gold-accent transition-colors"
+              >
+                <Globe size={14} />
+                <span>{lang === 'fr' ? 'EN' : 'FR'}</span>
+              </button>
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="p-2 hover:opacity-70 transition-opacity"
+              >
+                {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </nav>
 
@@ -133,6 +146,7 @@ export default function Layout({ children, currentPageName }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5, ease: easeLuxury }}
               className="lg:hidden bg-white border-t border-gray-100"
             >
               <div className="px-6 py-8 space-y-6">
@@ -141,7 +155,7 @@ export default function Layout({ children, currentPageName }) {
                     key={item.page}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
+                    transition={{ delay: index * 0.08, duration: 0.6, ease: easeLuxury }}
                   >
                     <Link
                       to={createPageUrl(item.page)}
@@ -168,7 +182,7 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-sm text-black/50 tracking-wide">
-              © {new Date().getFullYear()} Portfolio. Tous droits réservés.
+              © {new Date().getFullYear()} Portfolio. {t.nav.footer}
             </p>
             <div className="flex items-center gap-8">
               {navItems.slice(0, 4).map((item) => (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { easeLuxury } from '../../lib/animations';
 
 export default function PassionCard({ passion, index }) {
   return (
@@ -7,7 +8,7 @@ export default function PassionCard({ passion, index }) {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 1.4, delay: index * 0.12, ease: easeLuxury }}
       className="group relative overflow-hidden"
     >
       {/* Image Container */}

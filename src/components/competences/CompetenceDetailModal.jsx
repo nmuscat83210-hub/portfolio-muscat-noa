@@ -2,6 +2,8 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, TrendingUp, FileText, ExternalLink } from 'lucide-react';
 import { createPageUrl } from '../../utils';
+import { useTranslation } from '../../lib/i18n';
+import { easeLuxury } from '../../lib/animations';
 
 function DocLinks({ docs, label }) {
   if (!docs || docs.length === 0) return null;
@@ -29,20 +31,16 @@ function DocLinks({ docs, label }) {
 }
 
 export default function CompetenceDetailModal({ competence, onClose }) {
+  const { t } = useTranslation();
   if (!competence) return null;
 
-  const yearLabels = [
-    `${competence.name} — niveau BUT1`,
-    `${competence.name} — niveau BUT2`,
-    `${competence.name} — niveau BUT3`
-  ];
-  
   return (
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
         onClick={onClose}
         className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 overflow-y-auto"
       >
@@ -51,6 +49,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.6, ease: easeLuxury }}
             onClick={(e) => e.stopPropagation()}
             className="bg-white max-w-4xl w-full"
           >
@@ -64,7 +63,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
             </button>
             
             <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] mb-3 block">
-              Compétence détaillée
+              {t.competences.modal.label}
             </span>
             <h2 className="text-3xl md:text-4xl font-light text-white mb-3">
               {competence.name}
@@ -79,53 +78,53 @@ export default function CompetenceDetailModal({ competence, onClose }) {
             {/* Why I master this */}
             <div className="mb-12">
               <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-                Pourquoi je maîtrise cette compétence
+                {t.competences.modal.whyTitle}
               </h3>
               <p className="text-black/70 leading-relaxed whitespace-pre-line">
-                {competence.why || "Cette compétence a été développée au cours de ma formation et de mes expériences professionnelles."}
+                {competence.why || t.competences.modal.whyDefault}
               </p>
               {competence.toeicScore !== undefined && (
                 <div className="mt-4 p-4 bg-gray-50 border border-gray-200 flex items-center justify-between">
                   <div>
-                    <span className="text-xs uppercase tracking-[0.2em] text-black/40">Score TOEIC</span>
+                    <span className="text-xs uppercase tracking-[0.2em] text-black/40">{t.competences.modal.toeicScore}</span>
                     <p className="text-lg font-medium text-black/80 mt-1">{competence.toeicScore}/990 — C1</p>
                   </div>
                   {competence.toeicDoc && (
                     <a href={competence.toeicDoc} target="_blank" rel="noopener noreferrer"
                       className="flex items-center gap-2 px-3 py-2 border border-[#CBAF73] text-[#CBAF73] text-sm hover:bg-[#CBAF73]/10 transition-colors">
                       <FileText size={14} />
-                      Certificat TOEIC
+                      {t.competences.modal.toeicCert}
                     </a>
                   )}
                 </div>
               )}
-              <DocLinks docs={competence.iaDocs} label="Travaux IA" />
-              <DocLinks docs={competence.cybersecDocs} label="Documents Cybersécurité" />
-              <DocLinks docs={competence.codeDocs} label="Codes sources" />
-              <DocLinks docs={competence.metrologieDocs} label="Documents Métrologie" />
+              <DocLinks docs={competence.iaDocs} label={t.competences.modal.iaDocs} />
+              <DocLinks docs={competence.cybersecDocs} label={t.competences.modal.cybersecDocs} />
+              <DocLinks docs={competence.codeDocs} label={t.competences.modal.codeDocs} />
+              <DocLinks docs={competence.metrologieDocs} label={t.competences.modal.metrologieDocs} />
               {competence.metrologieImages && competence.metrologieImages.length > 0 && (
                 <div className="mt-4">
                   <div className="grid grid-cols-2 gap-3">
                     {competence.metrologieImages.map((img, i) => (
-                      <img key={i} src={img} alt={`Métrologie ${i+1}`} className="w-full h-auto border border-gray-200" />
+                      <img key={i} src={img} alt={`Metrology ${i+1}`} className="w-full h-auto border border-gray-200" />
                     ))}
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Self-assessment by year - Only for GEII competences */}
+            {/* Self-assessment by year */}
             {competence.levelsByYear && (
               <div className="mb-12">
                 <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-6">
-                  Autoévaluation par année
+                  {t.competences.modal.selfAssessment}
                 </h3>
                 <div className="space-y-8">
                   {competence.levelsByYear.map((level, index) => {
                     const labels = competence.levelLabels;
                     const yearLabel = labels
                       ? `${competence.name} — ${labels[index]}`
-                      : `${competence.name} — niveau BUT${index + 1}`;
+                      : `${competence.name} — BUT${index + 1}`;
                     return (
                       <div key={index}>
                         <div className="flex justify-between mb-2">
@@ -137,7 +136,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                             initial={{ width: 0 }}
                             whileInView={{ width: `${level}%` }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1, delay: index * 0.1 }}
+                            transition={{ duration: 2, delay: index * 0.15, ease: easeLuxury }}
                             className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
                           />
                         </div>
@@ -150,27 +149,25 @@ export default function CompetenceDetailModal({ competence, onClose }) {
 
             {/* Source distinction with navigation */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              {/* From courses */}
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
                 onClick={() => window.location.href = createPageUrl('Parcours')}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
-                  Cours GEII
+                  {t.competences.modal.fromCourses}
                 </h4>
                 <p className="text-sm text-black/60 mb-2">
-                  {competence.fromCourses || "Programme national BUT GEII"}
+                  {competence.fromCourses || t.competences.modal.fromCoursesDefault}
                 </p>
                 <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
-                  Voir les cours →
+                  {t.competences.modal.seeCourses}
                 </span>
               </button>
 
-              {/* From projects */}
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
                 onClick={() => {
-                  if (competence.name === "Maintenir") {
+                  if (competence.name === "Maintenir" || competence.name === "Maintain") {
                     window.location.href = createPageUrl('ProjectDetail') + '?id=693c1be4ec925c0d63401959';
                   } else {
                     window.location.href = createPageUrl('Projets');
@@ -178,29 +175,28 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                 }}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
-                  Projets
+                  {t.competences.modal.fromProjects}
                 </h4>
                 <p className="text-sm text-black/60 mb-2">
-                  {competence.fromProjects || "Mise en pratique lors des projets académiques"}
+                  {competence.fromProjects || t.competences.modal.fromProjectsDefault}
                 </p>
                 <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
-                  {competence.name === "Maintenir" ? "Voir le projet →" : "Voir les projets →"}
+                  {competence.name === "Maintenir" || competence.name === "Maintain" ? t.competences.modal.seeProject : t.competences.modal.seeProjects}
                 </span>
               </button>
 
-              {/* From work */}
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
                 onClick={() => window.location.href = createPageUrl('ExperiencePro')}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
-                  Entreprise
+                  {t.competences.modal.fromWork}
                 </h4>
                 <p className="text-sm text-black/60 mb-2">
-                  {competence.fromWork || "Application en environnement professionnel"}
+                  {competence.fromWork || t.competences.modal.fromWorkDefault}
                 </p>
                 <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
-                  Voir les expériences →
+                  {t.competences.modal.seeExperiences}
                 </span>
               </button>
             </div>
@@ -209,7 +205,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
             <div className="flex items-center gap-3 p-6 bg-gradient-to-r from-[#CBAF73]/10 to-transparent border-l-2 border-[#CBAF73]">
               <TrendingUp size={20} className="text-[#CBAF73]" />
               <p className="text-sm text-black/70">
-                En progression constante grâce à la pratique régulière et l'approfondissement théorique
+                {t.competences.modal.progressNote}
               </p>
             </div>
           </div>

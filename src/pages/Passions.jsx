@@ -2,85 +2,31 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
 import { X, Dumbbell, Users, Music, Palette, BookOpen, Mountain } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
+import { easeLuxury } from '../lib/animations';
 
-const passionsData = [
-  {
-    id: 'musculation',
-    icon: Dumbbell,
-    title: "Musculation",
-    category: "Sport",
-    shortDesc: "Discipline, rigueur et constance",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
-    description: "La musculation est bien plus qu'un entraînement physique : c'est une école de vie qui forge la discipline mentale. Chaque séance est une opportunité de repousser ses limites, de cultiver la constance et d'apprendre la patience. Ce sport m'a enseigné la valeur de la rigueur et l'importance de la progression continue.",
-    competences: ["Gestion d'objectifs", "Planification", "Analyse de résultats"],
-    softSkills: ["Discipline", "Rigueur", "Constance", "Persévérance", "Dépassement de soi"]
-  },
-  {
-    id: 'football',
-    icon: Users,
-    title: "Football",
-    category: "Sport",
-    shortDesc: "Coordination, stratégie et esprit d'équipe",
-    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=600&fit=crop",
-    description: "Le football incarne l'essence du travail d'équipe et de la stratégie collective. Sur le terrain, chaque mouvement compte, chaque décision impacte le collectif. Ce sport m'a appris l'importance de la coordination, de l'anticipation et de la communication sous pression.",
-    competences: ["Travail en équipe", "Communication", "Prise de décision rapide"],
-    softSkills: ["Coordination", "Stratégie", "Esprit d'équipe", "Leadership", "Résilience"]
-  },
-  {
-    id: 'piano',
-    icon: Music,
-    title: "Piano Classique",
-    category: "Musique",
-    shortDesc: "Précision, patience et sens du détail",
-    image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&h=600&fit=crop",
-    description: "Chopin, Beethoven, Bach — le piano classique est une quête de perfection où chaque note doit être juste, chaque nuance maîtrisée. Cette pratique exigeante développe une patience infinie et un sens aigu du détail. Chaque morceau est un défi technique et émotionnel qui demande des milliers d'heures de travail minutieux.",
-    competences: ["Lecture de partitions", "Coordination main-cerveau", "Mémorisation"],
-    softSkills: ["Précision", "Patience", "Sens du détail", "Concentration", "Expression artistique"]
-  },
-  {
-    id: 'art',
-    icon: Palette,
-    title: "Art & Histoire de l'Art",
-    category: "Culture",
-    shortDesc: "Vision, intuition et créativité",
-    image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop",
-    description: "De Michel-Ange à Claude Monet, d'Henri Matisse aux cathédrales gothiques — l'art est une fenêtre sur l'âme humaine. L'étude de l'histoire de l'art développe la vision globale, l'intuition esthétique et stimule la créativité. Comprendre les courants artistiques affine le regard et nourrit l'esprit d'innovation.",
-    competences: ["Analyse visuelle", "Contextualisation historique", "Interprétation symbolique"],
-    softSkills: ["Vision", "Intuition", "Créativité", "Sensibilité esthétique", "Ouverture d'esprit"]
-  },
-  {
-    id: 'litterature',
-    icon: BookOpen,
-    title: "Littérature",
-    category: "Culture",
-    shortDesc: "Structuration de la pensée",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
-    description: "Le Petit Prince, Scapin, Saint Thomas d'Aquin — la littérature structure la pensée et affine l'expression. Chaque œuvre est une invitation à penser autrement, à questionner le monde et à développer l'esprit critique. La lecture forme l'intelligence et enrichit la réflexion personnelle.",
-    competences: ["Analyse textuelle", "Synthèse d'idées", "Argumentation"],
-    softSkills: ["Structuration de la pensée", "Esprit critique", "Expression", "Réflexion", "Empathie"]
-  },
-  {
-    id: 'randonnee',
-    icon: Mountain,
-    title: "Randonnée en Montagne",
-    category: "Nature",
-    shortDesc: "Autonomie, gestion de l'effort et observation",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop",
-    description: "La randonnée en montagne est une école d'autonomie et de gestion de l'effort. Face aux éléments, on apprend à anticiper, à gérer ses ressources et à observer son environnement. Chaque sommet atteint est le fruit d'une préparation minutieuse et d'une détermination sans faille.",
-    competences: ["Planification d'itinéraire", "Orientation", "Gestion des ressources"],
-    softSkills: ["Autonomie", "Gestion de l'effort", "Observation", "Adaptabilité", "Détermination"]
-  }
-];
+const iconMap = { Dumbbell, Users, Music, Palette, BookOpen, Mountain };
+
+const passionImages = {
+  musculation: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
+  football: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=600&fit=crop",
+  piano: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&h=600&fit=crop",
+  art: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop",
+  litterature: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+  randonnee: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop",
+};
 
 export default function Passions() {
+  const { t } = useTranslation();
   const [selectedPassion, setSelectedPassion] = useState(null);
+  const passionsData = t.passions.data.map(p => ({ ...p, icon: iconMap[p.id], image: passionImages[p.id] }));
 
   return (
     <div className="min-h-screen pt-32 pb-24">
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
         <SectionTitle 
-          title="Passions"
-          subtitle="Ce qui m'anime"
+          title={t.passions.title}
+          subtitle={t.passions.subtitle}
           align="center"
         />
         
@@ -88,10 +34,10 @@ export default function Passions() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 1.4, ease: easeLuxury }}
           className="text-center text-lg text-black/60 font-light max-w-2xl mx-auto"
         >
-          Au-delà de l'ingénierie, je cultive des passions qui enrichissent 
-          ma vision du monde et nourrissent ma créativité.
+          {t.passions.intro}
         </motion.p>
       </section>
 
@@ -106,7 +52,7 @@ export default function Passions() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 1.4, delay: index * 0.12, ease: easeLuxury }}
                 onClick={() => setSelectedPassion(passion)}
                 className="group cursor-pointer"
               >
@@ -136,7 +82,7 @@ export default function Passions() {
                       {passion.shortDesc}
                     </p>
                     <div className="mt-4 text-xs uppercase tracking-[0.2em] text-[#CBAF73] flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      En savoir plus →
+                      {t.passions.learnMore}
                     </div>
                   </div>
                 </div>
@@ -153,6 +99,7 @@ export default function Passions() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
             onClick={() => setSelectedPassion(null)}
             className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6"
           >
@@ -160,6 +107,7 @@ export default function Passions() {
               initial={{ opacity: 0, scale: 0.9, y: 50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 50 }}
+              transition={{ duration: 0.6, ease: easeLuxury }}
               onClick={(e) => e.stopPropagation()}
               className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
@@ -191,44 +139,35 @@ export default function Passions() {
 
               {/* Content */}
               <div className="p-8 md:p-12">
-                {/* Description */}
                 <div className="mb-12">
                   <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-                    Description
+                    {t.passions.description}
                   </h3>
                   <p className="text-lg text-black/70 font-light leading-relaxed">
                     {selectedPassion.description}
                   </p>
                 </div>
 
-                {/* Compétences acquises */}
                 <div className="mb-12">
                   <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-                    Compétences acquises
+                    {t.passions.skillsAcquired}
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {selectedPassion.competences.map((comp, i) => (
-                      <span
-                        key={i}
-                        className="px-4 py-2 bg-gray-100 text-black/70 text-sm"
-                      >
+                      <span key={i} className="px-4 py-2 bg-gray-100 text-black/70 text-sm">
                         {comp}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Soft Skills */}
                 <div>
                   <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-                    Soft Skills
+                    {t.passions.softSkills}
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {selectedPassion.softSkills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-4 py-2 border border-[#CBAF73] text-[#CBAF73] text-sm"
-                      >
+                      <span key={i} className="px-4 py-2 border border-[#CBAF73] text-[#CBAF73] text-sm">
                         {skill}
                       </span>
                     ))}

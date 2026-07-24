@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { ArrowDown, Download, Mail } from 'lucide-react';
 import GoldButton from '../components/ui/GoldButton';
+import { useTranslation } from '../lib/i18n';
+import { easeLuxury } from '../lib/animations';
 
 export default function Home() {
+  const { t } = useTranslation();
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const y = useTransform(scrollY, [0, 400], [0, 100]);
@@ -18,10 +21,7 @@ export default function Home() {
         style={{ opacity, y, scale }}
         className="min-h-screen flex items-center justify-center relative overflow-hidden"
       >
-        {/* Background subtle gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-gray-50" />
-        
-        {/* Subtle gold accent line */}
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CBAF73]/20 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-24">
@@ -30,42 +30,42 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
+              transition={{ duration: 1.6, delay: 0.2, ease: easeLuxury }}
               className="order-2 lg:order-1"
             >
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.8, duration: 1.2, ease: easeLuxury }}
                 className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-6 block"
               >
-                Portfolio Personnel
+                {t.home.tagline}
               </motion.span>
               
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
+                transition={{ delay: 1, duration: 1.4, ease: easeLuxury }}
                 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-[1.1] mb-6 lg:mb-8"
               >
-                <span className="font-medium">Noa MUSCAT</span>
+                <span className="font-medium">{t.home.name}</span>
                 <br />
-                Étudiant en BUT GEII
+                {t.home.subtitle}
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
+                transition={{ delay: 1.3, duration: 1.4, ease: easeLuxury }}
                 className="text-base md:text-xl text-black/60 font-light leading-relaxed mb-8 lg:mb-12 max-w-lg"
               >
-                Étudiant en ingénierie, passionné par la technologie, l'IA et la cybersécurité.
+                {t.home.description}
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
+                transition={{ delay: 1.6, duration: 1.4, ease: easeLuxury }}
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <a 
@@ -74,32 +74,29 @@ export default function Home() {
                 >
                   <GoldButton variant="primary">
                     <Download size={16} className="mr-2" />
-                    Télécharger mon CV
+                    {t.home.downloadCV}
                   </GoldButton>
                 </a>
                 
                 <Link to={createPageUrl('Contact')}>
                   <GoldButton variant="secondary" icon={false}>
                     <Mail size={16} className="mr-2" />
-                    Me contacter
+                    {t.home.contact}
                   </GoldButton>
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Photo Placeholder */}
+            {/* Photo */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1.6, delay: 0.6, ease: easeLuxury }}
               className="order-1 lg:order-2 flex justify-center"
             >
               <div className="relative">
-                {/* Decorative frame */}
                 <div className="absolute -inset-4 border border-[#CBAF73]/30 -z-10" />
                 <div className="absolute -inset-8 border border-black/5 -z-20" />
-                
-                {/* Photo container */}
                 <div className="w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <img
                     src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/a40fb864e_2J8A2638-Modifier.jpg"
@@ -107,8 +104,6 @@ export default function Home() {
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
-                
-                {/* Gold accent */}
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#CBAF73]/10" />
               </div>
             </motion.div>
@@ -119,16 +114,16 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
+          transition={{ delay: 2.2, duration: 1.2, ease: easeLuxury }}
           className="absolute bottom-12 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
+            transition={{ repeat: Infinity, duration: 2.5, ease: easeLuxury }}
             className="flex flex-col items-center gap-3 cursor-pointer"
             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-black/40">Découvrir</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-black/40">{t.home.discover}</span>
             <ArrowDown size={20} className="text-[#CBAF73]" />
           </motion.div>
         </motion.div>
@@ -141,26 +136,24 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.6, ease: easeLuxury }}
             className="max-w-4xl mx-auto text-center"
           >
             <span className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-8 block">
-              Mon Histoire
+              {t.home.storyLabel}
             </span>
             <div className="text-lg md:text-2xl font-light leading-relaxed text-white/90 space-y-4 lg:space-y-6">
-              <p>
-                Mes premiers pas en sciences de l'ingénieur ont été déterminants.
-                C'est à ce moment-là que j'ai découvert la programmation orientée objet et, avec elle, le plaisir de concevoir des systèmes logiques, structurés et évolutifs. Très rapidement, j'ai compris que le code n'était pas seulement un outil, mais un moyen de transformer des idées en solutions techniques concrètes.
-              </p>
-              <p>
-                En intégrant le BUT GEII, j'ai approfondi cette approche en travaillant sur des systèmes plus complexes, à la croisée de l'informatique industrielle, de l'intelligence artificielle et de la cybersécurité. Ces années m'ont appris à relier la théorie, la programmation et les contraintes du monde réel, avec une attention particulière portée à la fiabilité et à la sécurité des systèmes.
-              </p>
-              <p>
-                Progressivement, une réflexion plus personnelle s'est imposée : mettre ces compétences au service d'un cadre exigeant et porteur de sens. C'est dans cette continuité qu'est née mon ambition de rejoindre la Marine, afin de contribuer, par l'ingénierie et la technologie, à des missions au service de mon pays.
-              </p>
-              <p>
-                Si mon parcours, mes compétences et cette vision font écho à vos attentes, je serais ravi d'échanger et d'envisager ensemble la suite de cette trajectoire.
-              </p>
+              {t.home.story.map((para, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.4, delay: i * 0.15, ease: easeLuxury }}
+                >
+                  {para}
+                </motion.p>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -170,17 +163,13 @@ export default function Home() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { title: 'Parcours', desc: 'De mon baccalauréat à aujourd\'hui', link: 'Parcours' },
-              { title: 'Compétences', desc: 'Techniques et transversales', link: 'Competences' },
-              { title: 'Projets', desc: 'Réalisations académiques et personnelles', link: 'Projets' },
-            ].map((item, index) => (
+            {t.home.links.map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 1.4, delay: index * 0.15, ease: easeLuxury }}
               >
                 <Link
                   to={createPageUrl(item.link)}

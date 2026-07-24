@@ -3,14 +3,28 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslation } from '../../lib/i18n';
+import { easeLuxury } from '../../lib/animations';
 
 export default function ProjectCard({ project, index }) {
+  const { t } = useTranslation();
+
+  const categoryLabel = (cat) => {
+    const map = {
+      geii: 'GEII',
+      personnel: t.projets.categories.find(c => c.id === 'personnel')?.name || 'Personal',
+      terminale: t.projets.categories.find(c => c.id === 'terminale')?.name || 'High School',
+      entreprise: t.projets.categories.find(c => c.id === 'entreprise')?.name || 'Company',
+    };
+    return map[cat] || cat;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 1.4, delay: index * 0.12, ease: easeLuxury }}
       className="group relative"
     >
       <Link to={createPageUrl(`ProjectDetail?id=${project.id}`)}>
@@ -44,24 +58,18 @@ export default function ProjectCard({ project, index }) {
         
         {/* Content */}
         <div className="mt-6">
-          {/* Category */}
           <span className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] font-medium">
-            {project.category === 'geii' ? 'GEII' : 
-             project.category === 'personnel' ? 'Personnel' : 
-             project.category === 'terminale' ? 'Terminale S.I' : 'Entreprise'}
+            {categoryLabel(project.category)}
           </span>
           
-          {/* Title */}
           <h3 className="text-xl font-light mt-2 mb-3 group-hover:text-[#CBAF73] transition-colors">
             {project.title}
           </h3>
           
-          {/* Description */}
           <p className="text-sm text-black/50 font-light line-clamp-2">
             {project.short_description}
           </p>
           
-          {/* Tags */}
           {project.technologies?.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-4">
               {project.technologies.slice(0, 3).map((tech, i) => (

@@ -7,8 +7,11 @@ import { createPageUrl } from '../utils';
 import { ArrowLeft, ExternalLink, Download, Loader2, X } from 'lucide-react';
 import GoldButton from '../components/ui/GoldButton';
 import ReactMarkdown from 'react-markdown';
+import { useTranslation } from '../lib/i18n';
+import { easeLuxury } from '../lib/animations';
 
 export default function ProjectDetail() {
+  const { t } = useTranslation();
   const urlParams = new URLSearchParams(window.location.search);
   const projectId = urlParams.get('id');
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -33,9 +36,9 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center pt-20">
-        <h1 className="text-2xl font-light mb-4">Projet non trouvé</h1>
+        <h1 className="text-2xl font-light mb-4">{t.projectDetail.notFound}</h1>
         <Link to={createPageUrl('Projets')}>
-          <GoldButton variant="secondary">Retour aux projets</GoldButton>
+          <GoldButton variant="secondary">{t.projectDetail.backToProjects}</GoldButton>
         </Link>
       </div>
     );
@@ -50,7 +53,7 @@ export default function ProjectDetail() {
           className="inline-flex items-center gap-2 text-sm text-black/50 hover:text-black transition-colors"
         >
           <ArrowLeft size={16} />
-          Retour aux projets
+          {t.projectDetail.backToProjects}
         </Link>
       </div>
 
@@ -59,6 +62,7 @@ export default function ProjectDetail() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4, ease: easeLuxury }}
           className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 lg:mb-16"
         >
           <div className="aspect-video overflow-hidden bg-gray-100">
@@ -77,12 +81,11 @@ export default function ProjectDetail() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.1, duration: 1.4, ease: easeLuxury }}
           className="mb-12"
         >
           <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-4 block">
-            {project.category === 'geii' ? 'Projet GEII' : 
-             project.category === 'personnel' ? 'Projet Personnel' : 'Projet Entreprise'}
+            {t.projectDetail.categories[project.category] || project.category}
             {project.year && ` — ${project.year}`}
           </span>
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6">
@@ -98,11 +101,11 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, duration: 1.4, ease: easeLuxury }}
             className="mb-8 lg:mb-12"
           >
             <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-              Technologies utilisées
+              {t.projectDetail.technologies}
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech, i) => (
@@ -122,7 +125,7 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.3, duration: 1.4, ease: easeLuxury }}
             className="mb-12 lg:mb-16"
           >
             <div className="prose prose-lg max-w-none font-light text-black/70 leading-relaxed">
@@ -168,11 +171,11 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.4, duration: 1.4, ease: easeLuxury }}
             className="mb-16"
           >
             <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-6">
-              Documentation visuelle
+              {t.projectDetail.gallery}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {project.gallery_images.map((img, i) => (
@@ -188,7 +191,7 @@ export default function ProjectDetail() {
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                     <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                      Cliquer pour agrandir
+                      {t.projectDetail.clickToZoom}
                     </span>
                   </div>
                 </div>
@@ -202,16 +205,16 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.5, duration: 1.4, ease: easeLuxury }}
             className="mb-12 lg:mb-16 p-6 lg:p-8 bg-gray-50 border border-gray-100"
           >
-            <h3 className="text-lg font-medium mb-8">Retour d'expérience</h3>
+            <h3 className="text-lg font-medium mb-8">{t.projectDetail.retex}</h3>
             
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
               {project.retex_points_forts && (
                 <div>
                   <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
-                    Points forts
+                    {t.projectDetail.retexStrengths}
                   </h4>
                   <p className="text-sm text-black/60 font-light leading-relaxed">
                     {project.retex_points_forts}
@@ -222,7 +225,7 @@ export default function ProjectDetail() {
               {project.retex_ameliorations && (
                 <div>
                   <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
-                    Axes d'amélioration
+                    {t.projectDetail.retexImprovements}
                   </h4>
                   <p className="text-sm text-black/60 font-light leading-relaxed">
                     {project.retex_ameliorations}
@@ -233,7 +236,7 @@ export default function ProjectDetail() {
               {project.retex_apprentissages && (
                 <div>
                   <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
-                    Apprentissages
+                    {t.projectDetail.retexLearnings}
                   </h4>
                   <p className="text-sm text-black/60 font-light leading-relaxed">
                     {project.retex_apprentissages}
@@ -249,11 +252,11 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.6, duration: 1.4, ease: easeLuxury }}
             className="mb-16"
           >
             <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-              Documents
+              {t.projectDetail.documents}
             </h3>
             <div className="space-y-2">
               {project.documents.map((doc, i) => {
@@ -284,10 +287,10 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
+            transition={{ delay: 0.7, duration: 1.4, ease: easeLuxury }}
           >
             <h3 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-4">
-              Compétences mobilisées
+              {t.projectDetail.competences}
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.competences.map((comp, i) => (
@@ -323,8 +326,9 @@ export default function ProjectDetail() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.6, ease: easeLuxury }}
               src={lightboxImage}
-              alt="Image agrandie"
+              alt={t.projectDetail.gallery}
               className="max-w-full max-h-full object-contain"
               onClick={(e) => e.stopPropagation()}
             />

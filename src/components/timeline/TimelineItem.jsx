@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, MapPin, Calendar, Briefcase, GraduationCap } from 'lucide-react';
+import { useTranslation } from '../../lib/i18n';
+import { easeLuxury } from '../../lib/animations';
 
 export default function TimelineItem({ item, index, isLast }) {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -10,7 +13,7 @@ export default function TimelineItem({ item, index, isLast }) {
       initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 1.4, delay: index * 0.12, ease: easeLuxury }}
       className="relative"
     >
       {/* Timeline line */}
@@ -29,12 +32,10 @@ export default function TimelineItem({ item, index, isLast }) {
           className="group cursor-pointer"
           onClick={() => setExpanded(!expanded)}
         >
-          {/* Year badge */}
           <span className="inline-block text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3">
             {item.period}
           </span>
           
-          {/* Title */}
           <div className="flex items-start justify-between gap-4">
             <div>
               <h3 className="text-xl md:text-2xl font-light tracking-tight mb-2 group-hover:text-[#CBAF73] transition-colors">
@@ -64,14 +65,13 @@ export default function TimelineItem({ item, index, isLast }) {
             
             <motion.div
               animate={{ rotate: expanded ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4, ease: easeLuxury }}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
               <ChevronDown size={20} className="text-black/40" />
             </motion.div>
           </div>
           
-          {/* Short description */}
           <p className="mt-4 text-black/60 font-light leading-relaxed">
             {item.description}
           </p>
@@ -84,15 +84,14 @@ export default function TimelineItem({ item, index, isLast }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.5, ease: easeLuxury }}
               className="overflow-hidden"
             >
               <div className="mt-6 pt-6 border-t border-gray-100">
-                {/* Competences */}
                 {item.competences && (
                   <div className="mb-6">
                     <h4 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">
-                      Compétences développées
+                      {t.timelineItem.skillsDeveloped}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {item.competences.map((comp, i) => (
@@ -107,11 +106,10 @@ export default function TimelineItem({ item, index, isLast }) {
                   </div>
                 )}
                 
-                {/* Projects */}
                 {item.projects && (
                   <div>
                     <h4 className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">
-                      Projets associés
+                      {t.timelineItem.linkedProjects}
                     </h4>
                     <ul className="space-y-2">
                       {item.projects.map((project, i) => (

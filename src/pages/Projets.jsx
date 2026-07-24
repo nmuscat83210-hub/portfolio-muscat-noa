@@ -5,17 +5,13 @@ import { base44 } from '@/api/base44Client';
 import SectionTitle from '../components/ui/SectionTitle';
 import ProjectCard from '../components/projects/ProjectCard';
 import { Loader2 } from 'lucide-react';
-
-const categories = [
-  { id: 'all', name: 'Tous' },
-  { id: 'terminale', name: 'Terminale S.I' },
-  { id: 'geii', name: 'GEII' },
-  { id: 'entreprise', name: 'Entreprise' },
-  { id: 'personnel', name: 'Personnel' }
-];
+import { useTranslation } from '../lib/i18n';
+import { easeLuxury } from '../lib/animations';
 
 export default function Projets() {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('all');
+  const categories = t.projets.categories;
 
   const { data: projects = [], isLoading } = useQuery({
     queryKey: ['projects'],
@@ -31,8 +27,8 @@ export default function Projets() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 lg:mb-16">
         <SectionTitle 
-          title="Projets"
-          subtitle="Réalisations"
+          title={t.projets.title}
+          subtitle={t.projets.subtitle}
           align="center"
         />
         
@@ -40,10 +36,10 @@ export default function Projets() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 1.4, ease: easeLuxury }}
           className="text-center text-base lg:text-lg text-black/60 font-light max-w-2xl mx-auto mb-12"
         >
-          Découvrez mes réalisations académiques, professionnelles et personnelles, 
-          témoins de mon parcours et de mes compétences.
+          {t.projets.intro}
         </motion.p>
 
         {/* Filter */}
@@ -79,10 +75,10 @@ export default function Projets() {
             className="text-center py-24"
           >
             <p className="text-xl text-black/40 font-light">
-              Aucun projet dans cette catégorie pour le moment.
+              {t.projets.empty}
             </p>
             <p className="text-sm text-black/30 mt-2">
-              Les projets seront ajoutés prochainement.
+              {t.projets.emptySub}
             </p>
           </motion.div>
         ) : (
@@ -110,16 +106,16 @@ export default function Projets() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 1.4, ease: easeLuxury }}
           >
             <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-4 block">
-              Collaboration
+              {t.projets.ctaLabel}
             </span>
             <h3 className="text-xl md:text-3xl font-light mb-6">
-              Un projet en tête ?
+              {t.projets.ctaTitle}
             </h3>
             <p className="text-black/50 font-light max-w-lg mx-auto">
-              N'hésitez pas à me contacter pour discuter de vos idées 
-              ou de potentielles collaborations.
+              {t.projets.ctaText}
             </p>
           </motion.div>
         </div>
