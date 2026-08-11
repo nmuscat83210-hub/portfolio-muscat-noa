@@ -5,7 +5,14 @@ import { X, Dumbbell, Users, Music, Palette, BookOpen, Mountain } from 'lucide-r
 import { useTranslation } from '../lib/i18n';
 import { easeLuxury } from '../lib/animations';
 
-const iconMap = { Dumbbell, Users, Music, Palette, BookOpen, Mountain };
+const iconMap = {
+  musculation: Dumbbell,
+  football: Users,
+  piano: Music,
+  art: Palette,
+  litterature: BookOpen,
+  randonnee: Mountain,
+};
 
 const passionImages = {
   musculation: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
