@@ -31,7 +31,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.2, duration: 1.4, ease: easeLuxury }}
-            className="relative p-6 lg:p-8 border border-gray-100"
+            className={`relative p-6 lg:p-8 border border-gray-100 ${tItem.full ? 'md:col-span-2' : ''}`}
           >
             <Quote size={28} className="text-[#CBAF73]/30 mb-4" />
             <p className="text-sm lg:text-base text-black/60 font-light leading-relaxed italic">

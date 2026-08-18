@@ -228,10 +228,11 @@ export const translations = {
     },
     testimonials: {
       label: 'Recommandations',
-      title: 'Avis de mes maîtres de stage',
+      title: 'Avis & Recommandations',
       data: [
-        { company: 'Europe Qualité', role: 'Maître de stage — 2023/2024', author: 'À compléter', text: 'Ajoutez ici l\'avis ou la recommandation de votre maître de stage chez Europe Qualité.' },
-        { company: 'Kontron Modular', role: 'Maître d\'apprentissage — 2024/2026', author: 'À compléter', text: 'Ajoutez ici l\'avis ou la recommandation de votre maître d\'apprentissage chez Kontron.' },
+        { company: 'Europe Qualité', role: 'Tuteur professionnel — 2023/2024', author: 'Dominique MARION', text: 'Durant son année au sein d\'Europe Qualité, Noa a su démontrer une excellente capacité d\'adaptation et une grande rigueur, des qualités indispensables dans notre domaine. Son implication quotidienne dans les missions de métrologie, d\'étalonnage des instruments et de contrôle qualité a été un réel atout pour notre équipe. C\'est un profil sérieux, curieux et investi que je recommande sans hésitation.' },
+        { company: 'Kontron Modular', role: 'Tuteur d\'apprentissage — 2024/2026', author: 'À compléter', text: 'Ajoutez ici l\'avis ou la recommandation de votre tuteur d\'apprentissage chez Kontron.' },
+        { company: 'IUT de La Garde', role: 'Avis de poursuite d\'études — 2025/2026', author: 'Équipe pédagogique du département GEII', full: true, text: 'Sérieux et travailleur, Noa Muscat est un étudiant dynamique et toujours enthousiaste face à de nouveaux problèmes à résoudre. En travail en groupe, il est moteur. Excellent en anglais, de bonnes bases en mathématiques, ses résultats ont progressé dans les ressources Cœur de métier du GEII. En entreprise, son tuteur d\'apprentissage est satisfait de son travail. Enfin, Noa Muscat est tout particulièrement motivé pour poursuivre ses études en école d\'ingénieurs. Il a toutes les qualités et compétences pour y réussir comme l\'attestent les avis ci-dessus, votés à l\'unanimité par les enseignants du département.' },
       ],
     },
     timelineItem: {
@@ -468,10 +469,11 @@ export const translations = {
     },
     testimonials: {
       label: 'Recommendations',
-      title: 'Feedback from my supervisors',
+      title: 'Reviews & Recommendations',
       data: [
-        { company: 'Europe Qualité', role: 'Internship supervisor — 2023/2024', author: 'To be completed', text: 'Add here the feedback or recommendation from your internship supervisor at Europe Qualité.' },
-        { company: 'Kontron Modular', role: 'Apprenticeship supervisor — 2024/2026', author: 'To be completed', text: 'Add here the feedback or recommendation from your apprenticeship supervisor at Kontron.' },
+        { company: 'Europe Qualité', role: 'Professional tutor — 2023/2024', author: 'Dominique MARION', text: 'During his year at Europe Qualité, Noa demonstrated an excellent capacity for adaptation and great rigor, qualities that are essential in our field. His daily involvement in metrology, instrument calibration, and quality control missions was a real asset for our team. He is a serious, curious, and committed profile that I recommend without hesitation.' },
+        { company: 'Kontron Modular', role: 'Apprenticeship tutor — 2024/2026', author: 'To be completed', text: 'Add here the feedback or recommendation from your apprenticeship tutor at Kontron.' },
+        { company: 'IUT de La Garde', role: 'Academic progression review — 2025/2026', author: 'GEII Department Faculty', full: true, text: 'Serious and hardworking, Noa Muscat is a dynamic student, always enthusiastic when facing new problems to solve. In group work, he is a driving force. Excellent in English, with solid foundations in mathematics, his results have progressed in the core GEII modules. In the company, his apprenticeship tutor is satisfied with his work. Finally, Noa Muscat is particularly motivated to continue his studies in an engineering school. He has all the qualities and skills to succeed there, as attested by the above opinions, voted unanimously by the department\'s teachers.' },
       ],
     },
     timelineItem: {
