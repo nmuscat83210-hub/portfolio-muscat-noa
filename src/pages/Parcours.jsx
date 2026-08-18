@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
 import TimelineItem from '../components/timeline/TimelineItem';
+import DiplomasSection from '../components/parcours/DiplomasSection';
 import { createPageUrl } from '../utils';
 import Testimonials from '../components/testimonials/Testimonials';
 import { useTranslation } from '../lib/i18n';
@@ -61,6 +62,9 @@ export default function Parcours() {
           ))}
         </div>
         </section>
+
+      {/* Diplômes & Certifications */}
+      <DiplomasSection />
 
       {/* Testimonials */}
       <Testimonials />

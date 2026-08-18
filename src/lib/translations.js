@@ -65,6 +65,15 @@ export const translations = {
         { period: '2023 - 2024', title: 'BUT GEII — 1ère année', institution: 'IUT de La Garde', company: 'Europe Qualité (Alternance)', location: 'La Garde / La Valette', description: 'Première année de BUT Génie Électrique et Informatique Industrielle en alternance. Découverte des fondamentaux : électronique, automatisme, réseaux et systèmes embarqués. En parallèle, acquisition de compétences professionnelles en métrologie chez Europe Qualité.', competences: ['Électronique de base', 'Mesures et instrumentation', 'Automatismes', 'Programmation', 'Métrologie', 'Organisation'], projects: ['Smartlight', 'Tableurs Excel de Métrologie'] },
         { period: '2022 - 2023', title: 'Baccalauréat Général', institution: 'Lycée du Coudon', company: '', location: 'La Garde', description: 'Baccalauréat général — spécialités Mathématiques, Physique-Chimie, option Mathématiques Expertes. Début de mon orientation vers les sciences de l\'ingénieur et la technologie.', competences: ['Mathématiques', 'Physique', 'Sciences de l\'Ingénieur', 'Analyse', 'Résolution de problèmes'], projects: ['Serre Automatique MQTT', 'Jeu Éducatif CO₂'] },
       ],
+      diplomasTitle: 'Diplômes & Certifications',
+      diplomasSubtitle: 'Formations reconnues',
+      diplomasIntro: 'Les diplômes et certifications acquis au fil de mon parcours, garants de mes acquis académiques et de mes validations de compétences.',
+      diplomas: [
+        { year: '2026', name: 'BUT GEII', institution: 'IUT de La Garde', status: 'En cours' },
+        { year: '2026', name: 'DU de Droit Canonique', institution: 'Université de Strasbourg', status: 'En cours' },
+        { year: '2025', name: 'Certification TOEIC', institution: 'ETS Global', status: 'Obtenu' },
+        { year: '2023', name: 'Baccalauréat Général', institution: 'Lycée du Coudon', status: 'Obtenu' },
+      ],
     },
     competences: {
       title: 'Compétences',
@@ -295,6 +304,15 @@ export const translations = {
         { period: '2024 - 2025', title: 'BUT GEII — 2nd Year', institution: 'IUT de La Garde', company: 'Kontron Modular (Apprenticeship)', location: 'La Garde / La Farlède', description: 'Deepening of technical skills: embedded systems, industrial networks, telecommunications, and advanced maintenance. SAE projects in automation and system control. Professional application at Kontron Modular.', competences: ['Embedded systems', 'Industrial networks', 'Electronic diagnostics', 'Maintenance', 'Advanced automation'], projects: ['Motor Regulation + Shelly EM', 'Obstacle-detecting robot with infrared sensors'] },
         { period: '2023 - 2024', title: 'BUT GEII — 1st Year', institution: 'IUT de La Garde', company: 'Europe Qualité (Apprenticeship)', location: 'La Garde / La Valette', description: 'First year of Bachelor in Electrical and Industrial Engineering via apprenticeship. Discovery of fundamentals: electronics, automation, networks, and embedded systems. Alongside, acquisition of professional skills in metrology at Europe Qualité.', competences: ['Basic electronics', 'Measurement and instrumentation', 'Automation', 'Programming', 'Metrology', 'Organization'], projects: ['Smartlight', 'Excel Metrology Spreadsheets'] },
         { period: '2022 - 2023', title: 'General Baccalaureate', institution: 'Lycée du Coudon', company: '', location: 'La Garde', description: 'General baccalaureate — specialties in Mathematics, Physics-Chemistry, option Expert Mathematics. Beginning of my orientation toward engineering sciences and technology.', competences: ['Mathematics', 'Physics', 'Engineering sciences', 'Analysis', 'Problem solving'], projects: ['Automated Greenhouse MQTT', 'Educational CO₂ Game'] },
+      ],
+      diplomasTitle: 'Degrees & Certifications',
+      diplomasSubtitle: 'Recognized qualifications',
+      diplomasIntro: 'The degrees and certifications acquired throughout my journey, guaranteeing my academic achievements and validated skills.',
+      diplomas: [
+        { year: '2026', name: 'BUT GEII', institution: 'IUT de La Garde', status: 'In progress' },
+        { year: '2026', name: 'University Diploma in Canon Law', institution: 'University of Strasbourg', status: 'In progress' },
+        { year: '2025', name: 'TOEIC Certification', institution: 'ETS Global', status: 'Obtained' },
+        { year: '2023', name: 'General Baccalaureate', institution: 'Lycée du Coudon', status: 'Obtained' },
       ],
     },
     competences: {
