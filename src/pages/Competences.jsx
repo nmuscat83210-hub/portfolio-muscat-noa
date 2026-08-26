@@ -202,7 +202,7 @@ const competencesHorsGEII = [
       en: "This skill was built through concrete academic work in computer vision and machine learning.\n\nThe Vision Homework Assignment led me to develop in Python with OpenCV a program for fruit segmentation and classification by color, shape, and size. The work involved implementing HSV masks, morphological operations, the Watershed algorithm, and geometric criteria to automatically detect and identify apples, nectarines, lemons, and apricots.\n\nThe Opti Plant project represented a higher level: building a dataset of 1054 annotated images via Label Studio (10 labels, 6 plant species), training (fine-tuning) a YOLO11s model on Google Colab (GPU T4, 60 epochs, lr0=0.04), achieving 91.2% precision and 82.6% recall. The model was deployed on a local web server via a Python script called by PHP (shell_exec, Ultralytics library, OpenCV/FFmpeg)."
     },
     iaDocs: [
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94b05e3a2_3bc53050c_DM_pomme-peches-abricot-citrons_Noa_MUSCAT.pdf"
+      { url: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94b05e3a2_3bc53050c_DM_pomme-peches-abricot-citrons_Noa_MUSCAT.pdf", label: "Devoir IA/Vision" }
     ]
   },
   {
@@ -218,7 +218,7 @@ const competencesHorsGEII = [
       en: "In the BUT GEII program, I took a Cybersecurity lab which constitutes my formal introduction to information system security principles.\n\nThis lab allowed me to practice CVE vulnerability analysis on equipment used in courses (STM32F4, Cisco WLC, Siemens SIMATIC S7, Schneider Modicon) via public databases. I calculated CVSS averages (Schneider: 7.55; Siemens: 8.42 — High level), used Shodan to identify systems actually exposed on the Internet, and applied passive reconnaissance techniques such as Google Dorking and WHOIS/RDAP queries.\n\nThis work sensitized me to the reality of threats on industrial systems and the importance of maintaining up-to-date firmware."
     },
     cybersecDocs: [
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/bbc594d86_44e8aeb26_TD1CyberscuritMUSCAT.pdf"
+      { url: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/bbc594d86_44e8aeb26_TD1CyberscuritMUSCAT.pdf", label: "Travail Cybersécurité" }
     ]
   },
   {
