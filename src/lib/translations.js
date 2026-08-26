@@ -18,8 +18,8 @@ export const translations = {
     home: {
       tagline: 'Portfolio Personnel',
       name: 'Noa MUSCAT',
-      subtitle: 'Étudiant en BUT GEII',
-      description: 'Étudiant en ingénierie, passionné par la technologie, l\'IA et la cybersécurité.',
+      subtitle: 'Étudiant en école d\'ingénieur',
+      description: 'Passionné par la technologie, l\'IA et la cybersécurité.',
       downloadCV: 'Télécharger mon CV',
       contact: 'Me contacter',
       discover: 'Découvrir',
@@ -133,7 +133,7 @@ export const translations = {
       intro: 'Une question, une opportunité, une collaboration ? N\'hésitez pas à me contacter.',
       details: 'Coordonnées',
       availability: 'Disponibilité',
-      availabilityText: 'Actuellement en 3ème année de BUT GEII en alternance chez Kontron Modular. Ouvert aux opportunités pour la rentrée 2025 en école d\'ingénieur.',
+      availabilityText: 'Actuellement en 1ère année de mon cycle ingénieur. Ouvert aux opportunités pour la rentrée 2026.',
       labels: { email: 'Email', phone: 'Téléphone', linkedin: 'LinkedIn' },
     },
     futur: {
@@ -259,8 +259,8 @@ export const translations = {
     home: {
       tagline: 'Personal Portfolio',
       name: 'Noa MUSCAT',
-      subtitle: 'BUT GEII Student',
-      description: 'Engineering student passionate about technology, AI, and cybersecurity.',
+      subtitle: 'Engineering School Student',
+      description: 'Passionate about technology, AI, and cybersecurity.',
       downloadCV: 'Download my CV',
       contact: 'Contact me',
       discover: 'Discover',
@@ -374,7 +374,7 @@ export const translations = {
       intro: 'A question, an opportunity, a collaboration? Don\'t hesitate to contact me.',
       details: 'Contact details',
       availability: 'Availability',
-      availabilityText: 'Currently in the 3rd year of BUT GEII apprenticeship at Kontron Modular. Open to opportunities for the 2025 intake in engineering school.',
+      availabilityText: 'Currently in the 1st year of my engineering cycle. Open to opportunities for the 2026 intake.',
       labels: { email: 'Email', phone: 'Phone', linkedin: 'LinkedIn' },
     },
     futur: {
