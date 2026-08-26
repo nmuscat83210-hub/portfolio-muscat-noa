@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
-import { Mail, Phone, Linkedin } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 import { useTranslation } from '../lib/i18n';
 import { easeLuxury } from '../lib/animations';
 
@@ -10,7 +10,6 @@ export default function Contact() {
 
   const contactInfo = [
     { icon: Mail, label: t.contact.labels.email, value: "n.muscat83210@gmail.com", href: "mailto:n.muscat83210@gmail.com" },
-    { icon: Phone, label: t.contact.labels.phone, value: "07 63 54 94 40", href: "tel:+33763549440" },
     { icon: Linkedin, label: t.contact.labels.linkedin, value: "linkedin.com/in/noa-muscat", href: "https://www.linkedin.com/in/noa-muscat" }
   ];
 
