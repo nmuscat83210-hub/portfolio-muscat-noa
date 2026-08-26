@@ -33,15 +33,6 @@ export default function Home() {
               transition={{ duration: 1.6, delay: 0.2, ease: easeLuxury }}
               className="order-2 lg:order-1"
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 1.2, ease: easeLuxury }}
-                className="text-xs uppercase tracking-[0.4em] text-[#CBAF73] font-medium mb-6 block"
-              >
-                {t.home.tagline}
-              </motion.span>
-              
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -49,8 +40,6 @@ export default function Home() {
                 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-[1.1] mb-6 lg:mb-8"
               >
                 <span className="font-medium">{t.home.name}</span>
-                <br />
-                {t.home.subtitle}
               </motion.h1>
 
               <motion.p
