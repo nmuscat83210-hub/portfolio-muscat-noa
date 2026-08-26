@@ -58,7 +58,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <a 
-                  href="https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/9413ae680_CV_NOA_MUSCAT.pdf"
+                  href="https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/59fd7cc75_CV_NOA_M.pdf"
                   download="CV_NOA_MUSCAT.pdf"
                 >
                   <GoldButton variant="primary">
