@@ -125,6 +125,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                     const yearLabel = labels
                       ? `${competence.name} — ${labels[index]}`
                       : `${competence.name} — BUT${index + 1}`;
+                    const levelImgs = competence.levelImages && competence.levelImages[index];
                     return (
                       <div key={index}>
                         <div className="flex justify-between mb-2">
@@ -140,6 +141,13 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                             className="h-full bg-gradient-to-r from-[#CBAF73] to-[#b89d5f]"
                           />
                         </div>
+                        {levelImgs && levelImgs.length > 0 && (
+                          <div className="grid grid-cols-3 gap-2 mb-6">
+                            {levelImgs.map((img, i) => (
+                              <img key={i} src={img} alt={`${yearLabel} ${i + 1}`} className="w-full h-24 object-cover border border-gray-200" />
+                            ))}
+                          </div>
+                        )}
                       </div>
                     );
                   })}
