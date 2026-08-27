@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, TrendingUp, FileText, ExternalLink } from 'lucide-react';
 import { createPageUrl } from '../../utils';
@@ -32,6 +32,7 @@ function DocLinks({ docs, label }) {
 
 export default function CompetenceDetailModal({ competence, onClose }) {
   const { t } = useTranslation();
+  const [enlargedImg, setEnlargedImg] = useState(null);
   if (!competence) return null;
 
   return (
@@ -144,7 +145,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                         {levelImgs && levelImgs.length > 0 && (
                           <div className="grid grid-cols-3 gap-2 mb-6">
                             {levelImgs.map((img, i) => (
-                              <img key={i} src={img} alt={`${yearLabel} ${i + 1}`} className="w-full h-24 object-cover border border-gray-200" />
+                              <img key={i} src={img} alt={`${yearLabel} ${i + 1}`} onClick={() => setEnlargedImg(img)} className="w-full h-24 object-cover border border-gray-200 cursor-pointer hover:opacity-80 transition-opacity" />
                             ))}
                           </div>
                         )}
@@ -220,6 +221,25 @@ export default function CompetenceDetailModal({ competence, onClose }) {
         </motion.div>
         </div>
       </motion.div>
+
+      {enlargedImg && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={() => setEnlargedImg(null)}
+          className="fixed inset-0 bg-black/90 z-[60] flex items-center justify-center p-6 cursor-zoom-out"
+        >
+          <img src={enlargedImg} alt="Agrandissement" className="max-w-full max-h-full object-contain" />
+          <button
+            onClick={() => setEnlargedImg(null)}
+            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
+          >
+            <X size={20} className="text-white" />
+          </button>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }
