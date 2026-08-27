@@ -62,9 +62,13 @@ const competencesGEII = [
       [
         "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/c2c714315_NIVEAU2PHOTO1.png",
         "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8df252fe0_NIVEAU2PHOTO2.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/5792d2f08_NIVEAU2PHOTO3.png"
+        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/5792d2f08_NIVEAU2PHOTO3.png",
+        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/087e56ec0_NIVEAU2PHOTO4.png"
       ],
-      []
+      [
+        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/914104866_NIVEAU3PHOTO1.png",
+        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8d4d6f7c5_NIVEAU3PHOTO3.png"
+      ]
     ],
     why: {
       fr: "🔹 Niveau 1 – 100 %\n\nNiveau officiel : « Effectuer les tests et mesures nécessaires à une vérification d'un système ». Ce niveau est totalement maîtrisé : J'ai réalisé quotidiennement des contrôles électriques et physiques chez Kontron (tests de continuité des masses au micro-ohmmètre, mesures des tensions d'alimentation, inspections de conformité visuelle). Mon expérience chez Europe Qualité a renforcé cette pratique à travers des campagnes rigoureuses d'étalonnage d'instruments de mesure (multimètre, boîte à décade, analyseur de spectre, sonde thermocouple type K).\n\n🔹 Niveau 2 – 100 %\n\nNiveau officiel : « Mettre en place un protocole de tests pour valider le fonctionnement d'un système ». Ce niveau est totalement maîtrisé : J'ai exécuté des protocoles de test d'endurance Burn-in, réalisé des diagnostics prédictifs sur disques durs et déployé des scripts automatisés en Python sous Linux pour stresser les liaisons réseau. J'ai également géré les contrôles d'environnement ESD au téra-ohmmètre.\n\n🔹 Niveau 3 – 100 %\n\nNiveau officiel : « Élaborer une procédure intégrant une démarche qualité pour valider le fonctionnement d'un système ». Ce niveau est totalement maîtrisé : J'ai rédigé des procédures d'intervention officielles chez Kontron et piloté la métrologie interne du laboratoire (suivi hebdomadaire des tournevis dynamométriques sur banc d'essai, métrologie des racks) sous contraintes ISO 9001 et EN 9100. Chez Europe Qualité, j'ai rédigé des certificats d'étalonnage officiels et validé des solutions de monitoring au BUT GEII (Shelly EM, IoT).",
