@@ -58,7 +58,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <a 
-                  href="https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/59fd7cc75_CV_NOA_M.pdf"
+                  href="assets/59fd7cc75_CV_NOA_M.pdf"
                   download="CV_NOA_MUSCAT.pdf"
                 >
                   <GoldButton variant="primary">
@@ -88,7 +88,7 @@ export default function Home() {
                 <div className="absolute -inset-8 border border-black/5 -z-20" />
                 <div className="w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <img
-                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/a40fb864e_2J8A2638-Modifier.jpg"
+                    src="assets/a40fb864e_2J8A2638-Modifier.jpg"
                     alt="Portrait"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />

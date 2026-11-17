@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
-import { Link } from 'react-router-dom';
+import projectsData from '@/data/projects.json';
+import { Link, useSearchParams } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { ArrowLeft, ExternalLink, Download, Loader2, X } from 'lucide-react';
 import GoldButton from '../components/ui/GoldButton';
@@ -12,18 +11,12 @@ import { easeLuxury } from '../lib/animations';
 
 export default function ProjectDetail() {
   const { t } = useTranslation();
-  const urlParams = new URLSearchParams(window.location.search);
-  const projectId = urlParams.get('id');
+  const [searchParams] = useSearchParams();
+  const projectId = searchParams.get('id');
   const [lightboxImage, setLightboxImage] = useState(null);
 
-  const { data: project, isLoading } = useQuery({
-    queryKey: ['project', projectId],
-    queryFn: async () => {
-      const projects = await base44.entities.Project.filter({ id: projectId });
-      return projects[0];
-    },
-    enabled: !!projectId
-  });
+  const project = projectsData.find(p => p.id === projectId || p.slug === projectId);
+  const isLoading = false;
 
   if (isLoading) {
     return (

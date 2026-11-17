@@ -1,0 +1,38 @@
+#include<stdio.h>
+
+int main (void)
+{
+float longeur , prix_cable , prix_ht , tva ,prix_ttc , remise , cout_tva ;
+printf(" quel est la longeur du cable ");
+scanf("%f",&longeur);
+tva =0.2;
+prix_cable = 0.19*longeur ;
+if (prix_cable>1000)
+{
+    remise = 5;
+
+}
+else
+{
+  if(prix_cable>500)
+  {
+      remise = 3;
+
+  }
+  else
+  {
+      remise = 0 ;
+
+  }
+
+
+  }
+
+prix_ht = prix_cable*((1-remise/100.0));
+prix_ttc = prix_ht + (prix_ht*tva) ;
+cout_tva = prix_ht*tva ;
+printf("La longeur livree est de :%f \nLe prix total hors taxe est de : %f \nLa valeur de la remise est de :%f %% \nLa TVA est de 20%% \nLe prix ttc est de : %f\nLa valeur ajoute par la tva est de :%f \n" ,longeur,prix_ht,remise,prix_ttc,cout_tva);
+
+return 0;
+
+}

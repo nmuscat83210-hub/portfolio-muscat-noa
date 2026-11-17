@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useQuery } from '@tanstack/react-query';
-import { base44 } from '@/api/base44Client';
+import projectsData from '@/data/projects.json';
 import SectionTitle from '../components/ui/SectionTitle';
 import ProjectCard from '../components/projects/ProjectCard';
 import { Loader2 } from 'lucide-react';
@@ -13,10 +12,8 @@ export default function Projets() {
   const [activeCategory, setActiveCategory] = useState('all');
   const categories = t.projets.categories;
 
-  const { data: projects = [], isLoading } = useQuery({
-    queryKey: ['projects'],
-    queryFn: () => base44.entities.Project.list('-created_date')
-  });
+  const projects = projectsData;
+  const isLoading = false;
 
   const filteredProjects = activeCategory === 'all' 
     ? projects 

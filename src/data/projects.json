@@ -1,0 +1,460 @@
+[
+  {
+    "short_description": "Outil PowerShell de scan réseau et d'inventaire automatisé pour localiser les postes actifs d'un laboratoire de réparation et croiser leur état avec le DNS/DHCP.",
+    "retex_ameliorations": "Enrichissement des données : l'outil étant désormais fonctionnel, la prochaine étape consiste à compléter de manière exhaustive la base de données (le fichier Excel d'origine). Il s'agira de renseigner toutes les informations transversales manquantes pour chaque ordinateur, notamment leur utilisation technique exacte au sein du laboratoire.",
+    "year": "2026",
+    "documents": [
+      {
+        "url": "assets/d9febb718_scan_reseau.txt",
+        "label": "scan_reseau.ps1 — Script PowerShell"
+      }
+    ],
+    "long_description": "## Contexte & Problématique\n\nLe besoin initial de ce projet était de localiser précisément les ordinateurs actifs au sein du laboratoire de réparation et de connaître leurs adresses IP pour pouvoir communiquer avec eux.\n\nLa complexité de l'infrastructure résidait dans la coexistence de deux réseaux distincts au sein du labo : un réseau configuré en adresses IP fixes, et un second utilisant l'attribution dynamique via DHCP. Il fallait donc un moyen rapide de récupérer les IP distribuées par le DHCP et d'identifier les postes dont le nom n'était pas correctement enregistré sur le serveur DNS local.\n\n## Solution Technique Apportée\n\nPour répondre à ce besoin, j'ai mis en place une solution en deux étapes. La première a consisté à créer une base de données sous Excel, répertoriant les noms, emplacements, adresses IP connues et utilisations des machines du laboratoire.\n\nDans un second temps, j'ai développé un script PowerShell (`scan_reseau.ps1`) capable d'importer ce tableau sous format CSV, de pinguer dynamiquement chaque nom de machine, et de croiser les résultats avec le DNS. L'outil génère ensuite une interface visuelle résumant l'état du parc — En ligne, Hors ligne ou Erreur DNS — et déduit la plage réseau de chaque équipement.\n\n### Déploiement & Sécurité\n\nPour rendre l'outil accessible et contourner la politique de restriction d'exécution des scripts Windows, j'ai créé un raccourci Batch (.bat) intégrant la commande :\n\n`powershell.exe -ExecutionPolicy Bypass -File \"C:\\Users\\nmuscat\\Documents\\scan_reseau.ps1\"`\n\n## Fonctionnement du Script\n\nLe script PowerShell importe d'abord le fichier CSV généré depuis le tableau Excel. Pour chaque machine, il effectue un `Test-Connection` (ping) via le nom d'hôte, puis récupère l'adresse IP résolue via `Resolve-DnsName` (requête DNS). Il en déduit ensuite la plage réseau à partir de l'IP, et affiche le résultat dans une interface Windows Forms avec filtre et recherche.\n\nLes machines sont classées en trois catégories. Celles marquées En ligne répondent au ping et leur résolution DNS est correcte. Celles marquées Hors ligne (Mais DNS OK) ne répondent pas au ping, mais le DNS connaît tout de même leur nom. Enfin, les machines Non trouvée (Erreur DNS) ne renvoient ni ping ni résolution DNS.",
+    "title": "Supervision Réseau & Automatisation d'Inventaire",
+    "technologies": [
+      "PowerShell",
+      "Windows Forms",
+      "Active Directory",
+      "DNS",
+      "DHCP",
+      "CSV",
+      "Batch (.bat)"
+    ],
+    "competences": [
+      "Administration réseau",
+      "Scripting",
+      "Résolution DNS",
+      "Analyse DHCP",
+      "Développement d'outils internes",
+      "Contournement de politiques Windows",
+      "Gestion de parc"
+    ],
+    "retex_points_forts": "Découverte concrète de l'administration réseau (analyse DHCP, requêtes DNS, résolutions d'adresses) — un domaine qui m'attire particulièrement. Développement d'un outil interne utile de bout en bout, apportant une réelle satisfaction personnelle. Confirmation de mon projet professionnel : ce projet me conforte pleinement dans l'idée d'orienter mes choix futurs vers l'administration système et réseau.",
+    "retex_apprentissages": "Administration réseau : ping, résolution DNS, déduction de plages réseau, différences IP fixe vs DHCP. Scripting PowerShell : manipulation de CSV, boucles, gestion d'erreurs, génération d'interfaces Windows Forms. Sécurité Windows : contournement de la politique d'exécution des scripts via -ExecutionPolicy Bypass et raccourci Batch. Rigueur professionnelle : croiser plusieurs sources de données (Excel, DNS, ping) pour fiabiliser l'état du parc.",
+    "context": "Stage / Laboratoire Repair",
+    "cover_image": "assets/c836e4f37_generated_image.png",
+    "category": "entreprise",
+    "slug": "supervision-reseau-automatisation-inventaire",
+    "gallery_images": [
+      "assets/b4690b8e4_photoexcelrseau.PNG",
+      "assets/333a7af7e_photoexcelrseau2.PNG",
+      "assets/3de7ab286_resultatscript.PNG"
+    ],
+    "id": "6a842af3028e9935aafa51e9",
+    "created_date": "2026-08-18T09:50:43.005000",
+    "updated_date": "2026-08-18T09:59:04.813000"
+  },
+  {
+    "short_description": "Conception et réalisation de la chaîne de supervision automatisée de bout en bout pour une ombrière agricole connectée (projet de fin de cursus, équipe de 9, sprint de 10 jours).",
+    "retex_ameliorations": "Réseau LoRa : migrer vers 433 MHz (modules LilyGo T-Beam) pour une meilleure pénétration des obstacles (bâtiments, végétation) — atténuation actuelle RSSI < -90 dBm. Intégration Finale : finaliser le câblage Modbus TCP/IP physique avec l'automate WAGO. Évolution IA : enrichir le dataset (menthe, carotte sous-représentées) et traiter en temps réel le flux vidéo RTSP.",
+    "year": "2026",
+    "documents": [
+      {
+        "label": "Présentation orale Opti Plant",
+        "url": "assets/67c0ce5cf_dc7e6878a_Opti_Plant_Oral.pdf"
+      },
+      {
+        "label": "Rapport technique Opti Plant",
+        "url": "assets/9464e221c_Rapport_Optiplant_v2.pdf"
+      }
+    ],
+    "long_description": "Ce projet de fin de cursus BUT GEII (SAE 6.ESE.01) consistait à reprendre et finaliser un système de supervision IoT pour une ombrière agricole instrumentée à l'IUT de Toulon. L'équipe de 9 étudiants ESE alternance disposait d'un délai très court (sprint de 10 jours, ~58h au total) pour reprendre un code hérité partiellement documenté.\n\n**Le problème :** Remonter en temps réel les données environnementales (température, humidité, ensoleillement) de 4 bacs de culture instrumentés par un automate industriel WAGO distant et sans réseau, les transmettre sans fil vers un bâtiment éloigné, et offrir une plateforme web de supervision centralisée. Le système devait aussi intégrer une IA pour identifier les plantes et formuler des recettes nutritives.\n\n**Mon périmètre (avec Siegfried et Maxime) :** Module Supervision Web — InfluxDB, Site Web React/PHP, Base de données MySQL Aiven Cloud.\n\n## Systèmes Embarqués et Radio (LoRa)\nProgrammation de microcontrôleurs ESP32 en C++ (PlatformIO) sous FreeRTOS pour gérer les tâches concurrentes (TaskLora priorité haute sur Cœur 0, TaskUI + TaskInflux sur Cœur 1). Liaison radio LoRa SX128X à 2,445 GHz avec antennes directives Yagi installées sur mât à l'ombrière. Interfaces tactiles locales sur écrans TFT ILI9341 (affichage temps réel des 4 bacs, chronomètre de détection de perte de liaison). Format de trame ASCII compact : \"00h0551t223 01h... E0854\" (bac, humidité, température, ensoleillement).\n\n## Protocoles Industriels\nÉtude et cartographie complète des registres Modbus TCP/IP de l'automate WAGO (%MW0–%MW25 pour température et humidité des 4 bacs). Intégration à finaliser par manque du module RJ45 SPI.\n\n## Architecture Web et Données (ma contribution principale)\nDéploiement d'un serveur local WAMP sur Latte Panda (Bâtiment E). Configuration Apache (VirtualHost, Require all granted, port 80). Base de données MySQL hébergée sur Aiven Cloud (optiplant_bd), administrée via MySQL Workbench. Création d'une API backend PHP avec filtrage strict des requêtes (endpoints sécurisés, PDO). Frontend React avec fetch asynchrone toutes les 10 secondes interrogeant InfluxDB (bucket Optiplant123, tag keys bac1–bac4, fields humi_sol/temp_sol/ph_sol/ensoleillement/niveau_eau/energie). Intégration double API météo (OpenWeather + Infoclimat). Intégration flux caméra RTSP (Caméra TAPO → FFmpeg → snapshot JPEG 720×480 toutes les 10–20s). Module recettes avec gestion CRUD, clés étrangères, suppression en cascade (PHP/PDO avec transaction).\n\n## Intelligence Artificielle (Vision)\nConstitution d'un dataset de 1054 images annotées via Label Studio (10 labels, 6 espèces végétales : tomates, fraises, salades, carottes, lavandes, menthes). Entraînement (fine-tuning) YOLO11s sur GPU T4 (Google Colab, 60 epochs, conf=0.28, iou=0.50). Résultats : 91,2% de précision, 82,6% de recall. Déploiement via PHP shell_exec + script Python (Ultralytics, OpenCV, FFmpeg).",
+    "title": "Opti Plant — Serre Agricole IoT",
+    "technologies": [
+      "ESP32",
+      "FreeRTOS",
+      "C++",
+      "LoRa SX128X",
+      "InfluxDB",
+      "MySQL",
+      "PHP",
+      "React",
+      "YOLO11s",
+      "Python",
+      "Modbus TCP/IP",
+      "MQTT",
+      "WAMP"
+    ],
+    "competences": [
+      "Concevoir",
+      "Installer",
+      "Vérifier",
+      "Base de données",
+      "Langages informatiques",
+      "Intelligence Artificielle",
+      "Travail d'équipe"
+    ],
+    "retex_points_forts": "Ce projet est une excellente démonstration technique car il traverse l'intégralité des couches de l'Ingénierie des Systèmes : du capteur terrain (Automate) à l'application métier finale (Dashboard Web et IA), en passant par les réseaux radio (LoRa) et l'IoT. L'utilisation de FreeRTOS sur les cartes ESP32 s'est révélée indispensable pour séparer les tâches (radio, affichage, Wi-Fi) et éviter de perdre des paquets. Le fait d'avoir repris un code hérité demande en outre une très forte rigueur d'analyse logicielle.",
+    "retex_apprentissages": "Systèmes Embarqués Temps Réel : C++ (PlatformIO), FreeRTOS multicœur (Mutex, Semaphores), gestion SPI partagé. Réseaux IoT : LoRa (modulation à spectre étalé), Modbus TCP/IP, HTTP/REST Line Protocol. Développement Web et Données : IHM asynchrones JavaScript (Fetch API), InfluxDB (langage Flux), architecture serveur WAMP, PHP backend. Intelligence Artificielle et Vision : annotation (Label Studio), fine-tuning YOLO11s GPU, déploiement PHP/Python.",
+    "context": "BUT GEII 3ème année — SAE 6.ESE.01 — Équipe de 9",
+    "cover_image": "assets/5f70bcc99_imageserreintelligenteoptiplant.jpg",
+    "category": "geii",
+    "slug": "opti-plant",
+    "gallery_images": [],
+    "id": "6a5f859b7b34ab13e9a07f6c",
+    "created_date": "2026-07-21T14:43:39",
+    "updated_date": "2026-08-26T06:30:42.599000"
+  },
+  {
+    "short_description": "Remplacement complet du fond de panier VME défectueux d'un rack de test industriel, avec validation métrologique complète et remise en service.",
+    "retex_ameliorations": "Cette perte de temps a mis en évidence la nécessité d'améliorer mon organisation lors des démontages complexes. Pour les prochaines interventions, il sera indispensable d'adopter une méthode de documentation systématique. Cela implique de prendre des photos claires de chaque étape et de consigner précisément l'emplacement de chaque élément mécanique avant de le retirer, afin de fluidifier, d'accélérer et de sécuriser le travail de remontage.",
+    "year": "2025",
+    "documents": [],
+    "long_description": "Au sein du laboratoire, le contrôle de routine régulier des équipements de test a mis en évidence un dysfonctionnement majeur sur l'un des bancs d'essai. Ce système, indispensable pour valider le fonctionnement de certaines cartes électroniques, ne permettait plus d'obtenir des mesures fiables. Après une première analyse, il s'est avéré que la carte principale reliant tous les composants à l'arrière de la machine, appelée fond de panier, était défectueuse. L'ensemble de la machine était alors inutilisable. L'enjeu de ce projet était de réparer ce système pour assurer la continuité des activités de l'équipe et garantir des résultats de test indiscutables lors des contrôles réguliers.\n\nPour remettre ce système en état, une intervention matérielle complète a été menée. La première étape a consisté à démonter entièrement la machine en toute sécurité, en déconnectant méthodiquement chaque carte et chaque câble pour extraire la pièce défectueuse. Un nouveau fond de panier compatible a ensuite été installé dans le châssis et reconnecté. Afin de valider la réparation, une série de vérifications très strictes a été réalisée. Des mesures de tension électrique ont d'abord été prises à vide pour contrôler la stabilité de l'alimentation. Ensuite, des cartes de test ont été insérées pour observer le comportement de la machine et vérifier qu'il n'y ait aucune chute de tension en conditions réelles de fonctionnement. L'ensemble de ces mesures a été consigné dans un tableau de suivi pour assurer la traçabilité de l'intervention, et le bon fonctionnement final a été documenté au format vidéo.\n\nCe projet s'est révélé très instructif et valorisant. Il m'a permis de bien comprendre les enjeux liés à la fiabilité des outils de test dans un environnement industriel. Cette intervention concrète a grandement consolidé ma compréhension de l'architecture globale des systèmes électroniques et m'a familiarisé avec des méthodes de contrôle rigoureuses. Pouvoir mener à bien cette réparation de bout en bout constitue une véritable étape dans ma prise d'autonomie face à des systèmes de grande envergure.\n\n[Voir la vidéo de validation en fonctionnement réel](https://youtu.be/Zag-zuFqqPM)",
+    "title": "Rack Test VME — Remise en Service",
+    "technologies": [
+      "VME",
+      "Métrologie",
+      "Électronique industrielle",
+      "Systèmes de test"
+    ],
+    "competences": [
+      "Diagnostic de panne",
+      "Architecture VME",
+      "Intervention matérielle",
+      "Méthodologie de test",
+      "Traçabilité métrologique",
+      "Documentation technique"
+    ],
+    "retex_points_forts": "Bien que l'intervention se soit déroulée avec méthode, une difficulté inattendue est survenue lors de la phase de remontage. L'oubli de prendre suffisamment de photographies détaillées lors du démontage initial, en particulier pour mémoriser l'emplacement précis des éléments mécaniques, des connecteurs et des vis, a entraîné une perte de temps significative au moment de tout réassembler.",
+    "retex_apprentissages": "Cette expérience a permis de développer de solides compétences techniques et organisationnelles. Sur le plan technique, elle valide une maîtrise concrète de l'intervention matérielle sur des systèmes industriels complexes, de l'investigation de pannes et de la réalisation de tests électriques progressifs et sécurisés. Sur le plan transversal, elle démontre une capacité à assurer la traçabilité d'une intervention à travers la rédaction de documents de suivi, tout en prouvant une véritable autonomie face à des opérations de réparation délicates.",
+    "context": "Kontron Modular - Alternance BUT3",
+    "cover_image": "assets/2c84b089b_photorackremont.png",
+    "category": "entreprise",
+    "slug": "rack-vme-backplane",
+    "gallery_images": [
+      "assets/88d80ef54_cartedetestvoltage.png",
+      "assets/52eead184_photorackdmont.png",
+      "assets/2c84b089b_photorackremont.png",
+      "assets/6e293456a_checklistverif.png",
+      "assets/5f693da7d_pageexcel.png"
+    ],
+    "id": "698d9e7e1d7377f0ac8fa695",
+    "created_date": "2026-02-12T09:33:50.811000",
+    "updated_date": "2026-08-18T09:56:50.155000"
+  },
+  {
+    "title": "Documentation par Rétro-ingénierie",
+    "slug": "documentation-kontron",
+    "short_description": "Création de procédures de réparation et documentation technique chez Kontron",
+    "long_description": "Au sein du laboratoire de réparation, plusieurs ordinateurs industriels très complexes et d'ancienne génération ne disposaient d'aucune documentation officielle pour leur maintenance. Le diagnostic et la réparation de ces machines reposaient presque exclusivement sur l'expérience et le savoir-faire mémorisé par les techniciens en poste. Cette absence de consignes écrites générait un risque de méthodes de travail inégales, augmentait les doutes face à des pannes difficiles et allongeait considérablement le temps de formation pour les nouveaux membres de l'équipe.\n\nPour combler ce manque, une démarche d'analyse approfondie a été menée afin de créer de toutes pièces une base documentaire claire et standardisée. L'initiative a consisté à réaliser directement les recherches de pannes physiques et logicielles sur les machines défectueuses. Lors de chaque intervention, des photographies ont été prises à chaque étape clé du démontage, et des notes détaillées ont été rédigées concernant les opérations informatiques complexes, comme la configuration interne des composants. L'ensemble de ces informations a ensuite été trié, résumé et vulgarisé pour créer des guides techniques illustrés, proposant des méthodes de dépannage logiques qui procèdent par élimination.\n\nCe projet s'est révélé être une réussite majeure avec un double bénéfice. Pour l'entreprise, il apporte une solution durable en transformant un savoir non écrit en un outil de référence concret, ce qui sécurise les processus de réparation et facilite grandement la transmission des connaissances. Sur le plan personnel, cette mission a marqué une transition déterminante. Elle m'a permis de dépasser le simple rôle d'exécutant pour adopter une véritable démarche de recherche structurée, me faisant comprendre en profondeur le fonctionnement intime des systèmes électroniques.",
+    "cover_image": "assets/0ea49b4f4_image.png",
+    "technologies": [
+      "Analyse de schémas",
+      "Documentation technique",
+      "Outils de mesure",
+      "Photographie technique",
+      "Manipulation et configuration du BIOS",
+      "Logiciels de test et vérification",
+      "Analyse des configurations internes",
+      "Remplacement de composants"
+    ],
+    "competences": [
+      "Maintenir",
+      "Communiquer",
+      "Informatique technique",
+      "Hardware"
+    ],
+    "category": "entreprise",
+    "year": "2025-2026",
+    "context": "Kontron Modular - Alternance 3ème année",
+    "gallery_images": [],
+    "documents": [
+      {
+        "url": "assets/2f6872ddd_PHOTO1.pdf",
+        "label": "Documentation de réparation — Partie 1"
+      },
+      {
+        "url": "assets/ef984da50_PHOTO2.pdf",
+        "label": "Documentation de réparation — Partie 2"
+      },
+      {
+        "url": "assets/c86270cfd_PHOTO3.pdf",
+        "label": "Documentation de réparation — Partie 3"
+      }
+    ],
+    "retex_points_forts": "Lors de l'exécution de ces missions, plusieurs difficultés sont apparues. Sur le plan matériel, l'interaction avec des machines anciennes a imposé de devoir contourner des problèmes d'obsolescence, comme l'utilisation d'adaptateurs spécifiques pour forcer des mises à jour informatiques.",
+    "retex_ameliorations": "Bien que la création de ces documents ait grandement standardisé nos méthodes de travail, plusieurs évolutions sont nécessaires. Dans un premier temps, il serait pertinent d'améliorer l'ergonomie et la lisibilité des supports actuels pour les rendre encore plus intuitifs lors des interventions. Il faut également continuer à consigner de nouvelles pannes au fur et à mesure pour enrichir cette base de connaissances. L'évolution la plus aboutie consisterait à numériser et centraliser tout ce travail sur un site internet interne à l'entreprise. Ce portail regrouperait au même endroit l'ensemble des procédures, l'historique complet des pannes, et intégrerait directement les logiciels et programmes informatiques permettant de dépanner les machines, créant ainsi une véritable boîte à outils tout-en-un pour les techniciens.",
+    "retex_apprentissages": "Le dépassement de ces obstacles a permis de forger de solides compétences à la fois techniques et comportementales. Sur le plan matériel et logiciel, une véritable expertise en recherche de pannes a été acquise, complétée par une bonne compréhension des outils d'analyse informatique. La création des documents techniques a également sollicité de fortes capacités de synthèse et de vulgarisation pour rendre accessible le fonctionnement de systèmes complexes. Sur le plan humain, cette évolution valide l'acquisition d'une totale autonomie, d'une grande force de proposition et d'une rigueur de travail alignée sur les plus hautes exigences de qualité du monde industriel.",
+    "id": "693c1be4ec925c0d63401959",
+    "created_date": "2025-12-12T13:43:00.589000",
+    "updated_date": "2026-08-26T07:21:17.981000"
+  },
+  {
+    "title": "Suivi Métrologique Excel",
+    "slug": "excel-metrologie",
+    "short_description": "Création de tableurs de calcul et de suivi métrologique pour Europe Qualité",
+    "long_description": "Au sein du laboratoire, le suivi régulier des outils de précision (comme les tournevis dynamométriques) et la gestion des dates de péremption des produits chimiques (colles, résines) étaient des tâches complexes et chronophages. L'utilisation d'un outil déréglé ou d'un produit périmé représente un risque majeur pour la fiabilité des réparations. Face aux normes très strictes de l'industrie, le service Qualité avait besoin d'un système de contrôle infaillible pour éviter toute erreur humaine lors des vérifications de conformité.\n\nPour répondre à ce besoin, des fichiers Excel très avancés ont été développés afin d'automatiser entièrement le suivi métrologique. Pour les outils, une base de données a été créée pour enregistrer les tests d'étalonnage hebdomadaires, avec des formules automatisant les calculs d'incertitudes (vérifiant instantanément si l'outil se situe bien dans sa marge de tolérance de plus ou moins 5 %). Pour les produits chimiques, un véritable tableau de bord a été programmé. Grâce à l'utilisation de macros, de code VBA et de tableaux croisés dynamiques, le fichier calcule automatiquement les jours restants avant péremption et déclenche des alertes visuelles par codes couleurs pour anticiper les renouvellements de stock.\n\nCe projet s'est avéré être une grande réussite. L'automatisation réussie de ces tâches a permis un gain de temps significatif pour toute l'équipe technique au quotidien. De plus, la traçabilité du laboratoire a été considérablement améliorée, ce qui permet d'aborder les audits de contrôle du service Qualité avec une totale sérénité. Personnellement, cela m'a montré comment l'informatique pouvait résoudre des problématiques d'organisation concrètes.",
+    "cover_image": "assets/e9203cd07_image.png",
+    "technologies": [
+      "Excel",
+      "VBA",
+      "Formules avancées",
+      "Macros",
+      "Tableaux croisés dynamiques"
+    ],
+    "competences": [
+      "Vérifier",
+      "Communiquer"
+    ],
+    "category": "entreprise",
+    "year": "2023-2024",
+    "context": "Europe Qualité - Alternance 1ère année",
+    "gallery_images": [],
+    "documents": [],
+    "retex_points_forts": "Bien que les fichiers soient devenus extrêmement performants grâce à l'automatisation, leur conception très technique (avec de nombreuses macros et formules complexes cachées) les a rendus un peu sensibles. Lors de l'utilisation quotidienne, il est apparu que l'interface restait complexe à manipuler pour des personnes qui ne sont pas des experts d'Excel, avec le risque qu'une mauvaise saisie n'altère le fonctionnement du tableau.",
+    "retex_ameliorations": "L'axe d'amélioration prioritaire serait d'optimiser l'interface utilisateur pour les non-experts. Il faudrait masquer entièrement les feuilles de calculs complexes et créer des formulaires de saisie très simples (des fenêtres avec des boutons) pour empêcher toute modification accidentelle des formules. À plus long terme, la meilleure évolution serait de transformer ces tableurs automatisés en une véritable petite application web interne, encore plus ergonomique et visuelle.",
+    "retex_apprentissages": "Ce projet a permis de développer une maîtrise très avancée d'Excel (programmation VBA, macros, tableaux croisés dynamiques) appliquée à un besoin industriel réel. Il valide également l'acquisition de compétences rigoureuses en métrologie, en automatisation de processus et en organisation de grandes bases de données. Sur le plan humain, cela démontre une forte capacité à concevoir des outils facilitant le travail collectif tout en répondant aux plus hautes exigences de qualité.",
+    "id": "693c1be4ec925c0d63401958",
+    "created_date": "2025-12-12T13:43:00.589000",
+    "updated_date": "2026-07-24T11:59:41.218000"
+  },
+  {
+    "short_description": "Infrastructure télécom complète avec modems satellite, réseau Cisco et contrôle STM32",
+    "retex_ameliorations": "L'interface de supervision Python pourrait être enrichie pour interroger en boucle le modem et afficher sous forme de graphiques en temps réel la qualité du signal (taux d'erreur binaire, bande passante utilisée). Côté STM32, sachant que la puce ST25DV64 intègre la technologie NFC, on pourrait imaginer un pilotage sans contact des configurations du modem directement depuis un smartphone.",
+    "year": "2025",
+    "documents": [
+      {
+        "url": "assets/c7ebf7221_f06252d77_CompteRenduSAImplantationdunechaneMUSCAT_compressed1.pdf",
+        "label": "Compte rendu SAE — Implantation d'une chaîne de transmission"
+      },
+      {
+        "url": "assets/5636019fc_8d980ada8_ORALSAImplantationChanedeTransmissionpresentation_compressed.pdf",
+        "label": "Présentation orale — Chaîne de transmission (Modem, Cisco, STM32)"
+      }
+    ],
+    "long_description": "Il fallait configurer et faire communiquer de bout en bout des équipements hétérogènes (PC, routeurs, modems) situés sur des réseaux IP distincts, tout en trouvant des solutions pour automatiser et fiabiliser le pilotage du modem (fréquence, modulation, taux de codage) afin de remplacer la saisie manuelle sujette aux erreurs.\n\nTélécommunications et liaisons séries : Câblage et pilotage initial du modem CDM-600 via le logiciel PuTTY et une liaison RS232, en utilisant des trames de commandes ASCII strictes.\n\nDéveloppement d'une interface logicielle : Création d'une application graphique en Python (avec les bibliothèques Tkinter et pySerial) pour automatiser l'envoi des configurations (fréquence de 50 à 180 MHz, choix des modulations BPSK/QPSK/8PSK) et lire les réponses de l'équipement.\n\nArchitecture et configuration Réseau : Simulation sous Cisco Packet Tracer puis application sur du matériel réel avec des routeurs Cisco 1841 équipés de modules WIC-2T. Réalisation de l'adressage IP statique, de l'activation des interfaces FastEthernet/Serial, et configuration du routage statique pour interconnecter les réseaux.\n\nProgrammation Embarquée (STM32) : Utilisation de l'environnement STM32CubeIDE pour programmer une carte ST25DV64 en C. Création d'un menu interactif sur l'écran LCD de la carte, pilotable par joystick, pour envoyer les trames UART de configuration au modem.\n\nCe projet est une excellente synthèse des métiers de l'ingénierie électrique et informatique. L'approche hybride, consistant à d'abord simuler les réseaux sur Packet Tracer avant de passer sur du matériel physique réel, s'est avérée très pertinente. Le développement d'interfaces de supervision (Python et STM32) apporte une grande valeur ajoutée en rapprochant le TP d'un contexte de production industriel fiable.",
+    "title": "Modem CDM600 — Chaîne Satellite",
+    "technologies": [
+      "CDM-600",
+      "RS232",
+      "PuTTY",
+      "Python (Tkinter, pySerial)",
+      "Cisco IOS",
+      "Cisco 1841",
+      "Packet Tracer",
+      "STM32CubeIDE",
+      "ST25DV64",
+      "UART",
+      "BPSK/QPSK/8PSK"
+    ],
+    "competences": [
+      "Concevoir",
+      "Installer",
+      "Vérifier",
+      "Maintenir",
+      "Communiquer",
+      "Gérer un projet"
+    ],
+    "retex_points_forts": "Sécurité et accès matériel : les routeurs Cisco nécessitaient parfois une procédure complexe de réinitialisation matérielle (modification du registre via la commande confreg 0x2142) pour contourner les mots de passe oubliés et récupérer les droits d'administration. Routage inter-réseaux : établir la communication entre deux PC sur des réseaux éloignés a nécessité de configurer des routes statiques point-à-point sur les interfaces séries (Se0/0/0) des routeurs. Intégration graphique sur la carte STM32 : pour personnaliser le menu avec une icône de modem, il a fallu générer une image, la redimensionner en 100x100 pixels, puis la convertir en tableau hexadécimal intégrable dans le code C.",
+    "retex_apprentissages": "Télécommunications : maîtrise théorique et pratique des modulations numériques (BPSK, QPSK, OQPSK, 8PSK) et de l'impact des codes correcteurs (FEC) sur la bande passante. Réseaux informatiques : maîtrise de l'IOS Cisco en ligne de commande (interfaces, IP, routage statique, levée des sécurités) et utilisation de Packet Tracer. Programmation applicative : développement d'IHM en Python (Tkinter) et sécurisation des entrées utilisateurs. Programmation embarquée : manipulation de STM32CubeIDE, gestion d'écrans LCD et joystick, programmation de liaisons UART (USART2) en langage C.",
+    "context": "BUT GEII 3ème année - Projet majeur",
+    "cover_image": "assets/c38ce67b9_photo3.png",
+    "category": "geii",
+    "slug": "cdm600-cisco-stm32",
+    "gallery_images": [
+      "assets/8c2cefd7c_photo1.png",
+      "assets/f2315a44f_photo2.png",
+      "assets/c38ce67b9_photo3.png",
+      "assets/0e3ddf37a_photo4.png",
+      "assets/a6da88483_photo5.png"
+    ],
+    "id": "693b0e6312eb6b7775e9ba64",
+    "created_date": "2025-12-11T18:33:07.104000",
+    "updated_date": "2026-08-26T07:10:49.305000"
+  },
+  {
+    "short_description": "Pipeline RF complet pour décoder les signaux ADS-B des avions avec GNU Radio et Pluto SDR",
+    "retex_ameliorations": "Portée de réception à optimiser, ajout de filtres avancés",
+    "year": "2024",
+    "documents": [
+      {
+        "url": "assets/495f7f6f5_9a940954e_CopiedeCompterenduSAEReymonddocx_compressed.pdf",
+        "label": "Compte rendu SAE — Réception et décodage d'une trame ADS-B"
+      },
+      {
+        "url": "assets/b6265b60c_Programme_Vol_SAE_noa.txt",
+        "label": "Programme Python — Décodage ADS-B & interface Tkinter"
+      }
+    ],
+    "long_description": "Projet majeur de traitement du signal RF. Réception et décodage des signaux ADS-B (1090 MHz) émis par les avions. Construction d'un pipeline complet : analyse RF avec NanoVNA, réception via Pluto SDR, traitement du signal avec GNU Radio, décodage du protocole ICAO, scraping des données Flightradar24 et création d'une interface Tkinter pour visualisation en temps réel. Ce projet couvre l'ensemble de la chaîne radiofréquence.",
+    "title": "Récepteur ADS-B — Pluto SDR",
+    "technologies": [
+      "Pluto SDR",
+      "GNU Radio",
+      "Python",
+      "NanoVNA",
+      "Tkinter",
+      "Protocole ICAO",
+      "Web Scraping"
+    ],
+    "competences": [
+      "Concevoir",
+      "Vérifier",
+      "Maintenir",
+      "Communiquer"
+    ],
+    "retex_points_forts": "Pipeline RF complet et fonctionnel, décodage réussi, interface intuitive",
+    "retex_apprentissages": "Traitement du signal RF, GNU Radio, SDR, protocoles aéronautiques, scraping web",
+    "context": "BUT GEII 2ème année - Projet majeur",
+    "cover_image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop",
+    "category": "geii",
+    "slug": "adsb-plutosdr",
+    "gallery_images": [],
+    "id": "693b0e6312eb6b7775e9ba63",
+    "created_date": "2025-12-11T18:33:07.104000",
+    "updated_date": "2026-08-26T07:10:49.279000"
+  },
+  {
+    "short_description": "Supervision et optimisation de l'autoconsommation d'une installation photovoltaïque via le compteur intelligent Shelly EM, avec interface LabVIEW connectée à l'API.",
+    "retex_ameliorations": "Interface utilisateur plus ergonomique",
+    "year": "2025",
+    "documents": [
+      {
+        "url": "assets/46ea56085_e616ddc91_CMPTsa4shellyoutofboxdocx.pdf",
+        "label": "Compte rendu SAE — Shelly Out of Box (partie 1)"
+      },
+      {
+        "url": "assets/ea6565117_79fc41af7_CMPTsa4shellyoutofbox2docx.pdf",
+        "label": "Compte rendu SAE — Shelly Out of Box (partie 2)"
+      },
+      {
+        "url": "assets/238c16fb3_ff74f6abb_CMPTsa4ConnexiondelAPI.pdf",
+        "label": "Compte rendu SAE — Connexion de l'API"
+      }
+    ],
+    "long_description": "Ce projet s'inscrit dans le cadre d'une SAÉ (Situation d'Apprentissage et d'Évaluation) portant sur l'amélioration d'un système existant de panneaux solaires. Le problème identifié était que le pic de production solaire se produisait en journée, précisément quand la consommation du bâtiment est la plus faible. L'énergie excédentaire était alors simplement renvoyée à Enedis sans valorisation.\n\n**Objectif :** Utiliser le surplus d'énergie produite pour alimenter automatiquement un ballon d'eau chaude et/ou une pompe de piscine, en détectant les moments de surplus via le Shelly EM.\n\n## Mise en service du Shelly EM (Out of the Box)\nLe Shelly EM est un module de mesure d'énergie connecté bi-canal. La mise en service a demandé :\n- Câblage conforme à la documentation constructeur (prise en compte de la phase uniquement ⚠️)\n- Configuration réseau : reset du Shelly, connexion au WiFi, attribution d'une IP statique (192.168.7.3), vérification par ping\n- Configuration proxy navigateur pour accéder aux requêtes HTTP locales\n\n## Commandes HTTP (CURL / Telnet / Navigateur)\nLe Shelly EM expose une API REST permettant de piloter le relais et de lire les mesures en temps réel via des requêtes HTTP simples (curl, telnet ou navigateur). Les données sont retournées au format JSON, avec les champs power, reactive, voltage, is_valid, total, total_returned.\n\n## Connexion de l'API cRIO_9063\nUn automate industriel NI cRIO-9063 a été connecté au réseau via NIMAX, configuré avec une adresse IP statique, puis interrogé via SSH (PuTTY) et SFTP pour le transfert de fichiers.\n\n## Interface LabVIEW\nUn programme LabVIEW a été développé pour superviser en temps réel les données électriques des deux canaux du Shelly EM (puissance active, réactive, tension, facteur de puissance) et piloter le relais via des requêtes HTTP. L'interface graphique affiche un voyant coloré indiquant l'état du relais et calcule le cos φ pour chaque canal.",
+    "title": "Shelly EM — Supervision Photovoltaïque",
+    "technologies": [
+      "Shelly EM",
+      "API REST",
+      "HTTP/JSON",
+      "LabVIEW",
+      "cRIO-9063",
+      "NI-MAX",
+      "SSH/SFTP",
+      "IoT"
+    ],
+    "competences": [
+      "Concevoir",
+      "Vérifier",
+      "Installer",
+      "Réseaux industriels"
+    ],
+    "retex_points_forts": "Mesures précises, contrôle efficace, bonne documentation API",
+    "retex_apprentissages": "API REST, mesure d'énergie, contrôle de puissance, IoT",
+    "context": "BUT GEII 2ème année - Projet tutoré",
+    "cover_image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+    "category": "geii",
+    "slug": "shelly-em-panneaux-solaires",
+    "gallery_images": [],
+    "id": "693b0e6312eb6b7775e9ba62",
+    "created_date": "2025-12-11T18:33:07.104000",
+    "updated_date": "2026-08-26T07:10:49.240000"
+  },
+  {
+    "short_description": "Robot autonome capable de détecter et éviter les obstacles grâce à des capteurs infrarouges",
+    "retex_ameliorations": "Gestion des virages serrés à améliorer",
+    "year": "2023",
+    "documents": [],
+    "long_description": "Conception et programmation d'un robot autonome équipé de capteurs infrarouges pour la détection d'obstacles. Utilisation d'algorithmes de navigation et de prise de décision pour éviter les collisions. Développement d'un système de contrôle des moteurs pour assurer des mouvements fluides et réactifs.",
+    "title": "Robot Éviteur d'Obstacles IR",
+    "technologies": [
+      "Arduino",
+      "Capteurs IR",
+      "Moteurs DC",
+      "Régulation PID",
+      "C++"
+    ],
+    "competences": [
+      "Concevoir",
+      "Installer",
+      "Vérifier"
+    ],
+    "retex_points_forts": "Très bonnes performances, algorithme PID efficace",
+    "retex_apprentissages": "Capteurs infrarouges, algorithmes de navigation, contrôle moteur, logique décisionnelle",
+    "context": "BUT GEII 1ère année - Projet compétition",
+    "cover_image": "assets/1ed63f03a_image.png",
+    "category": "geii",
+    "slug": "robot-suiveur-ligne",
+    "gallery_images": [
+      "assets/949c171dc_ProjetRobotdetecteurphotofonctionnementmoteur.png",
+      "assets/0c58c933c_ProjetRobotdetecteurphototestfonctionnempentmoteur.png"
+    ],
+    "id": "693b0e6312eb6b7775e9ba61",
+    "created_date": "2025-12-11T18:33:07.104000",
+    "updated_date": "2026-07-24T11:59:41.401000"
+  },
+  {
+    "short_description": "Jeu éducatif sur les émissions de CO₂ développé en Python avec Pygame",
+    "retex_ameliorations": "Ajouter plus de niveaux et de scénarios",
+    "year": "2022",
+    "documents": [],
+    "long_description": "Développement d'un jeu éducatif interactif pour sensibiliser aux émissions de CO₂. Le joueur doit prendre des décisions impactant l'environnement et visualiser les conséquences en temps réel. Utilisation de Pygame pour l'interface graphique et la logique de jeu.",
+    "title": "Jeu Éducatif CO₂",
+    "technologies": [
+      "Python",
+      "Pygame",
+      "Programmation orientée objet"
+    ],
+    "competences": [
+      "Concevoir",
+      "Communiquer"
+    ],
+    "retex_points_forts": "Aspect éducatif réussi, interface intuitive",
+    "retex_apprentissages": "Programmation orientée objet, développement de jeux, sensibilisation environnementale",
+    "context": "Projet de Terminale - Enseignement Scientifique",
+    "cover_image": "assets/98ed8147c_acceuiljeuc02.png",
+    "category": "terminale",
+    "slug": "jeu-co2",
+    "gallery_images": [
+      "assets/7fef3f823_jeueducatifC021.png",
+      "assets/71e85a2a9_jeueducatifC022.png",
+      "assets/9a9677260_jeueducatifC023.png",
+      "assets/f1d67006b_jeueducatifC024.png",
+      "assets/6daf513d6_jeueducatifC025.png"
+    ],
+    "id": "693b0e6312eb6b7775e9ba5f",
+    "created_date": "2025-12-11T18:33:07.104000",
+    "updated_date": "2026-07-24T11:59:41.338000"
+  },
+  {
+    "title": "Serre Automatisée MQTT",
+    "slug": "serre-automatique",
+    "short_description": "Système de gestion automatisée d'une serre connectée via protocole MQTT",
+    "long_description": "Il fallait automatiser l'entretien d'une serre dédiée aux Hortensias en régulant la température de l'air (en dessous de 27°C) et en assurant un arrosage automatique adapté à l'humidité de la terre, le tout en faisant communiquer les différents équipements entre eux.\n\nCapteurs et électronique : Installation de capteurs d'humidité du sol YL69 et de température/humidité de l'air DHT22 sur des microcontrôleurs ESP8266 et ESP32. Commande d'actionneurs (ventilateur et électrovannes) à l'aide de transistors MOSFET IRF520.\n\nMécanique des fluides : Mise en place d'un système de goutte-à-goutte avec des électrovannes. Réalisation de calculs de débit et de pertes de charge liés au rétrécissement des tuyaux de 16 mm à 8 mm.\n\nProgrammation et réseau : Écriture de scripts en MicroPython pour récupérer les données et piloter les actionneurs via le réseau Wi-Fi.\n\nSupervision et communication : Mise en place du protocole IoT MQTT (système de Publish/Subscribe) pour faire communiquer les cartes avec un Raspberry Pi central, et création d'une interface graphique avec l'outil Node-RED pour visualiser les données.\n\nCe projet est une réussite technique très complète car il intègre avec succès plusieurs domaines de l'ingénierie (programmation, électronique, IoT et physique). Le choix du protocole MQTT s'est révélé très pertinent car il offre de nombreux avantages pour la communication fluide entre de multiples appareils. Le développement de ce système automatisé montre l'efficacité d'une architecture décentralisée (plusieurs cartes ESP) centralisée par un Raspberry Pi avec Node-RED, ce qui rend la gestion du projet à la fois modulaire, agréable et compréhensible visuellement. La confrontation avec des grandeurs physiques réelles a permis de lier théorie et pratique.",
+    "cover_image": "assets/9b112fa47_electrovanne.jpg",
+    "technologies": [
+      "MicroPython",
+      "ESP8266",
+      "ESP32",
+      "MQTT",
+      "Node-RED",
+      "Raspberry Pi",
+      "DHT22",
+      "YL69",
+      "MOSFET IRF520"
+    ],
+    "competences": [
+      "Concevoir",
+      "Installer",
+      "Vérifier"
+    ],
+    "category": "terminale",
+    "year": "2022",
+    "context": "Projet de Terminale - Sciences de l'Ingénieur",
+    "gallery_images": [
+      "assets/9b112fa47_electrovanne.jpg",
+      "assets/d2e343d94_imageprogramme.png",
+      "assets/5fa260d37_imageprogramme2.png",
+      "assets/b971a7f83_imageprogramme3.png"
+    ],
+    "documents": [],
+    "retex_points_forts": "Étalonnage des capteurs : les capteurs d'humidité de la terre renvoyaient des données brutes qu'il a fallu étalonner manuellement étape par étape (terre sèche, peu humide, humide, inondée) pour les convertir en pourcentages exploitables (de 4% à 80%). Intégration logicielle : il a fallu adapter l'ensemble des différents programmes pour qu'ils communiquent tous avec le Raspberry Pi via MQTT. Calculs physiques : la gestion de la pression de l'eau pour le goutte-à-goutte a nécessité des approximations scientifiques sur les pertes de charge.",
+    "retex_ameliorations": "Le système pourrait être étendu en intégrant davantage de capteurs (luminosité) ou en affinant le pilotage des électrovannes sans se reposer sur les approximations de pertes de charge. L'interface Node-RED pourrait également être enrichie pour contrôler manuellement les seuils (comme la limite fixée à 27°C).",
+    "retex_apprentissages": "Programmation embarquée : maîtrise du MicroPython pour ESP8266/ESP32. Réseaux et IoT : protocole MQTT (Broker, Publish, Subscribe) en Wi-Fi. Électronique : câblage de capteurs DHT22/YL69 et pilotage de puissance avec modules MOSFET. Physique et mesures : protocoles d'étalonnage et mécanique des fluides (débit, pertes de charge). Interfaces Homme-Machine : conception de dashboards de supervision avec Node-RED sur Raspberry Pi.",
+    "id": "693b0e6312eb6b7775e9ba5e",
+    "created_date": "2025-12-11T18:33:07.104000",
+    "updated_date": "2026-07-24T11:59:41.311000"
+  }
+]
