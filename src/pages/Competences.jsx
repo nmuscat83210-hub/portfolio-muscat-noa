@@ -6,9 +6,9 @@ import CompetenceDetailModal from '../components/competences/CompetenceDetailMod
 import { useTranslation } from '../lib/i18n';
 import { easeLuxury } from '../lib/animations';
 
-const competencesGEII = [
+const competencesSystemes = [
   {
-    name: { fr: "Concevoir", en: "Design" },
+    name: { fr: "Conception de systèmes", en: "Systems Design" },
     description: {
       fr: "Concevoir des systèmes électroniques et informatiques industriels répondant aux besoins spécifiques.",
       en: "Design electronic and industrial computer systems meeting specific requirements."
@@ -40,7 +40,7 @@ const competencesGEII = [
     ]
   },
   {
-    name: { fr: "Vérifier", en: "Verify" },
+    name: { fr: "Vérification & validation", en: "Verification & Validation" },
     description: {
       fr: "Vérifier la conformité des systèmes, valider les performances et assurer la qualité.",
       en: "Verify system compliance, validate performance, and ensure quality."
@@ -92,7 +92,8 @@ const competencesGEII = [
     ]
   },
   {
-    name: { fr: "Maintenir", en: "Maintain" },
+    name: { fr: "Diagnostic & maintenance", en: "Diagnostics & Maintenance" },
+    projectId: "693c1be4ec925c0d63401959",
     description: {
       fr: "Diagnostiquer, réparer et assurer la maintenance préventive des systèmes.",
       en: "Diagnose, repair, and ensure preventive maintenance of systems."
@@ -119,7 +120,7 @@ const competencesGEII = [
     },
   },
   {
-    name: { fr: "Implanter", en: "Implement" },
+    name: { fr: "Intégration & mise en service", en: "Integration & Commissioning" },
     description: {
       fr: "Réaliser, installer et mettre en service des systèmes dans une démarche qualité.",
       en: "Build, install, and commission systems within a quality approach."
@@ -147,7 +148,7 @@ const competencesGEII = [
   }
 ];
 
-const competencesHorsGEII = [
+const competencesAutres = [
   {
     name: { fr: "Communiquer", en: "Communicate" },
     description: {
@@ -333,8 +334,16 @@ export default function Competences() {
   const { t, lang } = useTranslation();
   const [selectedCompetence, setSelectedCompetence] = useState(null);
 
-  const geiiData = competencesGEII.map(c => resolveCompetence(c, lang));
-  const horsGEIIData = competencesHorsGEII.map(c => resolveCompetence(c, lang));
+  const all = [...competencesSystemes, ...competencesAutres];
+  const pick = (names) => names
+    .map(n => all.find(c => c.name.fr === n))
+    .filter(Boolean)
+    .map(c => resolveCompetence(c, lang));
+  const groups = [
+    { ...t.competences.groups.tech, items: pick(["Langages informatiques", "Base de Données", "Intelligence Artificielle", "Cybersécurité"]) },
+    { ...t.competences.groups.systems, items: pick(["Conception de systèmes", "Vérification & validation", "Intégration & mise en service", "Diagnostic & maintenance", "Maintenance Électronique", "Métrologie"]) },
+    { ...t.competences.groups.soft, items: pick(["Gérer un projet", "Communiquer", "Travail d'équipe", "Autonomie & Organisation", "Anglais technique"]) },
+  ];
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-white to-gray-50">
@@ -357,65 +366,36 @@ export default function Competences() {
         </motion.p>
       </section>
 
-      {/* Compétences GEII */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-20 lg:mb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.4, ease: easeLuxury }}
-          className="mb-12"
-        >
-          <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
-            {t.competences.geiiLabel}
-          </span>
-          <h3 className="text-2xl md:text-3xl font-light">{t.competences.geiiTitle}</h3>
-          <p className="text-sm text-black/50 mt-2">
-            {t.competences.geiiDesc}
-          </p>
-        </motion.div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {geiiData.map((comp, index) => (
-            <CompetenceCard 
-              key={comp.name} 
-              competence={comp} 
-              index={index}
-              onClick={setSelectedCompetence}
-            />
-          ))}
-        </div>
-      </section>
+      {groups.map((group, gi) => (
+        <section key={group.title} className={`max-w-7xl mx-auto px-6 lg:px-12 ${gi < groups.length - 1 ? 'mb-20 lg:mb-32' : ''}`}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.4, ease: easeLuxury }}
+            className="mb-12"
+          >
+            <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
+              {group.label}
+            </span>
+            <h3 className="text-2xl md:text-3xl font-light">{group.title}</h3>
+            <p className="text-sm text-black/50 mt-2">
+              {group.desc}
+            </p>
+          </motion.div>
 
-      {/* Compétences Hors GEII */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.4, ease: easeLuxury }}
-          className="mb-12"
-        >
-          <span className="text-xs uppercase tracking-[0.3em] text-[#CBAF73] font-medium mb-3 block">
-            {t.competences.transversalLabel}
-          </span>
-          <h3 className="text-2xl md:text-3xl font-light">{t.competences.transversalTitle}</h3>
-          <p className="text-sm text-black/50 mt-2">
-            {t.competences.transversalDesc}
-          </p>
-        </motion.div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {horsGEIIData.map((comp, index) => (
-            <CompetenceCard 
-              key={comp.name} 
-              competence={comp} 
-              index={index}
-              onClick={setSelectedCompetence}
-            />
-          ))}
-        </div>
-      </section>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {group.items.map((comp, index) => (
+              <CompetenceCard
+                key={comp.name}
+                competence={comp}
+                index={index}
+                onClick={setSelectedCompetence}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
 
       {/* Detail Modal */}
       {selectedCompetence && (

@@ -178,8 +178,8 @@ export default function CompetenceDetailModal({ competence, onClose }) {
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
                 onClick={() => {
-                  if (competence.name === "Maintenir" || competence.name === "Maintain") {
-                    navigate(createPageUrl('ProjectDetail') + '?id=693c1be4ec925c0d63401959');
+                  if (competence.projectId) {
+                    navigate(createPageUrl('ProjectDetail') + '?id=' + competence.projectId);
                   } else {
                     navigate(createPageUrl('Projets'));
                   }
@@ -192,7 +192,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                   {competence.fromProjects || t.competences.modal.fromProjectsDefault}
                 </p>
                 <span className="text-xs text-[#CBAF73] opacity-0 group-hover:opacity-100 transition-opacity">
-                  {competence.name === "Maintenir" || competence.name === "Maintain" ? t.competences.modal.seeProject : t.competences.modal.seeProjects}
+                  {competence.projectId ? t.competences.modal.seeProject : t.competences.modal.seeProjects}
                 </span>
               </button>
 
