@@ -9,8 +9,38 @@ import { easeLuxury } from '../lib/animations';
 
 const experiences = [
   {
+    id: 'dga-tn',
+    company: { fr: "DGA Techniques navales", en: "DGA Techniques navales" },
+    location: { fr: "Toulon", en: "Toulon" },
+    period: "2026-2029",
+    year: { fr: "Cycle ingénieur CESI (FISA)", en: "CESI engineering degree (apprenticeship)" },
+    role: { fr: "Apprenti Ingénieur IVVQ — Équipe Systèmes de combat", en: "IVVQ Engineering Apprentice — Combat Systems team" },
+    logo: null,
+    missions: {
+      fr: [
+        "Participation aux activités d'intégration, de vérification, de validation et de qualification (IVVQ) au sein de l'équipe Systèmes de combat",
+        "Contribution aux travaux d'ingénierie de l'équipe dans un environnement défense aux exigences élevées",
+        "Mission soumise à confidentialité : les détails ne sont pas présentés ici"
+      ],
+      en: [
+        "Taking part in integration, verification, validation, and qualification (IVVQ) activities within the Combat Systems team",
+        "Contributing to the team's engineering work in a demanding defense environment",
+        "Confidential assignment: details are not presented here"
+      ]
+    },
+    competences: {
+      fr: ["IVVQ", "Ingénierie système", "Rigueur documentaire", "Démarche qualité"],
+      en: ["IVVQ", "Systems engineering", "Documentation rigor", "Quality approach"]
+    },
+    softSkills: {
+      fr: ["Discrétion", "Rigueur", "Esprit d'équipe", "Curiosité", "Adaptabilité"],
+      en: ["Discretion", "Rigor", "Team spirit", "Curiosity", "Adaptability"]
+    },
+    projetsLies: [],
+  },
+  {
     id: 'europe-qualite',
-    company: { fr: "Europe Qualité", en: "Europe Qualité" },
+    company: { fr: "Europe Qualité Métrologie", en: "Europe Qualité Métrologie" },
     location: { fr: "La Valette", en: "La Valette" },
     period: "2023-2024",
     year: { fr: "1ère année BUT GEII", en: "1st year BUT GEII" },
@@ -208,7 +238,13 @@ export default function ExperiencePro() {
             >
               <div className="border border-gray-200 hover:border-[#CBAF73] transition-all duration-500 overflow-hidden">
                 <div className="relative h-40 lg:h-48 overflow-hidden bg-gray-100">
-                  <img src={exp.logo} alt={exp.company} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                  {exp.logo ? (
+                    <img src={exp.logo} alt={exp.company} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-[#1a1a1a]">
+                      <span className="text-white/80 text-lg lg:text-xl font-light tracking-[0.2em] uppercase text-center px-6">{exp.company}</span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                   <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20">
                     <Building2 size={20} className="text-white" />

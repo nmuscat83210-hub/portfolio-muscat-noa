@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
-import { X, Dumbbell, Users, Music, Palette, BookOpen, Mountain } from 'lucide-react';
+import { X, Dumbbell, Users, Music, Palette, BookOpen, Mountain, Server } from 'lucide-react';
 import { useTranslation } from '../lib/i18n';
 import { easeLuxury } from '../lib/animations';
 
@@ -11,6 +11,7 @@ const iconMap = {
   piano: Music,
   art: Palette,
   litterature: BookOpen,
+  informatique: Server,
   randonnee: Mountain,
 };
 
@@ -20,6 +21,7 @@ const passionImages = {
   piano: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&h=600&fit=crop",
   art: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop",
   litterature: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+  informatique: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
   randonnee: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop",
 };
 

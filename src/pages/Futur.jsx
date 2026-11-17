@@ -171,7 +171,7 @@ export default function Futur() {
 
             {t.futur.roadmap.map((step, index) => (
               <motion.div
-                key={step.year}
+                key={step.year + step.title}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
