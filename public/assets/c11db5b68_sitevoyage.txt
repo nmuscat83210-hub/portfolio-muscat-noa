@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadeau de Confirmation - Escape Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=Lato:wght=300;400;700&display=swap');
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(to bottom, #1a2a3a 0%, #0d131a 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #e2e8f0;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            background-color: rgba(20, 30, 45, 0.95);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            border: 2px solid #d4af37;
+            position: relative;
+        }
+
+        .cross-icon {
+            font-size: 2em;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #f7fafc;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+
+        p.subtitle {
+            color: #a0aec0;
+            font-size: 1.05em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .time-box {
+            background-color: #0d131a;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 70px;
+            border-bottom: 3px solid #d4af37;
+        }
+        .time-box span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .time-box .label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            color: #d4af37;
+        }
+
+        #enigma-section, #success-section {
+            display: none;
+        }
+
+        .parchment {
+            background-color: #f4eae1;
+            color: #2c1d11;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            text-align: left;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            border: 1px solid #d1b89d;
+        }
+
+        .parchment h3 {
+            margin-top: 0;
+            color: #5c3a21;
+            border-bottom: 1px dashed #5c3a21;
+            padding-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .lock-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .lock-box {
+            background: #1a2433;
+            border: 1px solid #4a5568;
+            padding: 15px 10px;
+            border-radius: 6px;
+            width: 30%;
+        }
+
+        .lock-box label {
+            display: block;
+            font-size: 0.8em;
+            color: #cbd5e0;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .lock-box input {
+            width: 80%;
+            padding: 8px;
+            background: #0d131a;
+            border: 1px solid #d4af37;
+            color: #fff;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* ZONE ETAPES */
+        .quiz-zone, .minigame-zone, .final-input-zone {
+            display: none;
+            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .quiz-item {
+            margin-bottom: 20px;
+            background: #1a2433;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .quiz-item p {
+            margin-top: 0;
+            font-weight: bold;
+            color: #f7fafc;
+        }
+
+        .quiz-options label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            color: #cbd5e0;
+            font-size: 0.95em;
+        }
+
+        .quiz-options input {
+            margin-right: 10px;
+        }
+
+        /* GRILLE DE MOTS DU PSAUME */
+        .word-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .word-block {
+            background: #f4eae1;
+            color: #2c1d11;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: 1px solid #d1b89d;
+        }
+
+        .word-block span {
+            color: #d4af37;
+            background: #0d131a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 0.85em;
+        }
+
+        input[type="text"].final-input {
+            padding: 12px;
+            width: 75%;
+            border: 2px solid #cbd5e0;
+            border-radius: 30px;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 15px;
+            background: #fff;
+            color: #000;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .center-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #d4af37;
+            color: #0d131a;
+            border: 2px solid #d4af37;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background-color: transparent;
+            color: #d4af37;
+        }
+
+        .error {
+            color: #fc8181;
+            font-size: 0.95em;
+            margin-top: 15px;
+            font-weight: bold;
+            display: none;
+            text-align: center;
+        }
+
+        .success-message {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            font-size: 1.15em;
+            color: #cbd5e0;
+            line-height: 1.6;
+        }
+        .details strong {
+            color: #d4af37;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- CHRONO -->
+        <div id="countdown-section">
+            <div class="cross-icon">✝️</div>
+            <h1>En route vers ta Confirmation</h1>
+            <p class="subtitle">Ton épreuve spirituelle commencera dans :</p>
+            <div id="timer">
+                <div class="time-box"><span id="days">00</span><div class="label">Jours</div></div>
+                <div class="time-box"><span id="hours">00</span><div class="label">Heures</div></div>
+                <div class="time-box"><span id="minutes">00</span><div class="label">Min</div></div>
+                <div class="time-box"><span id="seconds">00</span><div class="label">Sec</div></div>
+            </div>
+        </div>
+
+        <!-- ZONE ENIGME -->
+        <div id="enigma-section">
+            <div class="cross-icon">🔐</div>
+            <h1>Le Grand Décryptage</h1>
+            <p class="subtitle">Trois codes numériques retiennent la vérité. Utilise internet et tes connaissances pour faire sauter les verrous.</p>
+            
+            <div class="parchment">
+                <h3>📜 Énigmes de l'Ancien Manuscrit</h3>
+                <p><strong>Code I (Un Rassemblement Historique) :</strong> Trouve l'année où la France a accueilli pour la seule et unique fois de son histoire les Journées Mondiales de la Jeunesse (JMJ) en présence du Pape. Soustrais à cette année le numéro de département de la ville hôte de cet événement.</p>
+                
+                <p><strong>Code II (Le Premier des Justes) :</strong> L'Histoire de France regorge de figures célèbres. Trouve l'année précise de canonisation du tout premier saint français de l'Histoire à avoir été officiellement décrété saint par décision d'un Pape au Moyen Àge.</p>
+                
+                <p><strong>Code III (Esprit et Parole) :</strong> Prends le nombre de Dons du Saint-Esprit reçus lors de la Confirmation, puis multiplie-le par le nombre d'Évangiles canoniques du Nouveau Testament.</p>
+            </div>
+
+            <!-- CADENAS -->
+            <div class="lock-container">
+                <div class="lock-box">
+                    <label>Code I</label>
+                    <input type="number" id="code1" placeholder="0000">
+                </div>
+                <div class="lock-box">
+                    <label>Code II</label>
+                    <input type="number" id="code2" placeholder="0000">
+                </div>
+                <div class="lock-box">
+                    <label>Code III</label>
+                    <input type="number" id="code3" placeholder="00">
+                </div>
+            </div>
+
+            <div class="center-btn">
+                <button id="btn-unlock" onclick="unlockLocks()">Déverrouiller les mécanismes</button>
+            </div>
+            
+            <!-- ÉTAPE 2 : LE GRAND QUIZ CHRÉTIEN (6 QUESTIONS) -->
+            <div id="quiz-zone" class="quiz-zone">
+                <h2 style="font-family: 'Playfair Display', serif; color: #d4af37; text-align: center; margin-bottom: 25px;">📖 Épreuve de la Foi et de l'Église</h2>
+                <p class="subtitle" style="text-align: center;">Les verrous ont cédé. Réponds sans faute à ces questions sur les Évangiles et l'Histoire de l'Église :</p>
+                
+                <div class="quiz-item">
+                    <p>1. Quel Évangile s'ouvre sur les mots : « Au commencement était le Verbe, et le Verbe était auprès de Dieu » ?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="A"> Matthieu</label>
+                        <label><input type="radio" name="q1" value="B"> Jean</label>
+                        <label><input type="radio" name="q1" value="C"> Luc</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>2. Quel est le premier miracle accompli par Jésus au tout début de son ministère dans les Évangiles ?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="A"> La multiplication des pains</label>
+                        <label><input type="radio" name="q2" value="B"> La marche sur l'eau</label>
+                        <label><input type="radio" name="q2" value="C"> Le changement de l'eau en vin aux noces de Cana</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>3. Quel animal symbolise traditionnellement l'Évangéliste Marc dans l'iconographie chrétienne ?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="A"> Le Lion</label>
+                        <label><input type="radio" name="q3" value="B"> L'Aigle</label>
+                        <label><input type="radio" name="q3" value="C"> Le Taureau</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>4. Quelle grande sainte française est connue dans l'histoire de l'Église comme étant « La petite fleur de Jésus » et a écrit 'Histoire d'une âme' ?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="A"> Sainte Bernadette</label>
+                        <label><input type="radio" name="q4" value="B"> Sainte Thérèse de Lisieux</label>
+                        <label><input type="radio" name="q4" value="C"> Sainte Jeanne d'Arc</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>5. Quel événement majeur de l'Histoire de l'Église, survenu au milieu du XXe siècle, a été convoqué par le Pape Jean XXIII pour renouveler l'Église moderne ?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="A"> Le Concile de Trente</label>
+                        <label><input type="radio" name="q5" value="B"> Le Concile Vatican II</label>
+                        <label><input type="radio" name="q5" value="C"> Le Concile de Nicée</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>6. Selon les Évangiles, sur quelle colline située juste à l'extérieur de Jérusalem Jésus a-t-il été crucifié ?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q6" value="A"> Le Mont Golgotha (Calvaire)</label>
+                        <label><input type="radio" name="q6" value="B"> Le Mont des Oliviers</label>
+                        <label><input type="radio" name="q6" value="C"> Le Mont Sinaï</label>
+                    </div>
+                </div>
+                
+                <div class="center-btn">
+                    <button onclick="checkQuiz()">Soumettre mes réponses</button>
+                </div>
+            </div>
+
+            <!-- ÉTAPE 3 : MINI-JEU LE VERSET RECOMPOSÉ (Nouveau !) -->
+            <div id="minigame-zone" class="minigame-zone">
+                <h2 style="font-family: 'Playfair Display', serif; color: #d4af37; text-align: center; margin-bottom: 25px;">🎼 Le Chant des Psaumes</h2>
+                <p class="subtitle" style="text-align: center;">Le quiz est validé ! Pour dissiper le brouillard final, remets les mots de ce célèbre Psaume dans le bon ordre en tapant la suite logique des numéros attachés (ex : si la phrase est 3-1-2, tape 312) :</p>
+                
+                <!-- Les encarts de mots mélangés -->
+                <div class="word-grid">
+                    <div class="word-block"><span>1</span> manquez</div>
+                    <div class="word-block"><span>2</span> mon</div>
+                    <div class="word-block"><span>3</span> ne</div>
+                    <div class="word-block"><span>4</span> Seigneur</div>
+                    <div class="word-block"><span>5</span> saurait</div>
+                    <div class="word-block"><span>6</span> Le</div>
+                    <div class="word-block"><span>7</span> me</div>
+                    <div class="word-block"><span>8</span> est</div>
+                    <div class="word-block"><span>9</span> rien</div>
+                    <div class="word-block"><span>10</span> berger</div>
+                </div>
+                
+                <input type="text" id="minigameInput" class="final-input" placeholder="EXEMPLE : 214385...">
+                <div class="center-btn">
+                    <button onclick="checkMiniGame()">Vérifier le Verset</button>
+                </div>
+            </div>
+
+            <!-- ZONE FINALE CRYPTÉE -->
+            <div id="final-zone" class="final-input-zone">
+                <p class="subtitle" style="color: #68d391; font-weight: bold; text-align: center;">✔ TOUTES LES BARRIÈRES SONT TOMBÉES !</p>
+                <div class="parchment" style="background-color: #e2e8f0; color: #1a202c; border-left: 5px solid #d4af37;">
+                    <strong>Dernière transmission :</strong><br>
+                    "L'alliance des codes, de ta foi et du chant pointe vers une vallée du Sud-Ouest. C'est dans cette cité pyrénéenne, célèbre pour sa roche protectrice et son eau vive, que s'achève ton voyage mystère. Où allons-nous ?"
+                </div>
+                <input type="text" id="finalGuess" class="final-input" placeholder="NOM DE LA VILLE...">
+                <br>
+                <div class="center-btn">
+                    <button onclick="checkFinalAnswer()">Valider le Pèlerinage</button>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error">Un des mécanismes résiste. Vérifie tes recherches ! et arrête d'écrire au hasard</div>
+        </div>
+
+        <!-- ZONE SUCCES -->
+        <div id="success-section">
+            <div class="cross-icon">🕊️</div>
+            <div class="success-message">Alléluia ! Tu as réussi !</div>
+            <div class="details">
+                <p>Tu as brisé tous les codes ! Nous partons bien à <strong>LOURDES</strong> !</p>
+                <p>Prépare-toi pour un séjour inoubliable et rempli de grâces, du 13 au 16 juin 2026.</p>
+                <p>Joyeuse Confirmation !</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const countDownDate = new Date("May 24, 2026 17:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown-section").style.display = "none";
+                document.getElementById("enigma-section").style.display = "block";
+            }
+        }, 1000);
+
+        // CODES ENIGMES INITIALES
+        const ans1 = 1922; 
+        const ans2 = 1153; 
+        const ans3 = 28;   
+
+        function unlockLocks() {
+            const c1 = parseInt(document.getElementById("code1").value);
+            const c2 = parseInt(document.getElementById("code2").value);
+            const c3 = parseInt(document.getElementById("code3").value);
+            const err = document.getElementById("errorMessage");
+            const quizZone = document.getElementById("quiz-zone");
+
+            if (c1 === ans1 && c2 === ans2 && c3 === ans3) {
+                quizZone.style.display = "block";
+                err.style.display = "none";
+                document.getElementById("code1").disabled = true;
+                document.getElementById("code2").disabled = true;
+                document.getElementById("code3").disabled = true;
+                document.getElementById("btn-unlock").style.display = "none";
+            } else {
+                err.textContent = "Un ou plusieurs codes sont faux. Le mécanisme reste verrouillé ! et arrête d'écrire au hasard";
+                err.style.display = "block";
+                quizZone.style.display = "none";
+            }
+        }
+
+        function checkQuiz() {
+            const err = document.getElementById("errorMessage");
+            const minigameZone = document.getElementById("minigame-zone");
+            
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const q5 = document.querySelector('input[name="q5"]:checked');
+            const q6 = document.querySelector('input[name="q6"]:checked');
+
+            if (!q1 || !q2 || !q3 || !q4 || !q5 || !q6) {
+                err.textContent = "Tu dois répondre à toutes les questions du quiz chrétien !";
+                err.style.display = "block";
+                return;
+            }
+
+            if (q1.value === "B" && q2.value === "C" && q3.value === "A" && q4.value === "B" && q5.value === "B" && q6.value === "A") {
+                minigameZone.style.display = "block";
+                document.getElementById("quiz-zone").style.display = "none";
+                err.style.display = "none";
+            } else {
+                err.textContent = "Certaines réponses au quiz sont fausses... Révise tes classiques !";
+                err.style.display = "block";
+            }
+        }
+
+        function checkMiniGame() {
+            // Solution attendue : Le Seigneur est mon berger rien ne saurait me manquer
+            // Correspondance : Le(6) Seigneur(4) est(8) mon(2) berger(10) rien(9) ne(3) saurait(5) me(7) manquer(1)
+            // Code final attendu : 64821093571
+            const input = document.getElementById("minigameInput").value.trim().replace(/[-\s]/g, "");
+            const err = document.getElementById("errorMessage");
+            const finalZone = document.getElementById("final-zone");
+
+            if (input === "64821093571") {
+                finalZone.style.display = "block";
+                document.getElementById("minigame-zone").style.display = "none";
+                err.style.display = "none";
+            } else {
+                err.textContent = "La mélodie du psaume n'est pas harmonieuse. L'ordre des mots est incorrect !";
+                err.style.display = "block";
+            }
+        }
+
+        function checkFinalAnswer() {
+            const input = document.getElementById("finalGuess").value.toLowerCase().trim();
+            const err = document.getElementById("errorMessage");
+
+            if (input.includes("lourdes") || input.includes("lourde")) {
+                document.getElementById("enigma-section").style.display = "none";
+                document.getElementById("success-section").style.display = "block";
+            } else {
+                err.textContent = "Le chemin est tracé, mais ce n'est pas le nom de cette cité...";
+                err.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

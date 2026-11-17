@@ -1,0 +1,66 @@
+﻿
+# Script de vérification du parc machine par Nom
+
+
+$cheminCsv = "C:\Users\nmuscat\Documents\machines.csv"
+
+# Importation des données du fichier Excel converti en CSV
+$machines = Import-Csv -Path $cheminCsv -Delimiter ";"
+
+# Création d'un tableau vide pour stocker nos résultats finaux
+$resultats = @()
+
+Write-Host "Démarrage du scan réseau... Cela va prendre quelques secondes." -ForegroundColor Cyan
+
+# Boucle pour traiter chaque ligne du fichier Excel
+foreach ($machine in $machines) {
+    $nom = $machine.NOM
+    
+    # Ignorer les lignes vides du tableau
+    if ([string]::IsNullOrWhiteSpace($nom)) { continue }
+
+    # Valeurs par défaut si la machine ne répond pas
+    $statut = "Hors ligne"
+    $ipResolue = "Non trouvée (Erreur DNS)"
+    $reseau = "Inconnu"
+
+    # Tentative de Ping à l'aide du nom
+    $ping = Test-Connection -ComputerName $nom -Count 1 -ErrorAction SilentlyContinue
+
+    if ($ping) {
+        $statut = "En ligne"
+        # On récupère l'adresse IP que le Ping a réussi à joindre
+        $ipResolue = $ping.IPV4Address.IPAddressToString
+        
+        # On déduit la plage réseau
+        if ($ipResolue -match "^(\d+\.\d+\.\d+)\.\d+$") {
+            $reseau = $matches[1] + ".0"
+        }
+    } else {
+        # Si le ping par nom échoue, on regarde si le serveur DNS connait quand même l'IP
+        try {
+            $ipResolue = [System.Net.Dns]::GetHostAddresses($nom)[0].IPAddressToString
+            $statut = "Hors ligne (Mais DNS OK)"
+            if ($ipResolue -match "^(\d+\.\d+\.\d+)\.\d+$") {
+                $reseau = $matches[1] + ".0"
+            }
+        } catch {
+            # Échec total
+        }
+    }
+
+    # On compile les informations
+    $resultats += [PSCustomObject]@{
+        'Nom Machine'   = $nom
+        'Disponibilité' = $statut
+        'IP via Ping'   = $ipResolue
+        'Réseau'        = $reseau
+        'Emplacement'   = $machine.EMPLACEMENT
+        'Utilisation'   = $machine.UTILISATION
+    }
+}
+
+Write-Host "Scan terminé !" -ForegroundColor Green
+
+# Affichage du résumé dans une fenêtre interactive
+$resultats | Out-GridView -Title "Résumé de disponibilité du parc" -Wait

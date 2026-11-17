@@ -1,0 +1,154 @@
+import sys
+import os
+import time
+import math
+import tkinter as tk
+from tkinter import Label
+from PIL import Image, ImageTk
+import requests
+from bs4 import BeautifulSoup
+from io import BytesIO
+import urllib.parse
+
+# Chemin du fichier CSV contenant les données des avions
+chemin_fichier_csv = '/home/geii/Téléchargements/aircraftDatabase-2024-01_moodle.csv'
+
+# Variables globales pour stocker les données extraites
+immatriculation_avion = ""  # Variable pour stocker l'immatriculation de l'avion
+donnees_csv_completes = ""  # Variable pour stocker tout le contenu du fichier CSV
+
+# Fonction pour charger le fichier CSV et extraire l'immatriculation en fonction du code ICAO
+def charger_csv_et_extraire_immatriculation(icao_hex):
+    global donnees_csv_completes, immatriculation_avion
+    try:
+        # Ouverture du fichier CSV en mode lecture
+        with open(chemin_fichier_csv, 'r', encoding='utf-8') as fichier:
+            lignes = fichier.readlines()  # Lire toutes les lignes du fichier
+            donnees_csv_completes = "".join(lignes)  # Stocker tout le contenu du fichier CSV
+            # Parcours de chaque ligne du fichier
+            for ligne in lignes:
+                # Vérification si la ligne commence par le code ICAO passé en argument
+                if ligne.lower().startswith(f'"{icao_hex},') or ligne.lower().startswith(f'{icao_hex},'):
+                    champs = ligne.strip().split(',"')  # Séparation des champs de la ligne
+                    if len(champs) > 1:
+                        immatriculation_avion = champs[1].split('""')[0].strip()  # Extraire l'immatriculation
+                        break
+    except FileNotFoundError:
+        donnees_csv_completes = ""  # En cas d'erreur, réinitialiser les données
+        immatriculation_avion = ""  # Réinitialiser l'immatriculation
+
+# Fonction pour récupérer l'image de l'avion en fonction de son code d'immatriculation
+def recuperer_image_avion_depuis_immatriculation(code_immatriculation):
+    # URL pour récupérer l'image de l'avion
+    url = f"https://www.flightradar24.com/data/aircraft/{code_immatriculation.lower()}"
+    headers = {
+        "User-Agent": "Mozilla/5.0"  # Ajouter un User-Agent pour imiter un navigateur
+    }
+    username = 'qvert600'  # Nom d'utilisateur pour proxy
+    password = urllib.parse.quote('Vert2004#')  # Mot de passe pour proxy (encodé en URL)
+    proxy_auth = f"{username}:{password}@192.168.0.1:3128"  # Authentification proxy
+    proxies = {
+        "http": f"http://{proxy_auth}",
+        "https": f"http://{proxy_auth}"
+    }
+    try:
+        # Envoi de la requête HTTP pour récupérer la page de l'avion
+        reponse = requests.get(url, headers=headers, proxies=proxies, timeout=10)
+        if reponse.status_code != 200:
+            return None  # Si le code de réponse HTTP est incorrect, retourner None
+        soup = BeautifulSoup(reponse.text, 'html.parser')  # Parser le HTML de la réponse
+        img_tags = soup.find_all("img")  # Trouver toutes les balises <img> contenant des images
+        for img in img_tags:
+            img_url = img.get("src") or img.get("data-src")  # Récupérer l'URL de l'image
+            if img_url and ("jetphotos" in img_url or "photos" in img_url):  # Filtrer les URL valides
+                # Télécharger l'image et la convertir en objet Image
+                img_data = requests.get(img_url, headers=headers, proxies=proxies, timeout=10).content
+                return Image.open(BytesIO(img_data))  # Retourner l'image en tant qu'objet PIL
+        return None
+    except Exception as e:
+        print(f"Erreur lors de la récupération de l'image : {e}")
+        return None  # Retourner None en cas d'exception
+
+# Lecture du fichier binaire de la trame pour extraire les informations ICAO
+with open('/home/geii/Téléchargements/ICAO_7C80AD_FN_VOZ1851.dat', 'rb') as fichier_binaire:
+    donnees_binaire = fichier_binaire.read()  # Lire le fichier binaire
+
+# Extraire les 107 premiers octets et les convertir en une liste
+liste_octets = list(donnees_binaire[:107*2])
+trame = []
+trame_decodée = ""
+for i in range(0, 107):
+    trame.append(liste_octets[2 * i])  # Extraire chaque octet
+    trame_decodée += str(trame[i])  # Convertir les octets en une chaîne binaire
+
+# Générer le code ICAO en hexadécimal à partir de la chaîne binaire
+message = "10001" + trame_decodée
+code_icao = hex(int(message[8:32], 2))[2:]
+
+# Recherche de l'immatriculation dans le CSV en fonction du code ICAO
+charger_csv_et_extraire_immatriculation(code_icao)
+immatriculation_avion2 = immatriculation_avion[1:]  # Extraire l'immatriculation
+
+# Décodage du numéro de vol à partir du message binaire
+liste_caracteres = []
+for idx in range(40, 82, 6):
+    bits_caracteres = message[idx:idx+6]  # Extraire les bits pour chaque caractère
+    if bits_caracteres[0] == '0':
+        bits_caracteres = '01' + bits_caracteres
+    else:
+        bits_caracteres = '00' + bits_caracteres
+    liste_caracteres.append(bits_caracteres)
+
+caractere7 = '0' + message[76:82]
+caractere8 = '0' + message[82:88]
+liste_caracteres.append(caractere7)
+liste_caracteres.append(caractere8)
+
+# Convertir les bits en caractères ASCII pour le numéro de vol
+numero_vol_binaire = ' '.join(liste_caracteres)
+numero_vol_ascii = ''.join([chr(int(b, 2)) for b in numero_vol_binaire.split()])
+
+# Création de l'interface graphique avec Tkinter
+racine = tk.Tk()  # Créer la fenêtre principale
+racine.title("Informations de l'Avion")  # Titre de la fenêtre
+racine.configure(bg="#f8c8d0")  # Fond rose clair de la fenêtre
+
+# Centrer la fenêtre sur l'écran
+largeur_fenetre = 600
+hauteur_fenetre = 700
+largeur_ecran = racine.winfo_screenwidth()
+hauteur_ecran = racine.winfo_screenheight()
+x_cordonnée = int((largeur_ecran / 2) - (largeur_fenetre / 2))
+y_cordonnée = int((hauteur_ecran / 2) - (hauteur_fenetre / 2))
+racine.geometry(f"{largeur_fenetre}x{hauteur_fenetre}+{x_cordonnée}+{y_cordonnée}")
+
+# Frame du haut avec titre
+frame_haut = tk.Frame(racine, bg="#f19cbb", height=50)
+frame_haut.pack(fill="x")
+tk.Label(frame_haut, text="Informations de l'Avion", font=("Helvetica", 20, "bold"), fg="white", bg="#f19cbb").pack(pady=10)
+
+# Frame des informations pour afficher les détails du vol et de l'avion
+frame_info = tk.Frame(racine, bg="#f8a5b3", padx=20, pady=20)
+frame_info.pack(pady=20, fill="x")
+
+tk.Label(frame_info, text=f"Numéro de vol : {numero_vol_ascii.strip()}", font=("Helvetica", 14), fg="white", bg="#f8a5b3").pack(pady=5)
+tk.Label(frame_info, text=f"Code ICAO : {code_icao.upper()}", font=("Helvetica", 14), fg="white", bg="#f8a5b3").pack(pady=5)
+tk.Label(frame_info, text=f"Immatriculation : {immatriculation_avion2.upper()}", font=("Helvetica", 14), fg="white", bg="#f8a5b3").pack(pady=5)
+
+# Frame de l'image pour afficher l'image de l'avion
+frame_image = tk.Frame(racine, bg="#f8c8d0", pady=20)
+frame_image.pack(pady=20)
+
+# Récupérer l'image de l'avion et l'afficher
+image_avion = recuperer_image_avion_depuis_immatriculation(immatriculation_avion2)
+if image_avion:
+    image_redimensionnée = image_avion.resize((400, 300))  # Redimensionner l'image
+    image_tk = ImageTk.PhotoImage(image_redimensionnée)  # Convertir l'image en format Tkinter
+    label_image = tk.Label(frame_image, image=image_tk, bg="#f8c8d0")
+    label_image.image = image_tk  # Garder une référence à l'image pour éviter la collecte des ordures
+    label_image.pack(pady=10)
+else:
+    tk.Label(frame_image, text="Image non disponible", font=("Helvetica", 14), fg="red", bg="#f8c8d0").pack(pady=10)
+
+# Lancer l'interface graphique
+racine.mainloop()

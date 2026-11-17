@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, TrendingUp, FileText, ExternalLink } from 'lucide-react';
 import { createPageUrl } from '../../utils';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../../lib/i18n';
 import { easeLuxury } from '../../lib/animations';
 
@@ -32,6 +33,7 @@ function DocLinks({ docs, label }) {
 
 export default function CompetenceDetailModal({ competence, onClose }) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [enlargedImg, setEnlargedImg] = useState(null);
   if (!competence) return null;
 
@@ -160,7 +162,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
-                onClick={() => window.location.href = createPageUrl('Parcours')}
+                onClick={() => navigate(createPageUrl('Parcours'))}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   {t.competences.modal.fromCourses}
@@ -177,9 +179,9 @@ export default function CompetenceDetailModal({ competence, onClose }) {
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
                 onClick={() => {
                   if (competence.name === "Maintenir" || competence.name === "Maintain") {
-                    window.location.href = createPageUrl('ProjectDetail') + '?id=693c1be4ec925c0d63401959';
+                    navigate(createPageUrl('ProjectDetail') + '?id=693c1be4ec925c0d63401959');
                   } else {
-                    window.location.href = createPageUrl('Projets');
+                    navigate(createPageUrl('Projets'));
                   }
                 }}
               >
@@ -196,7 +198,7 @@ export default function CompetenceDetailModal({ competence, onClose }) {
 
               <button 
                 className="p-6 border border-gray-200 hover:border-[#CBAF73] transition-all text-left group"
-                onClick={() => window.location.href = createPageUrl('ExperiencePro')}
+                onClick={() => navigate(createPageUrl('ExperiencePro'))}
               >
                 <h4 className="text-xs uppercase tracking-[0.2em] text-[#CBAF73] mb-3">
                   {t.competences.modal.fromWork}

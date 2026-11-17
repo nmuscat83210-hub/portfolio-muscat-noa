@@ -15,10 +15,10 @@ const experiences = [
     period: "2023-2024",
     year: { fr: "1ère année BUT GEII", en: "1st year BUT GEII" },
     role: { fr: "Technicien en Métrologie", en: "Metrology Technician" },
-    logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/d49da19f1_image.png",
+    logo: "assets/d49da19f1_image.png",
     gallery_images: [
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/dea5e1409_photo1metrologie.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/e51b0e099_photo2metrologie.png"
+      "assets/dea5e1409_photo1metrologie.png",
+      "assets/e51b0e099_photo2metrologie.png"
     ],
     missions: {
       fr: [
@@ -61,12 +61,12 @@ const experiences = [
     period: "2024-2026",
     year: { fr: "2ème et 3ème année BUT GEII", en: "2nd and 3rd year BUT GEII" },
     role: { fr: "Apprenti Technicien de Réparation — MCO Calculateurs Embarqués", en: "Repair Technician Apprentice — Embedded Computer MCO" },
-    logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/2adeb37bb_csm_Kontron_SPS_23_1_Presse__kl_7fbbfadc20.jpg",
+    logo: "assets/2adeb37bb_csm_Kontron_SPS_23_1_Presse__kl_7fbbfadc20.jpg",
     gallery_images: [
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/72e3b80d5_photoreparation1.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/f89774789_photoreparation2.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/d98ced7b6_photoreparation3.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/df9577d2c_photoreparation4.png"
+      "assets/72e3b80d5_photoreparation1.png",
+      "assets/f89774789_photoreparation2.png",
+      "assets/d98ced7b6_photoreparation3.png",
+      "assets/df9577d2c_photoreparation4.png"
     ],
     missions: {
       fr: [
@@ -112,7 +112,7 @@ const experiences = [
     period: "2025",
     year: { fr: "DU de Droit Canonique", en: "University Diploma in Canon Law" },
     role: { fr: "Stagiaire", en: "Intern" },
-    logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/692fa0502_image.png",
+    logo: "assets/692fa0502_image.png",
     missions: {
       fr: ["Analyse de dossiers canoniques", "Recherche documentaire juridique", "Participation aux consultations", "Rédaction de notes juridiques"],
       en: ["Analysis of canonical files", "Legal documentary research", "Participation in consultations", "Writing legal notes"]

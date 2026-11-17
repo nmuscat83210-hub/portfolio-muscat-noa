@@ -34,9 +34,9 @@ const competencesGEII = [
       en: "Design of test solutions at Kontron, Opti Plant IoT architecture"
     },
     gallery_images: [
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/949c171dc_ProjetRobotdetecteurphotofonctionnementmoteur.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/0c58c933c_ProjetRobotdetecteurphototestfonctionnempentmoteur.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/45927b2ae_imageserreintelligenteoptiplant.jpg"
+      "assets/949c171dc_ProjetRobotdetecteurphotofonctionnementmoteur.png",
+      "assets/0c58c933c_ProjetRobotdetecteurphototestfonctionnempentmoteur.png",
+      "assets/45927b2ae_imageserreintelligenteoptiplant.jpg"
     ]
   },
   {
@@ -51,23 +51,23 @@ const competencesGEII = [
     icon: "Shield",
     levelImages: [
       [
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/5cea02553_NIVEAU1PHOTO1.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/32fd04dc5_NIVEAU1PHOTO2.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/fe7ecf9ab_NIVEAU1PHOTO3.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/7bc11f406_NIVEAU1PHOTO4.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/3aa5ca9c8_NIVEAU1PHOTO5.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/52991988b_NIVEAU1PHOTO6.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/2d50f1adb_NIVEAU1PHOTO7.png"
+        "assets/5cea02553_NIVEAU1PHOTO1.png",
+        "assets/32fd04dc5_NIVEAU1PHOTO2.png",
+        "assets/fe7ecf9ab_NIVEAU1PHOTO3.png",
+        "assets/7bc11f406_NIVEAU1PHOTO4.png",
+        "assets/3aa5ca9c8_NIVEAU1PHOTO5.png",
+        "assets/52991988b_NIVEAU1PHOTO6.png",
+        "assets/2d50f1adb_NIVEAU1PHOTO7.png"
       ],
       [
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/c2c714315_NIVEAU2PHOTO1.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8df252fe0_NIVEAU2PHOTO2.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/5792d2f08_NIVEAU2PHOTO3.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/087e56ec0_NIVEAU2PHOTO4.png"
+        "assets/c2c714315_NIVEAU2PHOTO1.png",
+        "assets/8df252fe0_NIVEAU2PHOTO2.png",
+        "assets/5792d2f08_NIVEAU2PHOTO3.png",
+        "assets/087e56ec0_NIVEAU2PHOTO4.png"
       ],
       [
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/914104866_NIVEAU3PHOTO1.png",
-        "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8d4d6f7c5_NIVEAU3PHOTO3.png"
+        "assets/914104866_NIVEAU3PHOTO1.png",
+        "assets/8d4d6f7c5_NIVEAU3PHOTO3.png"
       ]
     ],
     why: {
@@ -87,8 +87,8 @@ const competencesGEII = [
       en: "Metrology at Europe Qualité, Kontron laboratory metrology, Burn-in and stress-test campaigns"
     },
     gallery_images: [
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8afbd9595_mtrologiecertificat.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/52cb5628c_mtrologietableaudecalcul.png"
+      "assets/8afbd9595_mtrologiecertificat.png",
+      "assets/52cb5628c_mtrologietableaudecalcul.png"
     ]
   },
   {
@@ -201,13 +201,13 @@ const competencesHorsGEII = [
       en: "Metrology was one of my main missions throughout my apprenticeship, first as a core profession, then as a transversal responsibility.\n\n1st year of BUT – Europe Qualité (2023-2024)\nDuring this first year, metrology was my full-time profession. I was in charge of performing both electronic (multimeters, oscilloscopes, resistance boxes, and megohmmeters) and mechanical (crimping pliers on force column, barometers, and ultra-precise balances) calibrations. Each of my interventions required great rigor and concluded with the writing of an official calibration certificate.\n\n2nd and 3rd years of BUT – Kontron (2024-2026)\nSubsequently, I assumed on a very regular basis the complete responsibility for metrology within the repair laboratory. Internally, I ensured strict equipment tracking, notably through weekly verification of torque screwdrivers, as well as biannual metrology of test racks (VME, cPCI, VPX) covering insulation tests, ground continuity, and voltage measurement."
     },
     metrologieImages: [
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8afbd9595_mtrologiecertificat.png",
-      "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/52cb5628c_mtrologietableaudecalcul.png"
+      "assets/8afbd9595_mtrologiecertificat.png",
+      "assets/52cb5628c_mtrologietableaudecalcul.png"
     ],
     metrologieDocs: [
-      { url: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94c765046_mtrologierapportkontron.pdf", label: "Rapport Métrologie Kontron" },
-      { url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/52cb5628c_mtrologietableaudecalcul.png", label: "Tableau de calcul métrologique" },
-      { url: "https://media.base44.com/images/public/693a7c34a791a122b93f4ce7/8afbd9595_mtrologiecertificat.png", label: "Certificat d'étalonnage" }
+      { url: "assets/94c765046_mtrologierapportkontron.pdf", label: "Rapport Métrologie Kontron" },
+      { url: "assets/52cb5628c_mtrologietableaudecalcul.png", label: "Tableau de calcul métrologique" },
+      { url: "assets/8afbd9595_mtrologiecertificat.png", label: "Certificat d'étalonnage" }
     ]
   },
   {
@@ -223,7 +223,7 @@ const competencesHorsGEII = [
       en: "This skill was built through concrete academic work in computer vision and machine learning.\n\nThe Vision Homework Assignment led me to develop in Python with OpenCV a program for fruit segmentation and classification by color, shape, and size. The work involved implementing HSV masks, morphological operations, the Watershed algorithm, and geometric criteria to automatically detect and identify apples, nectarines, lemons, and apricots.\n\nThe Opti Plant project represented a higher level: building a dataset of 1054 annotated images via Label Studio (10 labels, 6 plant species), training (fine-tuning) a YOLO11s model on Google Colab (GPU T4, 60 epochs, lr0=0.04), achieving 91.2% precision and 82.6% recall. The model was deployed on a local web server via a Python script called by PHP (shell_exec, Ultralytics library, OpenCV/FFmpeg)."
     },
     iaDocs: [
-      { url: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/94b05e3a2_3bc53050c_DM_pomme-peches-abricot-citrons_Noa_MUSCAT.pdf", label: "Devoir IA/Vision" }
+      { url: "assets/94b05e3a2_3bc53050c_DM_pomme-peches-abricot-citrons_Noa_MUSCAT.pdf", label: "Devoir IA/Vision" }
     ]
   },
   {
@@ -239,7 +239,7 @@ const competencesHorsGEII = [
       en: "In the BUT GEII program, I took a Cybersecurity lab which constitutes my formal introduction to information system security principles.\n\nThis lab allowed me to practice CVE vulnerability analysis on equipment used in courses (STM32F4, Cisco WLC, Siemens SIMATIC S7, Schneider Modicon) via public databases. I calculated CVSS averages (Schneider: 7.55; Siemens: 8.42 — High level), used Shodan to identify systems actually exposed on the Internet, and applied passive reconnaissance techniques such as Google Dorking and WHOIS/RDAP queries.\n\nThis work sensitized me to the reality of threats on industrial systems and the importance of maintaining up-to-date firmware."
     },
     cybersecDocs: [
-      { url: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/bbc594d86_44e8aeb26_TD1CyberscuritMUSCAT.pdf", label: "Travail Cybersécurité" }
+      { url: "assets/bbc594d86_44e8aeb26_TD1CyberscuritMUSCAT.pdf", label: "Travail Cybersécurité" }
     ]
   },
   {
@@ -255,9 +255,9 @@ const competencesHorsGEII = [
       en: "This skill was built through my engineering science education and technical projects. I developed regular practice of various languages applied to concrete problems.\n\nIn C and C++, I did embedded programming on STM32 and ESP32 (FreeRTOS, SPI management, TFT HMI), motor control code for the obstacle-detecting robot, as well as algorithmic homework assignments.\n\nIn Python, I developed network stress-test scripts at Kontron, an IoT vehicle fleet simulator with MQTT protocol, YOLO training scripts for Opti Plant, and an MQTT subscriber with dynamic MySQL insertion.\n\nIn HTML/CSS/JavaScript, I created the CO2 educational game website and the OptiPlant dashboard with async fetch querying InfluxDB. In PHP, I developed the web interface for the vehicle IoT system and YOLO AI model integration via shell_exec. In SQL and InfluxDB, I designed databases and OptiPlant's temporal Flux queries. In LabVIEW, I developed the ShellyEM supervision interface with HTTP JSON API retrieval."
     },
     codeDocs: [
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/67e6a6a79_informatiquechangementtableau.txt",
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/a3543196b_informatiquefacturecable.txt",
-      "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/c11db5b68_sitevoyage.txt"
+      "assets/67e6a6a79_informatiquechangementtableau.txt",
+      "assets/a3543196b_informatiquefacturecable.txt",
+      "assets/c11db5b68_sitevoyage.txt"
     ]
   },
   {
@@ -312,7 +312,7 @@ const competencesHorsGEII = [
       en: "Technical English is a daily skill in my engineering journey. I systematically consult technical documentation, datasheets, standards (IEEE, ISO), and academic resources in English. Reading code commented in English, GitHub repositories, Stack Overflow forums, and API documentation is part of my regular practice.\n\nMy TOEIC score of 955/990 (C1 advanced level, close to engineer C2 level) objectively attests to this level. I am capable of writing technical reports, presenting projects, and expressing myself on engineering topics with ease, both in writing and orally."
     },
     toeicScore: 955,
-    toeicDoc: "https://media.base44.com/files/public/693a7c34a791a122b93f4ce7/fa44e0d26_CertificatTOEIC.pdf"
+    toeicDoc: "assets/fa44e0d26_CertificatTOEIC.pdf"
   }
 ];
 

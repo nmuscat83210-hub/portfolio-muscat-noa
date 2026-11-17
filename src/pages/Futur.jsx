@@ -7,7 +7,7 @@ import { easeLuxury } from '../lib/animations';
 
 const aspirationImages = [
   "https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693a7c34a791a122b93f4ce7/7d2ccc3b8_marine_1.jpg",
+  "assets/7d2ccc3b8_marine_1.jpg",
   "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
   "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop",
 ];
