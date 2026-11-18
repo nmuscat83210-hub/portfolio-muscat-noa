@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import projectsData from '@/data/projects.json';
+import { getProjects } from '../lib/projects';
 import SectionTitle from '../components/ui/SectionTitle';
 import ProjectCard from '../components/projects/ProjectCard';
 import { Loader2 } from 'lucide-react';
@@ -8,11 +8,11 @@ import { useTranslation } from '../lib/i18n';
 import { easeLuxury } from '../lib/animations';
 
 export default function Projets() {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('all');
   const categories = t.projets.categories;
 
-  const projects = projectsData;
+  const projects = getProjects(lang);
   const isLoading = false;
 
   const filteredProjects = activeCategory === 'all' 

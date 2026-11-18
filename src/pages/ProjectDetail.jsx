@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import projectsData from '@/data/projects.json';
+import { getProjects } from '../lib/projects';
 import { Link, useSearchParams } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { ArrowLeft, ExternalLink, Download, Loader2, X } from 'lucide-react';
@@ -10,12 +10,12 @@ import { useTranslation } from '../lib/i18n';
 import { easeLuxury } from '../lib/animations';
 
 export default function ProjectDetail() {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const [searchParams] = useSearchParams();
   const projectId = searchParams.get('id');
   const [lightboxImage, setLightboxImage] = useState(null);
 
-  const project = projectsData.find(p => p.id === projectId || p.slug === projectId);
+  const project = getProjects(lang).find(p => p.id === projectId || p.slug === projectId);
   const isLoading = false;
 
   if (isLoading) {

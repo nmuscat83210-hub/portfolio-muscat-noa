@@ -10,6 +10,7 @@ export function I18nProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   const toggleLang = () => setLang(l => (l === 'fr' ? 'en' : 'fr'));
