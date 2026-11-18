@@ -1,5 +1,36 @@
 [
   {
+    "title": "Homelab personnel",
+    "slug": "homelab-personnel",
+    "short_description": "Mon infrastructure informatique à la maison : NAS, machines virtuelles et hébergement web",
+    "long_description": "## Le projet\n\nEn dehors de mes cours et de mon alternance, je monte et je fais évoluer mon propre **homelab** : une petite infrastructure informatique installée chez moi, qui me sert de terrain d'expérimentation.\n\n## Ce que j'y ai mis en place\n\n- **Un NAS** pour centraliser, stocker et sauvegarder mes données.\n- **Des machines virtuelles** pour tester des systèmes d'exploitation, des services et des configurations sans risque pour le reste de l'installation.\n- **De l'hébergement web** pour mettre en ligne et tester mes propres sites et services.\n\n## Pourquoi ce projet\n\nLe homelab me permet de pratiquer concrètement ce que j'apprends en formation (administration système, réseaux, sécurité) et de comprendre de bout en bout le fonctionnement d'une infrastructure : du matériel jusqu'aux services accessibles par le réseau.",
+    "cover_image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+    "technologies": [
+      "NAS",
+      "Virtualisation",
+      "Linux",
+      "Réseau",
+      "Hébergement web"
+    ],
+    "competences": [
+      "Administration système",
+      "Réseaux",
+      "Cybersécurité",
+      "Autonomie"
+    ],
+    "category": "personnel",
+    "year": "En cours",
+    "context": "Projet personnel",
+    "gallery_images": [],
+    "documents": [],
+    "retex_points_forts": "Le homelab est un environnement où je peux tester librement, me tromper et recommencer. Il m'oblige à gérer moi-même toute la chaîne : installation du matériel, configuration des systèmes, mise en réseau et mise en ligne des services.",
+    "retex_ameliorations": "Le projet évolue en continu : chaque nouveau service ajouté demande de réfléchir à son organisation, à sa sauvegarde et à sa sécurisation.",
+    "retex_apprentissages": "Ce projet renforce ma pratique de l'administration système, de la virtualisation et des réseaux, ainsi que mon autonomie dans la résolution de problèmes techniques.",
+    "id": "6b1f0a2c9d4e5f6a7b8c9d01",
+    "created_date": "2026-11-18T13:00:00",
+    "updated_date": "2026-11-18T13:00:00"
+  },
+  {
     "short_description": "Outil PowerShell de scan réseau et d'inventaire automatisé pour localiser les postes actifs d'un laboratoire de réparation et croiser leur état avec le DNS/DHCP.",
     "retex_ameliorations": "Enrichissement des données : l'outil étant désormais fonctionnel, la prochaine étape consiste à compléter de manière exhaustive la base de données (le fichier Excel d'origine). Il s'agira de renseigner toutes les informations transversales manquantes pour chaque ordinateur, notamment leur utilisation technique exacte au sein du laboratoire.",
     "year": "2026",
