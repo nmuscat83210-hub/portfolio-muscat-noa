@@ -28,7 +28,7 @@ export const translations = {
         'Mes premiers pas en sciences de l\'ingénieur ont été déterminants. C\'est à ce moment-là que j\'ai découvert la programmation orientée objet et, avec elle, le plaisir de concevoir des systèmes logiques, structurés et évolutifs. Très rapidement, j\'ai compris que le code n\'était pas seulement un outil, mais un moyen de transformer des idées en solutions techniques concrètes.',
         'En intégrant le BUT GEII, j\'ai approfondi cette approche en travaillant sur des systèmes plus complexes, à la croisée de l\'informatique industrielle, de l\'intelligence artificielle et de la cybersécurité. Ces années m\'ont appris à relier la théorie, la programmation et les contraintes du monde réel, avec une attention particulière portée à la fiabilité et à la sécurité des systèmes.',
         'Depuis octobre 2026, je poursuis en cycle ingénieur informatique au CESI, en alternance à la DGA Techniques navales, comme apprenti ingénieur IVVQ au sein de l\'équipe Systèmes de combat. En parallèle, je m\'investis au Club Info du CESI et dans mon homelab personnel.',
-        'Progressivement, une réflexion plus personnelle s\'est imposée : mettre ces compétences au service d\'un cadre exigeant et porteur de sens. C\'est dans cette continuité qu\'est née mon ambition de rejoindre la Marine, afin de contribuer, par l\'ingénierie et la technologie, à des missions au service de mon pays.',
+        'Progressivement, une réflexion plus personnelle s\'est imposée : mettre ces compétences au service d\'un cadre exigeant et porteur de sens. Mon alternance à la DGA Techniques navales s\'inscrit dans cette continuité, et je souhaite poursuivre à la DGA après mon diplôme d\'ingénieur, afin de contribuer, par l\'ingénierie et l\'informatique, à des missions au service de mon pays.',
         'Si mon parcours, mes compétences et cette vision font écho à vos attentes, je serais ravi d\'échanger et d\'envisager ensemble la suite de cette trajectoire.',
       ],
       links: [
@@ -148,7 +148,7 @@ export const translations = {
       roadmapSubtitle: 'Les prochaines étapes',
       aspirationsData: [
         { title: 'Cycle Ingénieur', subtitle: 'CESI · 2026-2029', description: 'Réussir mon cycle ingénieur informatique au CESI en alternance à la DGA Techniques navales, et m\'appuyer sur cette expérience pour choisir ma spécialisation.' },
-        { title: 'Marine Nationale', subtitle: 'Vocation', description: 'Rejoindre la Marine Nationale pour mettre mes compétences techniques au service de la défense nationale, dans un environnement exigeant et stimulant.' },
+        { title: 'DGA', subtitle: 'Ambition', description: 'Poursuivre à la DGA après mon diplôme d\'ingénieur, pour mettre mes compétences en informatique et en ingénierie des systèmes au service de la défense, dans un environnement exigeant et stimulant.' },
         { title: 'Intelligence Artificielle', subtitle: 'Piste de spécialisation', description: 'Me spécialiser dans l\'intelligence artificielle appliquée aux systèmes de défense, contribuant à l\'innovation technologique stratégique.' },
         { title: 'Cybersécurité', subtitle: 'Piste de spécialisation', description: 'Développer une expertise en cybersécurité pour protéger les systèmes critiques et anticiper les menaces numériques de demain.' },
       ],
@@ -156,7 +156,7 @@ export const translations = {
         { year: '2026', title: 'Diplôme BUT GEII', desc: 'Obtention du Bachelor Universitaire de Technologie' },
         { year: '2026', title: 'CESI & DGA', desc: 'Entrée en cycle ingénieur informatique, en alternance à la DGA Techniques navales' },
         { year: '2029', title: 'Diplôme d\'Ingénieur', desc: 'Spécialisation à définir selon mon expérience en entreprise' },
-        { year: '2029+', title: 'Marine Nationale', desc: 'Officier ingénieur au service de la France' },
+        { year: '2029+', title: 'Ingénieur à la DGA', desc: 'Poursuivre ma carrière à la DGA, au service de la défense' },
       ],
     },
     experience: {
@@ -271,7 +271,7 @@ export const translations = {
         'My first steps in engineering sciences were decisive. It was then that I discovered object-oriented programming and, with it, the pleasure of designing logical, structured, and scalable systems. I quickly understood that code was not just a tool, but a means to transform ideas into concrete technical solutions.',
         'By entering the BUT GEII program, I deepened this approach by working on more complex systems, at the crossroads of industrial computing, artificial intelligence, and cybersecurity. These years taught me to connect theory, programming, and real-world constraints, with particular attention to system reliability and security.',
         'Since October 2026, I have been pursuing a computer engineering degree at CESI as an apprentice at DGA Techniques navales, working as an IVVQ engineering apprentice in the Combat Systems team. Alongside, I am involved in the CESI Computer Club and run my own homelab.',
-        'Gradually, a more personal reflection emerged: to put these skills at the service of a demanding and meaningful framework. It is in this continuity that my ambition to join the Navy was born, in order to contribute, through engineering and technology, to missions serving my country.',
+        'Gradually, a more personal reflection emerged: to put these skills at the service of a demanding and meaningful framework. My apprenticeship at DGA Techniques navales follows this path, and I wish to continue at the DGA after my engineering degree, in order to contribute, through engineering and computing, to missions serving my country.',
         'If my journey, my skills, and this vision resonate with your expectations, I would be delighted to discuss and explore together the next steps of this trajectory.',
       ],
       links: [
@@ -391,7 +391,7 @@ export const translations = {
       roadmapSubtitle: 'The next steps',
       aspirationsData: [
         { title: 'Engineering Degree', subtitle: 'CESI · 2026-2029', description: 'Succeed in my computer engineering program at CESI as an apprentice at DGA Techniques navales, and use this experience to choose my specialization.' },
-        { title: 'French Navy', subtitle: 'Vocation', description: 'Join the French Navy to put my technical skills at the service of national defense, in a demanding and stimulating environment.' },
+        { title: 'DGA', subtitle: 'Ambition', description: 'Continue at the DGA after my engineering degree, to put my computing and systems engineering skills at the service of defense, in a demanding and stimulating environment.' },
         { title: 'Artificial Intelligence', subtitle: 'Possible specialization', description: 'Specialize in artificial intelligence applied to defense systems, contributing to strategic technological innovation.' },
         { title: 'Cybersecurity', subtitle: 'Possible specialization', description: 'Develop expertise in cybersecurity to protect critical systems and anticipate tomorrow\'s digital threats.' },
       ],
@@ -399,7 +399,7 @@ export const translations = {
         { year: '2026', title: 'BUT GEII Degree', desc: 'Obtaining the Bachelor of Technology' },
         { year: '2026', title: 'CESI & DGA', desc: 'Start of the computer engineering program, apprentice at DGA Techniques navales' },
         { year: '2029', title: 'Engineering Degree', desc: 'Specialization to be defined based on my work experience' },
-        { year: '2029+', title: 'French Navy', desc: 'Engineering officer serving France' },
+        { year: '2029+', title: 'Engineer at the DGA', desc: 'Continue my career at the DGA, serving national defense' },
       ],
     },
     experience: {

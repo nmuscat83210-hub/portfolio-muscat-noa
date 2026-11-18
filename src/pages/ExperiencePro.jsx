@@ -15,7 +15,7 @@ const experiences = [
     period: "2026-2029",
     year: { fr: "Cycle ingénieur CESI (FISA)", en: "CESI engineering degree (apprenticeship)" },
     role: { fr: "Apprenti Ingénieur IVVQ — Équipe Systèmes de combat", en: "IVVQ Engineering Apprentice — Combat Systems team" },
-    logo: null,
+    logo: "assets/7d2ccc3b8_marine_1.jpg",
     missions: {
       fr: [
         "Participation aux activités d'intégration, de vérification, de validation et de qualification (IVVQ) au sein de l'équipe Systèmes de combat",
