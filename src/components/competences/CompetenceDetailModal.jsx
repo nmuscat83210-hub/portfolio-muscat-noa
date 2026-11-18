@@ -7,6 +7,7 @@ import { useTranslation } from '../../lib/i18n';
 import { easeLuxury } from '../../lib/animations';
 
 function DocLinks({ docs, label }) {
+  const { lang } = useTranslation();
   if (!docs || docs.length === 0) return null;
   return (
     <div className="mt-4 mb-8">
@@ -15,7 +16,7 @@ function DocLinks({ docs, label }) {
         {docs.map((doc, i) => {
           const url = typeof doc === 'string' ? doc : doc.url;
           const name = typeof doc === 'object' && doc.label
-            ? doc.label
+            ? (typeof doc.label === 'object' ? (doc.label[lang] || doc.label.fr) : doc.label)
             : url.split('/').pop().split('_').slice(1).join(' ').replace(/\.[^.]+$/, '') || `Document ${i + 1}`;
           return (
             <a key={i} href={url} target="_blank" rel="noopener noreferrer"
